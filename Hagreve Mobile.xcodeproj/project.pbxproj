@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
+		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
+		2B6D396C145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
+		2B6D396D145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
+		2B6D39701458A07C0015BEFA /* HGRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396F1458A07C0015BEFA /* HGRegion.m */; };
+		2B6D39711458A07C0015BEFA /* HGRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396F1458A07C0015BEFA /* HGRegion.m */; };
+		2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D39731458A13A0015BEFA /* HGSubmitter.m */; };
+		2B6D39751458A13A0015BEFA /* HGSubmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D39731458A13A0015BEFA /* HGSubmitter.m */; };
 		2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB4E1450A74A00FFD02D /* UIKit.framework */; };
 		2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
 		2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB521450A74A00FFD02D /* CoreGraphics.framework */; };
@@ -34,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
+		2B6D3965145895ED0015BEFA /* HGStrike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrike.m; path = Model/HGStrike.m; sourceTree = "<group>"; };
+		2B6D396A145898700015BEFA /* HGCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGCompany.h; path = Model/HGCompany.h; sourceTree = "<group>"; };
+		2B6D396B145898700015BEFA /* HGCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGCompany.m; path = Model/HGCompany.m; sourceTree = "<group>"; };
+		2B6D396E1458A07C0015BEFA /* HGRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGRegion.h; path = Model/HGRegion.h; sourceTree = "<group>"; };
+		2B6D396F1458A07C0015BEFA /* HGRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGRegion.m; path = Model/HGRegion.m; sourceTree = "<group>"; };
+		2B6D39721458A13A0015BEFA /* HGSubmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGSubmitter.h; path = Model/HGSubmitter.h; sourceTree = "<group>"; };
+		2B6D39731458A13A0015BEFA /* HGSubmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSubmitter.m; path = Model/HGSubmitter.m; sourceTree = "<group>"; };
 		2BA1CB4A1450A74A00FFD02D /* Hagreve Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hagreve Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1CB4E1450A74A00FFD02D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2BA1CB501450A74A00FFD02D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +96,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B6D3969145898500015BEFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B6D3964145895ED0015BEFA /* HGStrike.h */,
+				2B6D3965145895ED0015BEFA /* HGStrike.m */,
+				2B6D396A145898700015BEFA /* HGCompany.h */,
+				2B6D396B145898700015BEFA /* HGCompany.m */,
+				2B6D396E1458A07C0015BEFA /* HGRegion.h */,
+				2B6D396F1458A07C0015BEFA /* HGRegion.m */,
+				2B6D39721458A13A0015BEFA /* HGSubmitter.h */,
+				2B6D39731458A13A0015BEFA /* HGSubmitter.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		2BA1CB3F1450A74A00FFD02D = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +151,7 @@
 				2BA1CB661450A74A00FFD02D /* HGViewController.h */,
 				2BA1CB671450A74A00FFD02D /* HGViewController.m */,
 				2BA1CB551450A74A00FFD02D /* Supporting Files */,
+				2B6D3969145898500015BEFA /* Model */,
 			);
 			path = "Hagreve Mobile";
 			sourceTree = "<group>";
@@ -264,6 +296,10 @@
 				2BA1CB5B1450A74A00FFD02D /* main.m in Sources */,
 				2BA1CB5F1450A74A00FFD02D /* HGAppDelegate.m in Sources */,
 				2BA1CB681450A74A00FFD02D /* HGViewController.m in Sources */,
+				2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */,
+				2B6D396C145898700015BEFA /* HGCompany.m in Sources */,
+				2B6D39701458A07C0015BEFA /* HGRegion.m in Sources */,
+				2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +308,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BA1CB7D1450A74A00FFD02D /* Hagreve_MobileTests.m in Sources */,
+				2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */,
+				2B6D396D145898700015BEFA /* HGCompany.m in Sources */,
+				2B6D39711458A07C0015BEFA /* HGRegion.m in Sources */,
+				2B6D39751458A13A0015BEFA /* HGSubmitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
