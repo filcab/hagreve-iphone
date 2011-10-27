@@ -15,6 +15,10 @@
 		2B6D39711458A07C0015BEFA /* HGRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396F1458A07C0015BEFA /* HGRegion.m */; };
 		2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D39731458A13A0015BEFA /* HGSubmitter.m */; };
 		2B6D39751458A13A0015BEFA /* HGSubmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D39731458A13A0015BEFA /* HGSubmitter.m */; };
+		2B7329EB145A0C4A00EBEB56 /* HGStrikeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EA145A0C4A00EBEB56 /* HGStrikeList.m */; };
+		2B7329EC145A0C4A00EBEB56 /* HGStrikeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EA145A0C4A00EBEB56 /* HGStrikeList.m */; };
+		2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
+		2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
 		2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB4E1450A74A00FFD02D /* UIKit.framework */; };
 		2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
 		2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB521450A74A00FFD02D /* CoreGraphics.framework */; };
@@ -23,7 +27,7 @@
 		2BA1CB5F1450A74A00FFD02D /* HGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1CB5E1450A74A00FFD02D /* HGAppDelegate.m */; };
 		2BA1CB621450A74A00FFD02D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1CB601450A74A00FFD02D /* MainStoryboard_iPhone.storyboard */; };
 		2BA1CB651450A74A00FFD02D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */; };
-		2BA1CB681450A74A00FFD02D /* HGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1CB671450A74A00FFD02D /* HGViewController.m */; };
+		2BA1CB681450A74A00FFD02D /* HGStrikeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */; };
 		2BA1CB701450A74A00FFD02D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB6F1450A74A00FFD02D /* SenTestingKit.framework */; };
 		2BA1CB711450A74A00FFD02D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB4E1450A74A00FFD02D /* UIKit.framework */; };
 		2BA1CB721450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
@@ -50,6 +54,10 @@
 		2B6D396F1458A07C0015BEFA /* HGRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGRegion.m; path = Model/HGRegion.m; sourceTree = "<group>"; };
 		2B6D39721458A13A0015BEFA /* HGSubmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGSubmitter.h; path = Model/HGSubmitter.h; sourceTree = "<group>"; };
 		2B6D39731458A13A0015BEFA /* HGSubmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSubmitter.m; path = Model/HGSubmitter.m; sourceTree = "<group>"; };
+		2B7329E9145A0C4A00EBEB56 /* HGStrikeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrikeList.h; path = Model/HGStrikeList.h; sourceTree = "<group>"; };
+		2B7329EA145A0C4A00EBEB56 /* HGStrikeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrikeList.m; path = Model/HGStrikeList.m; sourceTree = "<group>"; };
+		2B7329EE145A0E4200EBEB56 /* HGSiteCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGSiteCommunicator.h; path = Communication/HGSiteCommunicator.h; sourceTree = "<group>"; };
+		2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSiteCommunicator.m; path = Communication/HGSiteCommunicator.m; sourceTree = "<group>"; };
 		2BA1CB4A1450A74A00FFD02D /* Hagreve Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hagreve Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1CB4E1450A74A00FFD02D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2BA1CB501450A74A00FFD02D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,8 +70,8 @@
 		2BA1CB5E1450A74A00FFD02D /* HGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGAppDelegate.m; sourceTree = "<group>"; };
 		2BA1CB611450A74A00FFD02D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		2BA1CB641450A74A00FFD02D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		2BA1CB661450A74A00FFD02D /* HGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGViewController.h; sourceTree = "<group>"; };
-		2BA1CB671450A74A00FFD02D /* HGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGViewController.m; sourceTree = "<group>"; };
+		2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGStrikeListTableViewController.h; sourceTree = "<group>"; };
+		2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HGStrikeListTableViewController.m; sourceTree = "<group>"; };
 		2BA1CB6E1450A74A00FFD02D /* Hagreve MobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hagreve MobileTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1CB6F1450A74A00FFD02D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2BA1CB771450A74A00FFD02D /* Hagreve MobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hagreve MobileTests-Info.plist"; sourceTree = "<group>"; };
@@ -107,8 +115,19 @@
 				2B6D396F1458A07C0015BEFA /* HGRegion.m */,
 				2B6D39721458A13A0015BEFA /* HGSubmitter.h */,
 				2B6D39731458A13A0015BEFA /* HGSubmitter.m */,
+				2B7329E9145A0C4A00EBEB56 /* HGStrikeList.h */,
+				2B7329EA145A0C4A00EBEB56 /* HGStrikeList.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2B7329ED145A0E2B00EBEB56 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				2B7329EE145A0E4200EBEB56 /* HGSiteCommunicator.h */,
+				2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */,
+			);
+			name = Communication;
 			sourceTree = "<group>";
 		};
 		2BA1CB3F1450A74A00FFD02D = {
@@ -148,10 +167,11 @@
 				2BA1CB5E1450A74A00FFD02D /* HGAppDelegate.m */,
 				2BA1CB601450A74A00FFD02D /* MainStoryboard_iPhone.storyboard */,
 				2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */,
-				2BA1CB661450A74A00FFD02D /* HGViewController.h */,
-				2BA1CB671450A74A00FFD02D /* HGViewController.m */,
-				2BA1CB551450A74A00FFD02D /* Supporting Files */,
+				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
+				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
+				2B7329ED145A0E2B00EBEB56 /* Communication */,
 				2B6D3969145898500015BEFA /* Model */,
+				2BA1CB551450A74A00FFD02D /* Supporting Files */,
 			);
 			path = "Hagreve Mobile";
 			sourceTree = "<group>";
@@ -295,11 +315,13 @@
 			files = (
 				2BA1CB5B1450A74A00FFD02D /* main.m in Sources */,
 				2BA1CB5F1450A74A00FFD02D /* HGAppDelegate.m in Sources */,
-				2BA1CB681450A74A00FFD02D /* HGViewController.m in Sources */,
+				2BA1CB681450A74A00FFD02D /* HGStrikeListTableViewController.m in Sources */,
 				2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */,
 				2B6D396C145898700015BEFA /* HGCompany.m in Sources */,
 				2B6D39701458A07C0015BEFA /* HGRegion.m in Sources */,
 				2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */,
+				2B7329EB145A0C4A00EBEB56 /* HGStrikeList.m in Sources */,
+				2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +334,8 @@
 				2B6D396D145898700015BEFA /* HGCompany.m in Sources */,
 				2B6D39711458A07C0015BEFA /* HGRegion.m in Sources */,
 				2B6D39751458A13A0015BEFA /* HGSubmitter.m in Sources */,
+				2B7329EC145A0C4A00EBEB56 /* HGStrikeList.m in Sources */,
+				2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +397,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NO_COMMUNICATION=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
