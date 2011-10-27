@@ -24,4 +24,7 @@
 
 @property (nonatomic, retain) NSString *name;
 
+- (HGCompany*)init;
+- (NSComparisonResult)compare:(HGCompany *)aString;
+
 @end

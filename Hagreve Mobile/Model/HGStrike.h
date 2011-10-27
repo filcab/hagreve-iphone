@@ -70,4 +70,6 @@ HGSubmitter *submitter;
 @property (nonatomic, retain) HGCompany *company;
 @property (nonatomic, retain) HGSubmitter *submitter;
 
+- (HGStrike*)init;
+
 @end

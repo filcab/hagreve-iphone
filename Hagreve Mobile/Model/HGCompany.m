@@ -12,4 +12,16 @@
 
 @synthesize name = _name;
 
+- (HGCompany*)init {
+    if (!(self = [super init]))
+        return nil;
+
+    self.name = @"";
+    return self;
+}
+
+- (NSComparisonResult)caseInsensitiveCompare:(HGCompany *)aCompany {
+    return [self.name compare:aCompany.name];
+}
+
 @end

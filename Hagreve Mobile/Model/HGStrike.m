@@ -22,4 +22,23 @@
 @synthesize company = _company;
 @synthesize submitter = _submitter;
 
+- (HGStrike*)init {
+    if (!(self = [super init]))
+        return nil;
+
+    self.all_day = false;
+    self.start_date = nil;
+    self.end_date = nil;
+
+    self.canceled = false;
+    self.description = @"No description";
+    self.source_link = [NSURL URLWithString:@"http://example.com"];
+
+    self.region = nil;
+    self.company = nil;
+    self.submitter = nil;
+
+    return self;
+}
+
 @end
