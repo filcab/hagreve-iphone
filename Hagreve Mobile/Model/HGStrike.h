@@ -58,6 +58,16 @@ HGSubmitter *submitter;
 
 }
 
+@property (nonatomic) bool all_day;
+@property (nonatomic, retain) NSDate *start_date;
+@property (nonatomic, retain) NSDate *end_date;
 
+@property (nonatomic) bool canceled;
+@property (nonatomic, retain) NSString *description;
+@property (nonatomic, retain) NSURL *source_link;
+
+@property (nonatomic, retain) HGRegion *region;
+@property (nonatomic, retain) HGCompany *company;
+@property (nonatomic, retain) HGSubmitter *submitter;
 
 @end

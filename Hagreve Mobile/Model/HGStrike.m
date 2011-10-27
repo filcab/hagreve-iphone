@@ -10,5 +10,16 @@
 
 @implementation HGStrike
 
+@synthesize all_day = _all_day;
+@synthesize start_date = _start_date;
+@synthesize end_date = _end_date;
+
+@synthesize canceled = _canceled;
+@synthesize description = _description;
+@synthesize source_link = _source_link;
+
+@synthesize region = _region;
+@synthesize company = _company;
+@synthesize submitter = _submitter;
 
 @end
