@@ -8,19 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HGCompany : NSObject {
+@interface HGCompany : NSObject
 
-    /*
-     * API interface as of 2011/10/26
-     *
-     *   "company": {
-     *     "name": "Airplane company"
-     *   }
-     *
-     */
-    
-    NSString *name;
-}
+/*
+ * API interface as of 2011/10/26
+ *
+ *   "company": {
+ *     "name": "Airplane company"
+ *   }
+ *
+ */
 
 @property (nonatomic, retain) NSString *name;
 

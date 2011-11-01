@@ -14,7 +14,7 @@
 // Framework includes
 #import <Foundation/Foundation.h>
 
-@interface HGStrike : NSObject {
+@interface HGStrike : NSObject
 
 /*
  * API object for a strike as of 2011/10/26
@@ -44,26 +44,12 @@
  *
  */
 
-bool all_day;
-NSDate *start_date;
-NSDate *end_date;
-
-bool canceled;
-NSString *description;
-NSURL *source_link;
-
-HGRegion *region;
-HGCompany *company;
-HGSubmitter *submitter;
-
-}
-
-@property (nonatomic) bool all_day;
+@property (nonatomic) BOOL all_day;
 @property (nonatomic, retain) NSDate *start_date;
 @property (nonatomic, retain) NSDate *end_date;
 
-@property (nonatomic) bool canceled;
-@property (nonatomic, retain) NSString *description;
+@property (nonatomic) BOOL canceled;
+@property (nonatomic, retain) NSString *comment;
 @property (nonatomic, retain) NSURL *source_link;
 
 @property (nonatomic, retain) HGRegion *region;

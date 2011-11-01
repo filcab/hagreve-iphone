@@ -6,6 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+// Project includes
+#include "HGStrikeListTableViewController.h"
+
+// Framework includes
 #import <UIKit/UIKit.h>
 
 @interface HGAppDelegate : UIResponder <UIApplicationDelegate>

@@ -15,7 +15,7 @@
 @synthesize end_date = _end_date;
 
 @synthesize canceled = _canceled;
-@synthesize description = _description;
+@synthesize comment = _comment;
 @synthesize source_link = _source_link;
 
 @synthesize region = _region;
@@ -31,7 +31,7 @@
     self.end_date = nil;
 
     self.canceled = false;
-    self.description = @"No description";
+    self.comment = @"No description";
     self.source_link = [NSURL URLWithString:@"http://example.com"];
 
     self.region = nil;

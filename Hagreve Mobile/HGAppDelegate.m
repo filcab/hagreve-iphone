@@ -14,7 +14,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Create the data controller and pass it to the root view controller.
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    HGStrikeListTableViewController *rootViewController = (HGStrikeListTableViewController *)[navigationController topViewController];
+
+
+    // Load the latest saved strike list (if possible);
+    // Dispatch a thread to update the strike list.
+    rootViewController.strikeDays = [HGStrikeDays new];
+    // Dummy, for now
+    [rootViewController.strikeDays update];
+
     return YES;
 }
 							

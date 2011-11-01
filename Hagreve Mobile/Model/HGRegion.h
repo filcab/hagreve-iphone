@@ -8,19 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HGRegion : NSObject {
+@interface HGRegion : NSObject
 
-    /*
-     * API interface as of 2011/10/26
-     *
-     *   "region": {
-     *     "name": "Lisboa"
-     *   }
-     *
-     */
-
-    NSString *name;
-}
+/*
+ * API interface as of 2011/10/26
+ *
+ *   "region": {
+ *     "name": "Lisboa"
+ *   }
+ *
+ */
 
 @property (nonatomic, retain) NSString *name;
 

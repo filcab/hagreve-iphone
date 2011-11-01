@@ -28,7 +28,10 @@
 }
 
 - (HGSiteCommunicator*)init {
-    return self = [self initWithBaseURL:HOST_BASE_URL andAPIPath:API_RELATIVE_PATH];
+    if (!(self = [self initWithBaseURL:HOST_BASE_URL andAPIPath:API_RELATIVE_PATH]))
+        return nil;
+
+    return self;
 }
 
 #if defined NO_COMMUNICATION
@@ -66,7 +69,7 @@
     HGStrike *s1 = [HGStrike new];
     s1.start_date = [NSDate dateWithTimeIntervalSinceNow:3*DAY];
     s1.end_date   = [NSDate dateWithTimeIntervalSinceNow:5*DAY];
-    s1.description = @"Strike 1!";
+    s1.comment = @"Strike 1!";
     s1.company = c;
 
     HGStrike *s2 = [HGStrike new];
@@ -82,7 +85,7 @@
 
 #else
 
--(NSArray*)getStrikeList {
+- (NSArray*)getStrikeList {
     return nil;
 }
 

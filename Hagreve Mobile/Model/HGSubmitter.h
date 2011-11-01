@@ -8,21 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HGSubmitter : NSObject {
-    /*
-     * API interface as of 2011/10/26
-     *
-     *   "submitter": {
-     *     "first_name": "",
-     *     "last_name": ""
-     *   }
-     *
-     */
+@interface HGSubmitter : NSObject
 
-    NSString *first_name;
-    NSString *last_name;
-
-}
+/*
+ * API interface as of 2011/10/26
+ *
+ *   "submitter": {
+ *     "first_name": "",
+ *     "last_name": ""
+ *   }
+ *
+ */
 
 @property (nonatomic, retain) NSString *first_name;
 @property (nonatomic, retain) NSString *last_name;

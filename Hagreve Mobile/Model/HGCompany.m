@@ -20,7 +20,7 @@
     return self;
 }
 
-- (NSComparisonResult)caseInsensitiveCompare:(HGCompany *)aCompany {
+- (NSComparisonResult)compare:(HGCompany *)aCompany {
     return [self.name compare:aCompany.name];
 }
 
