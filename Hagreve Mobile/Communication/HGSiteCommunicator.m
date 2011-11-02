@@ -61,6 +61,11 @@
  */
 - (NSArray*)getStrikeList {
 
+    // Open stream to server
+    // Parse JSON object
+    // Convert to NSArray of HGStrike objects
+    // return that
+
     HGCompany *c = [HGCompany new];
     c.name = @"Big Brother, Ltd.";
 
@@ -73,8 +78,8 @@
     s1.company = c;
 
     HGStrike *s2 = [HGStrike new];
-    s2.start_date = [NSDate dateWithTimeIntervalSinceNow: 3*DAY];
-    s2.end_date   = [NSDate dateWithTimeIntervalSinceNow: 3*DAY];
+    s2.start_date = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
+    s2.end_date   = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
     s2.all_day = true;
     s2.company = c;
 

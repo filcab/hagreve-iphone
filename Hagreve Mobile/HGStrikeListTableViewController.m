@@ -47,6 +47,7 @@
     static NSString *MyIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
+        NSLog(@"dequeueReusableCellWithIdentifier:@\"%@\" == nil", MyIdentifier);
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
