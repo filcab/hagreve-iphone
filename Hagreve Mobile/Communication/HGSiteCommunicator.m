@@ -16,26 +16,29 @@
 
 @synthesize baseURL = _baseURL;
 @synthesize apiURL  = _apiURL;
+@synthesize apiStrikeListURL = _apiStrikeListURL;
 
-- (HGSiteCommunicator*)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path {
+- (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path {
     if (!(self = [super init]))
         return nil;
 
     self.baseURL = [NSURL URLWithString:base_url];
     self.apiURL  = [NSURL URLWithString:api_path relativeToURL:self.baseURL];
+    self.apiStrikeListURL = [NSURL URLWithString:API_STRIKE_LIST_PATH relativeToURL:self.apiURL];
 
     return self;
 }
 
-- (HGSiteCommunicator*)init {
+- (HGSiteCommunicator *)init {
     if (!(self = [self initWithBaseURL:HOST_BASE_URL andAPIPath:API_RELATIVE_PATH]))
         return nil;
 
     return self;
 }
 
-#if defined NO_COMMUNICATION
-/*
+#if !defined NO_COMMUNICATION
+/* Fields for the mock objects.
+ *
  * {
  *   "all_day": false,
  *   "start_date": "2011-11-01 23:23:50",
@@ -44,10 +47,6 @@
  *   "canceled": false,
  *   "description": "Greve sobre Lx.",
  *   "source_link": "http://example.com/greve-airplane",
- *
- *   "region": {
- *     "name": "Lisboa"
- *   },
  *
  *   "company": {
  *     "name": "Airplane company"
@@ -59,12 +58,7 @@
  *   }
  * }
  */
-- (NSArray*)getStrikeList {
-
-    // Open stream to server
-    // Parse JSON object
-    // Convert to NSArray of HGStrike objects
-    // return that
+- (NSArray *)getStrikeList {
 
     HGCompany *c = [HGCompany new];
     c.name = @"Big Brother, Ltd.";
@@ -90,8 +84,52 @@
 
 #else
 
-- (NSArray*)getStrikeList {
-    return nil;
+- (NSArray *)getStrikeList {
+    
+    // Open stream to server
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.apiStrikeListURL];
+    NSURLResponse *response;
+    NSError *error;
+
+    // With this synchronous request, we have no control on caching nor auth.
+    // The defaults will be used. We may have to change this later.
+    NSData *unparsed = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (nil == unparsed)
+        return nil;
+
+    // Parse JSON object (from the API, we know it's an array)
+    NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:unparsed options:0 error:&error];
+    if (nil == jsonObject)
+        return nil;
+
+    // Convert to NSArray of HGStrike objects
+    NSMutableArray *strikeList = [NSMutableArray arrayWithCapacity:jsonObject.count];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    for (NSDictionary *jsonStrike in (NSArray*)jsonObject) {
+        HGStrike *strike = [HGStrike new];
+        strike.all_day = [(NSNumber*)[jsonStrike valueForKey:@"all_day"] boolValue];
+        strike.start_date = [dateFormatter dateFromString:[jsonStrike valueForKey:@"start_date"]];
+        strike.end_date = [dateFormatter dateFromString:[jsonStrike valueForKey:@"end_date"]];
+
+        strike.canceled = [(NSNumber*)[jsonStrike valueForKey:@"canceled"] boolValue];
+        strike.comment  = [jsonStrike valueForKey:@"description"];
+        strike.source_link = [jsonStrike valueForKey:@"source_link"];
+
+        HGCompany *company = [HGCompany new];
+        strike.company = company;
+        company.name = [[jsonStrike valueForKey:@"company"] valueForKey:@"name"];
+
+        HGSubmitter *submitter = [HGSubmitter new];
+        strike.submitter = submitter;
+        NSDictionary *jsonSubmitter = [jsonStrike valueForKey:@"submitter"];
+        submitter.last_name = [jsonSubmitter valueForKey:@"first_name"];
+        submitter.last_name = [jsonSubmitter valueForKey:@"last_name"];
+
+        [strikeList addObject:strike];
+    }
+
+    return strikeList;
 }
 
 #endif

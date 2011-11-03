@@ -8,20 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#define HOST_BASE_URL (@"http://localhost:8000")
-#define API_RELATIVE_PATH (@"/api/v1")
+#define HOST_BASE_URL (@"http://test.hagreve.com")
+#define API_RELATIVE_PATH (@"/api/v1/")
+#define API_STRIKE_LIST_PATH (@"strikes")
 
-@interface HGSiteCommunicator : NSObject {
-    NSURL *baseURL;
-    NSURL *apiURL;
-}
+@interface HGSiteCommunicator : NSObject
 
 @property (nonatomic, retain) NSURL *baseURL;
 @property (nonatomic, retain) NSURL *apiURL;
+@property (nonatomic, retain) NSURL *apiStrikeListURL;
 
-- (HGSiteCommunicator*)init;
-- (HGSiteCommunicator*)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path;
+- (HGSiteCommunicator *)init;
+- (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path;
 
-- (NSArray*)getStrikeList;
+- (NSArray *)getStrikeList;
 
 @end
