@@ -18,7 +18,6 @@
 @synthesize comment = _comment;
 @synthesize source_link = _source_link;
 
-@synthesize region = _region;
 @synthesize company = _company;
 @synthesize submitter = _submitter;
 
@@ -34,7 +33,6 @@
     self.comment = @"No description";
     self.source_link = [NSURL URLWithString:@"http://example.com"];
 
-    self.region = nil;
     self.company = nil;
     self.submitter = nil;
 

@@ -8,7 +8,6 @@
 
 // Project includes
 #include "HGCompany.h"
-#include "HGRegion.h"
 #include "HGSubmitter.h"
 
 // Framework includes
@@ -27,10 +26,6 @@
  *   "canceled": false,
  *   "description": "Greve sobre Lx.",
  *   "source_link": "http://example.com/greve-airplane",
- *
- *   "region": {
- *     "name": "Lisboa"
- *   },
  *
  *   "company": {
  *     "name": "Airplane company"
@@ -52,7 +47,6 @@
 @property (nonatomic, retain) NSString *comment;
 @property (nonatomic, retain) NSURL *source_link;
 
-@property (nonatomic, retain) HGRegion *region;
 @property (nonatomic, retain) HGCompany *company;
 @property (nonatomic, retain) HGSubmitter *submitter;
 
