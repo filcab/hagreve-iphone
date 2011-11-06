@@ -20,7 +20,7 @@
  *
  */
 
-@property (nonatomic, retain) NSString *first_name;
-@property (nonatomic, retain) NSString *last_name;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *lastName;
 
 @end

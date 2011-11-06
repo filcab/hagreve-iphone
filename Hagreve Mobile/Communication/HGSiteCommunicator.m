@@ -123,8 +123,8 @@
         HGSubmitter *submitter = [HGSubmitter new];
         strike.submitter = submitter;
         NSDictionary *jsonSubmitter = [jsonStrike valueForKey:@"submitter"];
-        submitter.last_name = [jsonSubmitter valueForKey:@"first_name"];
-        submitter.last_name = [jsonSubmitter valueForKey:@"last_name"];
+        submitter.lastName = [jsonSubmitter valueForKey:@"first_name"];
+        submitter.lastName = [jsonSubmitter valueForKey:@"last_name"];
 
         [strikeList addObject:strike];
     }

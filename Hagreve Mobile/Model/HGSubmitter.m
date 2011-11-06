@@ -10,7 +10,7 @@
 
 @implementation HGSubmitter
 
-@synthesize first_name = _first_name;
-@synthesize last_name  = _last_name;
+@synthesize firstName = _firstName;
+@synthesize lastName  = _lastName;
 
 @end
