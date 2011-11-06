@@ -11,6 +11,7 @@
 @implementation HGStrikeListTableViewController
 
 @synthesize strikeDays = _strikeDays;
+@synthesize protoCell = _protoCell;
 
 - (void)didReceiveMemoryWarning
 {
@@ -48,16 +49,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
         NSLog(@"dequeueReusableCellWithIdentifier:@\"%@\" == nil", MyIdentifier);
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
+        cell = _protoCell;
+        self.protoCell = nil;
     }
 
     NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
     HGStrike *strike = [strikesForDay objectAtIndex:indexPath.row];
 
-    NSLog(@"Text label: %@, detail: %@", strike.company.name, strike.comment);
-    cell.textLabel.text = strike.company.name;
-    cell.detailTextLabel.text = strike.comment;
+    UILabel *label = (UILabel *)[cell viewWithTag:TAG_TITLE];
+    label.text = [HGUtils cellTitleTextForStrike:strike];
+
+    label = (UILabel *)[cell viewWithTag:TAG_SUBTITLE];
+    label.text = [HGUtils cellSubtitleTextForStrike:strike];
+
+    label = (UILabel *)[cell viewWithTag:TAG_COMMENT];
+    label.text = [HGUtils cellCommentTextForStrike:strike];
+
+//    cell.textLabel.text = strike.company.name;
+//    cell.detailTextLabel.text = strike.comment;
     return cell;
 }
 
