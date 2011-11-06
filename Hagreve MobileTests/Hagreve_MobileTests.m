@@ -3,7 +3,7 @@
 //  Hagreve MobileTests
 //
 //  Created by Filipe Cabecinhas on 10/20/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 HáGreve. All rights reserved.
 //
 
 #import "Hagreve_MobileTests.h"

@@ -3,7 +3,7 @@
 //  Hagreve Mobile
 //
 //  Created by Filipe Cabecinhas on 10/28/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2011 HáGreve. All rights reserved.
 //
 
 // Project includes
