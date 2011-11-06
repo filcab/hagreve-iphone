@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B08E75E14636580009D2561 /* StrikeCell.xib */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D396C145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
@@ -31,6 +32,7 @@
 		2BA1CB721450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
 		2BA1CB7A1450A74A00FFD02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1CB781450A74A00FFD02D /* InfoPlist.strings */; };
 		2BA1CB7D1450A74A00FFD02D /* Hagreve_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1CB7C1450A74A00FFD02D /* Hagreve_MobileTests.m */; };
+		2BE2620014657730006D3A51 /* HGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE261FF14657730006D3A51 /* HGUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B08E75E14636580009D2561 /* StrikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrikeCell.xib; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
 		2B6D3965145895ED0015BEFA /* HGStrike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrike.m; path = Model/HGStrike.m; sourceTree = "<group>"; };
 		2B6D396A145898700015BEFA /* HGCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGCompany.h; path = Model/HGCompany.h; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 		2BA1CB791450A74A00FFD02D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BA1CB7B1450A74A00FFD02D /* Hagreve_MobileTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hagreve_MobileTests.h; sourceTree = "<group>"; };
 		2BA1CB7C1450A74A00FFD02D /* Hagreve_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hagreve_MobileTests.m; sourceTree = "<group>"; };
+		2BE261FE14657730006D3A51 /* HGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGUtils.h; sourceTree = "<group>"; };
+		2BE261FF14657730006D3A51 /* HGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,8 @@
 		2B6D3969145898500015BEFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B7329F2145B670200EBEB56 /* HGStrikeDays.h */,
+				2B7329F3145B670300EBEB56 /* HGStrikeDays.m */,
 				2B6D3964145895ED0015BEFA /* HGStrike.h */,
 				2B6D3965145895ED0015BEFA /* HGStrike.m */,
 				2B6D396A145898700015BEFA /* HGCompany.h */,
@@ -157,15 +164,16 @@
 			children = (
 				2BA1CB5D1450A74A00FFD02D /* HGAppDelegate.h */,
 				2BA1CB5E1450A74A00FFD02D /* HGAppDelegate.m */,
+				2B08E75E14636580009D2561 /* StrikeCell.xib */,
 				2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */,
 				2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */,
 				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
 				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
-				2B7329ED145A0E2B00EBEB56 /* Communication */,
+				2BE261FE14657730006D3A51 /* HGUtils.h */,
+				2BE261FF14657730006D3A51 /* HGUtils.m */,
 				2B6D3969145898500015BEFA /* Model */,
+				2B7329ED145A0E2B00EBEB56 /* Communication */,
 				2BA1CB551450A74A00FFD02D /* Supporting Files */,
-				2B7329F2145B670200EBEB56 /* HGStrikeDays.h */,
-				2B7329F3145B670300EBEB56 /* HGStrikeDays.m */,
 			);
 			path = "Hagreve Mobile";
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				2BA1CB591450A74A00FFD02D /* InfoPlist.strings in Resources */,
 				2BA1CB651450A74A00FFD02D /* MainStoryboard_iPad.storyboard in Resources */,
 				2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */,
+				2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +324,7 @@
 				2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */,
 				2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 				2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */,
+				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

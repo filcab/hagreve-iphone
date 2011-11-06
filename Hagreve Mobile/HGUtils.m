@@ -18,8 +18,8 @@
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSCalendarUnit dayMonthYear = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
 
-    NSDateComponents *startDayComponents = [cal components:dayMonthYear fromDate:strike.start_date];
-    NSDateComponents *endDayComponents   = [cal components:dayMonthYear fromDate:strike.end_date];
+    NSDateComponents *startDayComponents = [cal components:dayMonthYear fromDate:strike.startDate];
+    NSDateComponents *endDayComponents   = [cal components:dayMonthYear fromDate:strike.endDate];
 
     NSDate *startDay = [cal dateFromComponents:startDayComponents];
     NSDate *endDay   = [cal dateFromComponents:endDayComponents];
@@ -33,8 +33,8 @@
         [df setDateStyle:NSDateFormatterNoStyle];
 
         return [NSString stringWithFormat:@"Das %@ às %@",
-                         [df stringFromDate:strike.start_date],
-                         [df stringFromDate:strike.end_date]];
+                         [df stringFromDate:strike.startDate],
+                         [df stringFromDate:strike.endDate]];
     }
 
     // startDay != endDay
@@ -44,7 +44,7 @@
         [df setDateStyle:NSDateFormatterMediumStyle];
 
         return [NSString stringWithFormat:@"Até %@",
-                         [df stringFromDate:strike.end_date]];
+                         [df stringFromDate:strike.endDate]];
     }
 
     // !all_day (I don't think this usually happens.
@@ -53,8 +53,8 @@
     [df setDateStyle:NSDateFormatterMediumStyle];
 
     return [NSString stringWithFormat:@"De %@ até %@",
-                     [df stringFromDate:strike.start_date],
-                     [df stringFromDate:strike.end_date]];
+                     [df stringFromDate:strike.startDate],
+                     [df stringFromDate:strike.endDate]];
 }
 
 + (NSString *)cellCommentTextForStrike:(HGStrike *)strike {

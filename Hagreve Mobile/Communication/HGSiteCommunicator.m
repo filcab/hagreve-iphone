@@ -109,12 +109,12 @@
     for (NSDictionary *jsonStrike in (NSArray*)jsonObject) {
         HGStrike *strike = [HGStrike new];
         strike.all_day = [(NSNumber*)[jsonStrike valueForKey:@"all_day"] boolValue];
-        strike.start_date = [dateFormatter dateFromString:[jsonStrike valueForKey:@"start_date"]];
-        strike.end_date = [dateFormatter dateFromString:[jsonStrike valueForKey:@"end_date"]];
+        strike.startDate = [dateFormatter dateFromString:[jsonStrike valueForKey:@"start_date"]];
+        strike.endDate = [dateFormatter dateFromString:[jsonStrike valueForKey:@"end_date"]];
 
         strike.canceled = [(NSNumber*)[jsonStrike valueForKey:@"canceled"] boolValue];
         strike.comment  = [jsonStrike valueForKey:@"description"];
-        strike.source_link = [jsonStrike valueForKey:@"source_link"];
+        strike.sourceLink = [jsonStrike valueForKey:@"source_link"];
 
         HGCompany *company = [HGCompany new];
         strike.company = company;

@@ -40,12 +40,12 @@
  */
 
 @property (nonatomic) BOOL all_day;
-@property (nonatomic, retain) NSDate *start_date;
-@property (nonatomic, retain) NSDate *end_date;
+@property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) NSDate *endDate;
 
 @property (nonatomic) BOOL canceled;
 @property (nonatomic, retain) NSString *comment;
-@property (nonatomic, retain) NSURL *source_link;
+@property (nonatomic, retain) NSURL *sourceLink;
 
 @property (nonatomic, retain) HGCompany *company;
 @property (nonatomic, retain) HGSubmitter *submitter;

@@ -30,7 +30,7 @@
     NSMutableArray *days = [NSMutableArray array];
 
     for (HGStrike *strike in parsedStrikes) {
-        NSDateComponents *day = [cal components:units fromDate:[strike start_date]];
+        NSDateComponents *day = [cal components:units fromDate:[strike startDate]];
         NSMutableArray *dayStrikes = [strikes objectForKey:day];
         if (nil == dayStrikes) {
             dayStrikes = [NSMutableArray array];

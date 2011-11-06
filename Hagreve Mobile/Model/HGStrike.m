@@ -11,12 +11,12 @@
 @implementation HGStrike
 
 @synthesize all_day = _all_day;
-@synthesize start_date = _start_date;
-@synthesize end_date = _end_date;
+@synthesize startDate = _startDate;
+@synthesize endDate = _endDate;
 
 @synthesize canceled = _canceled;
 @synthesize comment = _comment;
-@synthesize source_link = _source_link;
+@synthesize sourceLink = _sourceLink;
 
 @synthesize company = _company;
 @synthesize submitter = _submitter;
@@ -26,12 +26,12 @@
         return nil;
 
     self.all_day = false;
-    self.start_date = nil;
-    self.end_date = nil;
+    self.startDate = nil;
+    self.endDate = nil;
 
     self.canceled = false;
     self.comment = @"No description";
-    self.source_link = [NSURL URLWithString:@"http://example.com"];
+    self.sourceLink = [NSURL URLWithString:@"http://example.com"];
 
     self.company = nil;
     self.submitter = nil;
