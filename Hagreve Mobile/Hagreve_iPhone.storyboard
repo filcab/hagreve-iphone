@@ -8,8 +8,8 @@
         <scene sceneID="VR7-qV-yPz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnf-ff-Q6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="Bu2-O2-OQ0" customClass="HGStrikeListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="kah-gy-xCU">
+                <tableViewController modalTransitionStyle="flipHorizontal" id="Bu2-O2-OQ0" customClass="HGStrikeListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="kah-gy-xCU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,6 +38,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="vxp-uX-y0s" kind="push" identifier="StrikeDetailSegue" id="E6O-HH-WQK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,10 +48,41 @@
                             <outlet property="delegate" destination="Bu2-O2-OQ0" id="rGk-nU-iuf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Há greve?" id="3en-i7-bnY"/>
+                    <navigationItem key="navigationItem" title="Hoje há greve?" id="3en-i7-bnY">
+                        <barButtonItem key="backBarButtonItem" title="Greves" id="RO4-Zm-jvr"/>
+                    </navigationItem>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="365" y="-65"/>
+        </scene>
+        <scene sceneID="U1x-lJ-QWf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pgo-Yv-l4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="vxp-uX-y0s" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hYP-Gi-i92">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StrikeDetailCell" id="AU3-Tk-vdr">
+                                <rect key="frame" x="0.0" y="46" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vxp-uX-y0s" id="ukc-eq-N4h"/>
+                            <outlet property="delegate" destination="vxp-uX-y0s" id="MQR-aQ-hRp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Greve" id="UTz-YO-fR2"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="365" y="576"/>
         </scene>
         <scene sceneID="bFp-PD-5Ps">
             <objects>
@@ -57,6 +91,10 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MEj-0p-NGq">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="82t-jP-DBt">
+                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Bu2-O2-OQ0" kind="relationship" relationship="rootViewController" id="9Yy-jc-fk4"/>
                     </connections>

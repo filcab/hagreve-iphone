@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B08E75E14636580009D2561 /* StrikeCell.xib */; };
+		2B6B728A14668A6200A00D64 /* HGStrikeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B728914668A6100A00D64 /* HGStrikeDetailController.m */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D396C145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
@@ -47,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		2B08E75E14636580009D2561 /* StrikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrikeCell.xib; sourceTree = "<group>"; };
+		2B6B728814668A6100A00D64 /* HGStrikeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailController.h; sourceTree = "<group>"; };
+		2B6B728914668A6100A00D64 /* HGStrikeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailController.m; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
 		2B6D3965145895ED0015BEFA /* HGStrike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrike.m; path = Model/HGStrike.m; sourceTree = "<group>"; };
 		2B6D396A145898700015BEFA /* HGCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGCompany.h; path = Model/HGCompany.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				2B08E75E14636580009D2561 /* StrikeCell.xib */,
 				2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */,
 				2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */,
+				2B6B728814668A6100A00D64 /* HGStrikeDetailController.h */,
+				2B6B728914668A6100A00D64 /* HGStrikeDetailController.m */,
 				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
 				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
 				2BE261FE14657730006D3A51 /* HGUtils.h */,
@@ -325,6 +330,7 @@
 				2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 				2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */,
 				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
+				2B6B728A14668A6200A00D64 /* HGStrikeDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
