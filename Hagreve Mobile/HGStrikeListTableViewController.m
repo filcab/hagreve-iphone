@@ -19,30 +19,8 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - TableView delegate
 
-
-
-#pragma mark - TableView dataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.strikeDays.strikes.count;
-}
-
-//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-//    NSMutableArray *titles = [NSMutableArray arrayWithCapacity:self.strikeDays.daysWithStrikes.count];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-//    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-//
-//    // The arrays will have the same order.
-//    for (NSDateComponents *d in self.strikeDays.daysWithStrikes) {
-//        NSString *title = [dateFormatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:d]];
-//        [titles addObject:title];
-//    }
-//
-//    return [titles copy];
-//}
+#pragma mark - TableView dataSource and delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"StrikeCell";
@@ -68,11 +46,12 @@
     label = (UILabel *)[cell viewWithTag:TAG_COMMENT];
     label.text = [HGUtils cellCommentTextForStrike:strike];
 
-//    cell.textLabel.text = strike.company.name;
-//    cell.detailTextLabel.text = strike.comment;
     return cell;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.strikeDays.strikes.count;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.strikeDays strikesForStrikeDay:section].count;
@@ -87,6 +66,58 @@
 
     return [dateFormatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:day]];
 }
+
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView
+{
+	NSInteger realNumber = 0;
+	if (!indexPath.section)	{
+		return indexPath.row;
+	}
+
+	for (int i = 0 ; i < indexPath.section ; ++i) {
+		realNumber += [tableView numberOfRowsInSection:i];
+    }
+
+	return realNumber + indexPath.row;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static UIColor *colorEven, *colorOdd;
+    if (nil == colorEven)
+        colorEven = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
+    if (nil == colorOdd)
+        // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
+        colorOdd  = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
+
+	NSInteger n = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+	cell.backgroundColor = (n % 2) ? colorOdd : colorEven;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	/*
+	 To conform to the Human Interface Guidelines, selections should not be persistent --
+	 deselect the row after it has been selected.
+	 */
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"StrikeDetailSegue" sender:self];
+}
+
+
+#pragma mark - TableView selection
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /*
+     When a row is selected, the segue creates the detail view controller as the destination.
+     Set the detail view controller's detail item to the item associated with the selected row.
+     */
+    if ([[segue identifier] isEqualToString:@"StrikeDetailSegue"]) {
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+//        DetailViewController *detailViewController = [segue destinationViewController];
+//        detailViewController.play = [dataController objectInListAtIndex:selectedRowIndex.row];
+    }
+}
+
 
 #pragma mark - View lifecycle
 
