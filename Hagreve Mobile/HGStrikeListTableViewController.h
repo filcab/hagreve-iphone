@@ -7,13 +7,15 @@
 //
 
 // Project includes
+#import "HGStrikeDetailController.h"
 #import "HGStrikeDays.h"
 #import "HGUtils.h"
 
 // Framework includes
+#import "PullRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface HGStrikeListTableViewController : UITableViewController
+@interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
