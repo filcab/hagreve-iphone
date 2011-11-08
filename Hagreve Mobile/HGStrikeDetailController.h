@@ -6,12 +6,15 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+// Project includes
+#import "HGStrike.h"
+
+// Framework includes
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-const NSArray *sections;
-
-
 @interface HGStrikeDetailController : UITableViewController
+
+@property (nonatomic, retain) HGStrike *strike;
 
 @end

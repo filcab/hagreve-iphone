@@ -8,15 +8,15 @@
 
 #import "HGStrikeDetailController.h"
 
+static NSString *sections[] =
+ { @"Datas", @"Empresa", @"Descrição", @"Hiperligação" };
+
 @implementation HGStrikeDetailController
 
-- (void) awakeFromNib {
-    sections = [NSArray arrayWithObjects:@"Datas", @"Empresa", @"Descrição",
-                @"Hiperligação", nil];
-}
+@synthesize strike;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return sections.count;
+    return sizeof(sections)/sizeof(*sections);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -24,7 +24,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [sections objectAtIndex:section];
+    return sections[section];
 }
 
 @end
