@@ -34,6 +34,8 @@
 		2BA1CB7A1450A74A00FFD02D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1CB781450A74A00FFD02D /* InfoPlist.strings */; };
 		2BA1CB7D1450A74A00FFD02D /* Hagreve_MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1CB7C1450A74A00FFD02D /* Hagreve_MobileTests.m */; };
 		2BE2620014657730006D3A51 /* HGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE261FF14657730006D3A51 /* HGUtils.m */; };
+		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
+		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,9 @@
 		2BA1CB7C1450A74A00FFD02D /* Hagreve_MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hagreve_MobileTests.m; sourceTree = "<group>"; };
 		2BE261FE14657730006D3A51 /* HGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGUtils.h; sourceTree = "<group>"; };
 		2BE261FF14657730006D3A51 /* HGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGUtils.m; sourceTree = "<group>"; };
+		2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		2BF912681469DFB3001D41D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */,
 				2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */,
 				2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */,
 				2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */,
@@ -135,6 +141,7 @@
 		2BA1CB3F1450A74A00FFD02D = {
 			isa = PBXGroup;
 			children = (
+				2BF912681469DFB3001D41D3 /* QuartzCore.framework */,
 				2BA1CB541450A74A00FFD02D /* Hagreve Mobile */,
 				2BA1CB751450A74A00FFD02D /* Hagreve MobileTests */,
 				2BA1CB4D1450A74A00FFD02D /* Frameworks */,
@@ -186,6 +193,8 @@
 		2BA1CB551450A74A00FFD02D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */,
+				2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */,
 				2BA1CB561450A74A00FFD02D /* Hagreve Mobile-Info.plist */,
 				2BA1CB571450A74A00FFD02D /* InfoPlist.strings */,
 				2BA1CB5A1450A74A00FFD02D /* main.m */,
@@ -331,6 +340,7 @@
 				2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */,
 				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
 				2B6B728A14668A6200A00D64 /* HGStrikeDetailController.m in Sources */,
+				2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
