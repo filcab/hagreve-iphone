@@ -23,10 +23,11 @@
 #pragma mark - TableView dataSource and delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSUInteger n_cell_is_nil = 0;
     static NSString *MyIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        NSLog(@"dequeueReusableCellWithIdentifier:@\"%@\" == nil", MyIdentifier);
+        NSLog(@"dequeueReusableCellWithIdentifier:@\"%@\" == nil (count = %u)", MyIdentifier, ++n_cell_is_nil);
         //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
@@ -112,9 +113,11 @@
      Set the detail view controller's detail item to the item associated with the selected row.
      */
     if ([[segue identifier] isEqualToString:@"StrikeDetailSegue"]) {
-        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-//        DetailViewController *detailViewController = [segue destinationViewController];
-//        detailViewController.play = [dataController objectInListAtIndex:selectedRowIndex.row];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        HGStrikeDetailController *detailViewController = [segue destinationViewController];
+
+        NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
+        detailViewController.strike = [strikesForDay objectAtIndex:indexPath.row];
     }
 }
 
