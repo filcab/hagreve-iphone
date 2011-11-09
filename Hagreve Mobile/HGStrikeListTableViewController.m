@@ -86,10 +86,9 @@
 {
     static UIColor *colorEven, *colorOdd;
     if (nil == colorEven)
-        colorEven = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
+        colorEven = [self backgroundColorForEvenRows];
     if (nil == colorOdd)
-        // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
-        colorOdd  = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
+        colorOdd  = [self backgroundColorForOddRows];
 
 	NSInteger n = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
 	cell.backgroundColor = (n % 2) ? colorOdd : colorEven;
@@ -144,6 +143,39 @@
     } else {
         return YES;
     }
+}
+
+#pragma mark - Misc methods
+- (UIColor *)backgroundColorForEvenRows {
+    static UIColor *evenColor;
+    if (nil == evenColor) // Use the same alpha as the gray color
+        evenColor = [UIColor colorWithWhite:1.0f alpha:0.90f];
+
+    return evenColor;
+}
+
+- (UIColor *)backgroundColorForOddRows {
+    static UIColor *oddColor;
+    if (nil == oddColor)
+        // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
+//        oddColor = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
+        // From wikipedia/alpha_blending:
+        // out_RGB = src_RGB * src_A + dst_RGB * (1-src_A)
+        // true color over white:
+        // out = 0.7961 * 0.3 + 1 * 0.7 == 0.9388
+
+        // to have alpha = 0.9f:
+        // 0.9388 = x * 0.9 + 1 * 0.1 <=> x = (0.9388 - 0.1)/0.9
+        // x == 0.932
+        oddColor = [UIColor colorWithWhite:0.932f alpha:0.90f];
+
+        // to have alpha = 0.95f:
+        // 0.9388 = x * 0.95 + 1 * 0.05 <=> x = (0.9388 - 0.05)/0.95
+        // x == 0.9356
+        oddColor = [UIColor colorWithWhite:0.9356f alpha:0.95f];
+
+
+    return oddColor;
 }
 
 @end
