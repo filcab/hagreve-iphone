@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		2B08E75E14636580009D2561 /* StrikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrikeCell.xib; sourceTree = "<group>"; };
-		2B6B728814668A6100A00D64 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
+		2B6B728814668A6100A00D64 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
 		2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailViewController.m; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
 		2B6D3965145895ED0015BEFA /* HGStrike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrike.m; path = Model/HGStrike.m; sourceTree = "<group>"; };
