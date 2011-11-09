@@ -68,6 +68,41 @@
     return [dateFormatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:day]];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+    NSInteger rowNumber = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+    UIColor *bgColor = rowNumber % 2 == 0 ? [self backgroundColorForEvenRows]
+                                          : [self backgroundColorForOddRows];
+
+	// create the parent view that will hold header Label
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
+    UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(HEADER_SIDELINE_HMARGIN, HEADER_SIDELINE_VMARGIN, HEADER_SIDELINE_WIDTH, HEADER_LABEL_HEIGHT - 2*HEADER_SIDELINE_VMARGIN)];
+    [sideLineView setBackgroundColor:[UIColor blackColor]];
+
+    // create the button object
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(HEADER_LABEL_MARGIN, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
+    headerLabel.opaque = NO;
+    headerLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
+    headerLabel.textColor = [UIColor blackColor];
+    headerLabel.highlightedTextColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:16];
+
+    headerLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+
+    [customView addSubview:sideLineView];
+    [customView addSubview:headerLabel];
+
+    customView.opaque = NO;
+    customView.backgroundColor = bgColor;
+
+    return customView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+	return 28.0;
+}
+
+
 - (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView
 {
 	NSInteger realNumber = 0;
