@@ -6,12 +6,12 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "HGStrikeDetailController.h"
+#import "HGStrikeDetailViewController.h"
 
 static NSString *sections[] =
  { @"Datas", @"Empresa", @"Descrição", @"Hiperligação" };
 
-@implementation HGStrikeDetailController
+@implementation HGStrikeDetailViewController
 
 @synthesize strike;
 

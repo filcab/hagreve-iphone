@@ -13,7 +13,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface HGStrikeDetailController : UITableViewController
+@interface HGStrikeDetailViewController : UITableViewController
 
 @property (nonatomic, retain) HGStrike *strike;
 

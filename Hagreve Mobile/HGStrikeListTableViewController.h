@@ -7,7 +7,7 @@
 //
 
 // Project includes
-#import "HGStrikeDetailController.h"
+#import "HGStrikeDetailViewController.h"
 #import "HGStrikeDays.h"
 #import "HGUtils.h"
 
