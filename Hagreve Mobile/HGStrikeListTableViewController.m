@@ -113,7 +113,7 @@
      */
     if ([[segue identifier] isEqualToString:@"StrikeDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        HGStrikeDetailController *detailViewController = [segue destinationViewController];
+        HGStrikeDetailViewController *detailViewController = [segue destinationViewController];
 
         NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
         detailViewController.strike = [strikesForDay objectAtIndex:indexPath.row];
