@@ -58,7 +58,7 @@
         <scene sceneID="U1x-lJ-QWf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pgo-Yv-l4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="vxp-uX-y0s" sceneMemberID="viewController">
+                <tableViewController id="vxp-uX-y0s" customClass="HGStrikeDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hYP-Gi-i92">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,11 +104,14 @@
         </scene>
     </scenes>
     <classes>
-        <class className="HGStrikeListTableViewController" superclassName="UITableViewController">
+        <class className="HGStrikeListTableViewController" superclassName="PullRefreshTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeListTableViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="protoCell" candidateClass="UITableViewCell"/>
             </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
