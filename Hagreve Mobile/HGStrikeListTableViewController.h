@@ -15,6 +15,12 @@
 #import "PullRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
+// Tags for the StrikeListTableViewCell's subviews
+#define TAG_TITLE    1
+#define TAG_SUBTITLE 2
+#define TAG_COMMENT  3
+
+// Sizes for the StrikeList views
 #define HEADER_LABEL_WIDTH  300.0
 #define HEADER_LABEL_HEIGHT 28.0
 #define HEADER_LABEL_MARGIN 10.0

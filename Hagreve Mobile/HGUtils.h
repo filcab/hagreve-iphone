@@ -12,10 +12,7 @@
 // Framework includes
 #import <Foundation/Foundation.h>
 
-// Tags for the StrikeListTableViewCell's subviews
-#define TAG_TITLE    1
-#define TAG_SUBTITLE 2
-#define TAG_COMMENT  3
+#define HGDISPATCH_QUEUE_NAME "com.hagreve.dispatch-queue"
 
 @interface HGUtils : NSObject
 

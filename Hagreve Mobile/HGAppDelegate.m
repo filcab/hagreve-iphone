@@ -7,6 +7,7 @@
 //
 
 #import "HGAppDelegate.h"
+#import <dispatch/dispatch.h>
 
 @implementation HGAppDelegate
 
@@ -22,7 +23,8 @@
     // Load the latest saved strike list (if possible);
     // Dispatch a thread to update the strike list.
     rootViewController.strikeDays = [HGStrikeDays new];
-    // Dummy, for now
+
+    dispatch_queue_t backgroundQueue = dispatch_queue_create(HGDISPATCH_QUEUE_NAME, DISPATCH_QUEUE_CONCURRENT);
     [rootViewController.strikeDays update];
 
     return YES;

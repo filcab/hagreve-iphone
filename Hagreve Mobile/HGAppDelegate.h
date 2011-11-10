@@ -7,7 +7,8 @@
 //
 
 // Project includes
-#include "HGStrikeListTableViewController.h"
+#import "HGUtils.h"
+#import "HGStrikeListTableViewController.h"
 
 // Framework includes
 #import <UIKit/UIKit.h>
