@@ -1,0 +1,5 @@
+Thanks to:
+
+Leah Culver for the implementation of "Pull to refresh".
+EGO PullToRefresh, for the arrow we used.
+
