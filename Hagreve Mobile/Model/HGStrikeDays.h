@@ -23,4 +23,5 @@
 - (NSArray *)strikesForDay:(NSDateComponents *)aDay;
 - (NSArray *)strikesForStrikeDay:(NSUInteger)aDay;
 
+- (NSString *)description;
 @end

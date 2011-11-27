@@ -40,6 +40,7 @@
     NSString *textPull;
     NSString *textRelease;
     NSString *textLoading;
+    NSString *imageFileName;
 }
 
 @property (nonatomic, retain) UIView *refreshHeaderView;
@@ -49,6 +50,7 @@
 @property (nonatomic, copy) NSString *textPull;
 @property (nonatomic, copy) NSString *textRelease;
 @property (nonatomic, copy) NSString *textLoading;
+@property (nonatomic, copy) NSString *imageFileName;
 
 - (void)setupStrings;
 - (void)addPullToRefreshHeader;

@@ -59,4 +59,8 @@
     return [self.strikes objectForKey:aDay];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"strikeDays: %@", self.strikes];
+}
+
 @end

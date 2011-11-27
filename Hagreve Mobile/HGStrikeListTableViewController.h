@@ -15,6 +15,8 @@
 #import "PullRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
+#define ARROW_FILENAME (@"arrow2@2x")
+
 // Tags for the StrikeListTableViewCell's subviews
 #define TAG_TITLE    1
 #define TAG_SUBTITLE 2

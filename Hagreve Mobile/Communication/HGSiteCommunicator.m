@@ -6,6 +6,7 @@
 //  Copyright (c) 2011 HáGreve. All rights reserved.
 //
 
+#import "HGUtils.h"
 #import "HGStrike.h"
 #import "HGCompany.h"
 #import "HGSubmitter.h"
@@ -94,14 +95,19 @@
     // With this synchronous request, we have no control on caching nor auth.
     // The defaults will be used. We may have to change this later.
     NSData *unparsed = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    if (nil == unparsed)
+    if (nil == unparsed) {
+        DLog(@"Didn't get any data from %@. Bailing out!", request.URL);
         return nil;
+    }
 
     // Parse JSON object (from the API, we know it's an array)
     NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:unparsed options:0 error:&error];
-    if (nil == jsonObject)
+    if (nil == jsonObject) {
+        DLog(@"jsonObject == nil. Bailing out!");
         return nil;
+    }
 
+    DLog(@"JSON: %@", jsonObject);
     // Convert to NSArray of HGStrike objects
     NSMutableArray *strikeList = [NSMutableArray arrayWithCapacity:jsonObject.count];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

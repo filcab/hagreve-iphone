@@ -23,11 +23,9 @@
 #pragma mark - TableView dataSource and delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSUInteger n_cell_is_nil = 0;
     static NSString *MyIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        NSLog(@"dequeueReusableCellWithIdentifier:@\"%@\" == nil (count = %u)", MyIdentifier, ++n_cell_is_nil);
         //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
         //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
@@ -134,8 +132,8 @@
 	 To conform to the Human Interface Guidelines, selections should not be persistent --
 	 deselect the row after it has been selected.
 	 */
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"StrikeDetailSegue" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
@@ -146,7 +144,8 @@
      When a row is selected, the segue creates the detail view controller as the destination.
      Set the detail view controller's detail item to the item associated with the selected row.
      */
-    if ([[segue identifier] isEqualToString:@"StrikeDetailSegue"]) {
+    DLog(@"Preparing segue with identifier \"%@\".", segue.identifier);
+    if ([segue.identifier isEqualToString:@"StrikeDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HGStrikeDetailViewController *detailViewController = [segue destinationViewController];
 
@@ -160,6 +159,7 @@
 
 - (void)viewDidLoad {
     // Initialize stuff.
+    self.imageFileName = ARROW_FILENAME;
     [super viewDidLoad];
 }
 
@@ -179,6 +179,7 @@
         return YES;
     }
 }
+
 
 #pragma mark - Misc methods
 - (UIColor *)backgroundColorForEvenRows {

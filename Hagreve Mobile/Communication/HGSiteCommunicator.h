@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define HOST_BASE_URL (@"http://test.hagreve.com")
+#define HOST_BASE_URL (@"http://kiff:8000")
+//#define HOST_BASE_URL (@"http://hagreve.com")
 #define API_RELATIVE_PATH (@"/api/v1/")
 #define API_STRIKE_LIST_PATH (@"strikes")
 

@@ -24,9 +24,15 @@
     // Dispatch a thread to update the strike list.
     rootViewController.strikeDays = [HGStrikeDays new];
 
-    dispatch_queue_t backgroundQueue = dispatch_queue_create(HGDISPATCH_QUEUE_NAME, DISPATCH_QUEUE_CONCURRENT);
-    [rootViewController.strikeDays update];
+//    dispatch_queue_t backgroundQueue = dispatch_queue_create(HGDISPATCH_QUEUE_NAME, DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_async(backgroundQueue, ^(void) {
+//        [rootViewController.strikeDays update];
+//
+//    });
 
+    // Dummy.
+    [rootViewController.strikeDays update];
+    DLog(@"strikeDays: %@", rootViewController.strikeDays);
     return YES;
 }
 							
