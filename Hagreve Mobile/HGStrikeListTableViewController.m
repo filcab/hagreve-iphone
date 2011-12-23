@@ -192,7 +192,7 @@
 
 - (UIColor *)backgroundColorForOddRows {
     static UIColor *oddColor;
-    if (nil == oddColor)
+    if (nil == oddColor) {
         // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
 //        oddColor = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
         // From wikipedia/alpha_blending:
@@ -203,12 +203,13 @@
         // to have alpha = 0.9f:
         // 0.9388 = x * 0.9 + 1 * 0.1 <=> x = (0.9388 - 0.1)/0.9
         // x == 0.932
-        oddColor = [UIColor colorWithWhite:0.932f alpha:0.90f];
+        // oddColor = [UIColor colorWithWhite:0.932f alpha:0.90f];
 
         // to have alpha = 0.95f:
         // 0.9388 = x * 0.95 + 1 * 0.05 <=> x = (0.9388 - 0.05)/0.95
         // x == 0.9356
         oddColor = [UIColor colorWithWhite:0.9356f alpha:0.95f];
+    }
 
 
     return oddColor;
