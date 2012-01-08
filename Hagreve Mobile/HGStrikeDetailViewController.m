@@ -71,6 +71,9 @@ static NSString *sections[] =
                 cell.detailTextLabel.text = @"Fim";
             }
 
+            if (strike.canceled) {
+
+            }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
@@ -94,13 +97,15 @@ static NSString *sections[] =
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
-        case LINK_SECT:
+        case LINK_SECT: {
             if (cell == nil)
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
 
-            cell.textLabel.text = strike.sourceLink.description;
+            // Do we want to hide most of the URL?
+            NSString *linkStr = [NSString stringWithFormat:@"%@://%@/…", strike.sourceLink.scheme, strike.sourceLink.host];
+            cell.textLabel.text = linkStr;
             break;
-
+        }
         default:
             cell.textLabel.text = @"Error";
     }
@@ -131,6 +136,48 @@ static NSString *sections[] =
             return 0;
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (LINK_SECT == indexPath.section && 0 == indexPath.row) {
+        /*
+         To conform to the Human Interface Guidelines, selections should not be persistent --
+         deselect the row after it has been selected.
+         */
+        NSLog(@"Opening URL: %@", strike.sourceLink);
+        [self openOrCopyURL:strike.sourceLink];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+#pragma mark - UIActionSheet creator and delegate
+
+#define SHEET_COPY_IDX 0
+#define SHEET_OPEN_IDX 1
+#define SHEET_CANCEL_IDX 2
+
+- (void)openOrCopyURL:(NSURL *)url {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Copiar", @"Abrir", nil];
+    sheet.actionSheetStyle = UIActionSheetStyleAutomatic;
+    [sheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case SHEET_COPY_IDX: {
+            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+            [pasteboard setURL:strike.sourceLink];
+            break;
+        }
+        case SHEET_OPEN_IDX:
+            [[UIApplication sharedApplication] openURL:strike.sourceLink];
+            break;
+        case SHEET_CANCEL_IDX:
+            // No-op
+            break;
+    }
+}
+
+#pragma mark - Font stuff
 
 - (UIFont *)regularFont {
     static UIFont *font;

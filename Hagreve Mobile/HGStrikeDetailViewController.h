@@ -21,7 +21,7 @@
 #define TITLE_FONT_SIZE 15.0
 #define SUBTITLE_FONT_SIZE 12.0
 
-@interface HGStrikeDetailViewController : UITableViewController
+@interface HGStrikeDetailViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (nonatomic, retain) HGStrike *strike;
 
@@ -31,6 +31,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
+#pragma mark - UIActionSheet creator and delegate
+- (void)openOrCopyURL:(NSURL *)url;
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+
+#pragma mark - Font stuff
 - (UIFont *)regularFont;
 - (UIFont *)titleFont;
 - (UIFont *)subtitleFont;
