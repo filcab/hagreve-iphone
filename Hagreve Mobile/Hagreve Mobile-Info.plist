@@ -28,7 +28,7 @@
 	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>Hagreve_iPhone</string>
-	<key>UIMainStoryboardFile~ipad</key>
+	<key>zzMain storyboard file base name (iPad)</key>
 	<string>MainStoryboard_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

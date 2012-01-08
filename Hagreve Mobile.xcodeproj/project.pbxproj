@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B08E75E14636580009D2561 /* StrikeCell.xib */; };
+		2B47860114B762CC00C62761 /* Canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4785FF14B762CC00C62761 /* Canceled.png */; };
+		2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B47860014B762CC00C62761 /* Canceled@2x.png */; };
+		2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */; };
 		2B6B728A14668A6200A00D64 /* HGStrikeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
@@ -51,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		2B08E75E14636580009D2561 /* StrikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrikeCell.xib; sourceTree = "<group>"; };
+		2B4785FF14B762CC00C62761 /* Canceled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Canceled.png; path = Resources/Canceled.png; sourceTree = "<group>"; };
+		2B47860014B762CC00C62761 /* Canceled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Canceled@2x.png"; path = "Resources/Canceled@2x.png"; sourceTree = "<group>"; };
+		2B47860414B770F500C62761 /* HGMaybeStrikeThroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGMaybeStrikeThroughLabel.h; sourceTree = "<group>"; };
+		2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGMaybeStrikeThroughLabel.m; sourceTree = "<group>"; };
 		2B6B728814668A6100A00D64 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
 		2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailViewController.m; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
@@ -143,6 +150,8 @@
 		2B91537B147EDE6200C2C262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B4785FF14B762CC00C62761 /* Canceled.png */,
+				2B47860014B762CC00C62761 /* Canceled@2x.png */,
 				2B915378147EDDF700C2C262 /* Arrow2@2x.png */,
 			);
 			name = Resources;
@@ -210,6 +219,8 @@
 				2BA1CB571450A74A00FFD02D /* InfoPlist.strings */,
 				2BA1CB5A1450A74A00FFD02D /* main.m */,
 				2BA1CB5C1450A74A00FFD02D /* Hagreve Mobile-Prefix.pch */,
+				2B47860414B770F500C62761 /* HGMaybeStrikeThroughLabel.h */,
+				2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -308,6 +319,8 @@
 				2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */,
 				2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */,
 				2B915379147EDDF700C2C262 /* Arrow2@2x.png in Resources */,
+				2B47860114B762CC00C62761 /* Canceled.png in Resources */,
+				2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +366,7 @@
 				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
 				2B6B728A14668A6200A00D64 /* HGStrikeDetailViewController.m in Sources */,
 				2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */,
+				2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +455,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -472,7 +486,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
