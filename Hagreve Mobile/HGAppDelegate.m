@@ -22,17 +22,9 @@
 
     // Load the latest saved strike list (if possible);
     // Dispatch a thread to update the strike list.
-    rootViewController.strikeDays = [HGStrikeDays new];
+//    rootViewController.strikeDays = [HGStrikeDays strikeDaysFromSavedState];
+    rootViewController.strikeDays = [HGStrikeDays strikeDaysFromWebsite];
 
-//    dispatch_queue_t backgroundQueue = dispatch_queue_create(HGDISPATCH_QUEUE_NAME, DISPATCH_QUEUE_CONCURRENT);
-//    dispatch_async(backgroundQueue, ^(void) {
-//        [rootViewController.strikeDays update];
-//
-//    });
-
-    // Dummy.
-    [rootViewController.strikeDays update];
-    DLog(@"strikeDays: %@", rootViewController.strikeDays);
     return YES;
 }
 							

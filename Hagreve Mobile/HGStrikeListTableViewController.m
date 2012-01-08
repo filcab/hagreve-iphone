@@ -45,6 +45,12 @@
     label = (UILabel *)[cell viewWithTag:TAG_COMMENT];
     label.text = [HGUtils cellCommentTextForStrike:strike];
 
+    if (strike.canceled) {
+        UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
+        NSLog(@"%@\n", canceledImage);
+        [cell addSubview:[[UIImageView alloc] initWithImage:canceledImage]];
+    }
+
     return cell;
 }
 
@@ -75,7 +81,9 @@
 	// create the parent view that will hold header Label
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
     UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(HEADER_SIDELINE_HMARGIN, HEADER_SIDELINE_VMARGIN, HEADER_SIDELINE_WIDTH, HEADER_LABEL_HEIGHT - 2*HEADER_SIDELINE_VMARGIN)];
+    UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(HEADER_TOPLINE_HMARGIN, HEADER_TOPLINE_VMARGIN, HEADER_LABEL_WIDTH - 2*HEADER_TOPLINE_HMARGIN, HEADER_TOPLINE_HEIGHT)];
     [sideLineView setBackgroundColor:[UIColor blackColor]];
+    [topLineView setBackgroundColor:[UIColor blackColor]];
 
     // create the button object
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(HEADER_LABEL_MARGIN, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
@@ -88,6 +96,7 @@
     headerLabel.text = [self tableView:tableView titleForHeaderInSection:section];
 
     [customView addSubview:sideLineView];
+    [customView addSubview:topLineView];
     [customView addSubview:headerLabel];
 
     customView.opaque = NO;
@@ -180,6 +189,19 @@
     }
 }
 
+#pragma mark - pull to refresh handler
+- (void)refresh {
+    [self performSelectorInBackground:@selector(updateStrikes) withObject:nil];
+}
+
+- (void)updateStrikes {
+    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
+    HGStrikeDays *strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+
+    if (strikeDays) {
+        [self performSelectorOnMainThread:@selector(setStrikeDays:) withObject:strikeDays waitUntilDone:YES];
+    }
+}
 
 #pragma mark - Misc methods
 - (UIColor *)backgroundColorForEvenRows {

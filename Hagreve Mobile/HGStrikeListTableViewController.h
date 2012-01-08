@@ -15,7 +15,7 @@
 #import "PullRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
-#define ARROW_FILENAME (@"arrow2@2x")
+#define ARROW_FILENAME (@"arrow2")
 
 // Tags for the StrikeListTableViewCell's subviews
 #define TAG_TITLE    1
@@ -27,9 +27,14 @@
 #define HEADER_LABEL_HEIGHT 28.0
 #define HEADER_LABEL_MARGIN 10.0
 
-#define HEADER_SIDELINE_VMARGIN 4.0
+#define HEADER_SIDELINE_VMARGIN 2.0
 #define HEADER_SIDELINE_HMARGIN 2.0
-#define HEADER_SIDELINE_WIDTH 2.0
+#define HEADER_SIDELINE_WIDTH 1.0
+
+#define HEADER_TOPLINE_HMARGIN 3.0
+#define HEADER_TOPLINE_VMARGIN 2.0
+#define HEADER_TOPLINE_HEIGHT 1.0
+
 
 @interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
@@ -49,14 +54,16 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-
 #pragma mark - TableView selection
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
-
 
 #pragma mark - View lifecycle
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
+#pragma mark - pull to refresh handler
+- (void)refresh;
+- (void)updateStrikes;
 
 #pragma mark - Misc methods
 - (UIColor *)backgroundColorForOddRows;

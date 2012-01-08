@@ -1,5 +1,5 @@
 //
-//  HGStrikeDay.m
+//  HGStrikeDays.m
 //  Hagreve Mobile
 //
 //  Created by Filipe Cabecinhas on 10/28/11.
@@ -15,13 +15,16 @@
 @synthesize strikes = _strikes;
 @synthesize communicator = _communicator;
 
-- (void)update
-{
-    if (nil == self.communicator) {
-        self.communicator = [[HGSiteCommunicator alloc] init];
-    }
++ (HGStrikeDays*)strikeDaysFromSavedState {
+    return nil;
+}
 
-    NSArray *parsedStrikes = [self.communicator getStrikeList];
+
++ (HGStrikeDays*)strikeDaysFromWebsite {
+    HGStrikeDays *sDays = [HGStrikeDays new];
+    HGSiteCommunicator *communicator = [[HGSiteCommunicator alloc] init];
+
+    NSArray *parsedStrikes = [communicator getStrikeList];
 
     NSMutableDictionary *strikes = [NSMutableDictionary dictionary];
     NSCalendar *cal = [NSCalendar currentCalendar];
@@ -41,10 +44,12 @@
         [dayStrikes addObject:strike];
     }
 
-    self.strikeDays = [days sortedArrayUsingComparator:^NSComparisonResult(NSDateComponents *d1, NSDateComponents *d2) {
+    sDays.strikeDays = [days sortedArrayUsingComparator:^NSComparisonResult(NSDateComponents *d1, NSDateComponents *d2) {
         return [[cal dateFromComponents:d1] compare: [cal dateFromComponents:d2]];
     }];
-    self.strikes = strikes;
+    sDays.strikes = strikes;
+
+    return sDays;
 }
 
 - (NSArray *)daysWithStrikes {
