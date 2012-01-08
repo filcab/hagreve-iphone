@@ -10,6 +10,8 @@
 
 @implementation HGStrike
 
+@synthesize id = _id;
+
 @synthesize all_day = _all_day;
 @synthesize startDate = _startDate;
 @synthesize endDate = _endDate;
@@ -24,6 +26,8 @@
 - (HGStrike*)init {
     if (!(self = [super init]))
         return nil;
+
+    self.id = -1;
 
     self.all_day = false;
     self.startDate = nil;

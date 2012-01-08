@@ -19,6 +19,8 @@
  * API object for a strike as of 2011/10/26
  *
  * {
+ *   "id": 42,
+ *
  *   "all_day": false,
  *   "start_date": "2011-11-01 23:23:50",
  *   "end_date": "2011-11-03 23:23:52",
@@ -38,6 +40,8 @@
  * }
  *
  */
+
+@property (nonatomic) NSUInteger id;
 
 @property (nonatomic) BOOL all_day;
 @property (nonatomic, retain) NSDate *startDate;
