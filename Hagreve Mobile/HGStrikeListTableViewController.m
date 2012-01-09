@@ -161,9 +161,14 @@
 
         NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
         detailViewController.strike = [strikesForDay objectAtIndex:indexPath.row];
+    } else if ([segue.identifier isEqualToString:@"DebugTableSegue"]) {
+        NSLog(@"Going to debug view");
     }
 }
 
+- (IBAction)leaveDebugTable:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - View lifecycle
 
