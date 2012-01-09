@@ -14,12 +14,14 @@
 
 @interface HGStrikeDays : NSObject
 
+@property (nonatomic, retain) NSURL *baseURL;
 @property (nonatomic, retain) NSArray *strikeDays;
 @property (nonatomic, retain) NSDictionary *strikes;
 @property (nonatomic, retain) HGSiteCommunicator *communicator;
 
 + (HGStrikeDays*)strikeDaysFromWebsite;
 + (HGStrikeDays*)strikeDaysFromSavedState;
++ (HGStrikeDays*)strikeDaysFromWebsite:(NSString*)base_url;
 
 - (NSArray *)daysWithStrikes;
 - (NSArray *)strikesForDay:(NSDateComponents *)aDay;

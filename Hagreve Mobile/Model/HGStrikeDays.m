@@ -13,16 +13,20 @@
 
 @synthesize strikeDays = _strikeDays;
 @synthesize strikes = _strikes;
+@synthesize baseURL = _baseURL;
 @synthesize communicator = _communicator;
 
 + (HGStrikeDays*)strikeDaysFromSavedState {
     return nil;
 }
 
-
 + (HGStrikeDays*)strikeDaysFromWebsite {
+    return [HGStrikeDays strikeDaysFromWebsite:HOST_BASE_URL];
+}
+
++ (HGStrikeDays*)strikeDaysFromWebsite:(NSString*)base_url {
     HGStrikeDays *sDays = [HGStrikeDays new];
-    HGSiteCommunicator *communicator = [[HGSiteCommunicator alloc] init];
+    HGSiteCommunicator *communicator = [[HGSiteCommunicator alloc] initWithBaseURL:base_url];
 
     NSArray *parsedStrikes = [communicator getStrikeList];
 
