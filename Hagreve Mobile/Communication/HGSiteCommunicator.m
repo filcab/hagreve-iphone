@@ -30,6 +30,13 @@
     return self;
 }
 
+- (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url {
+    if (!(self = [self initWithBaseURL:base_url andAPIPath:API_RELATIVE_PATH]))
+        nil;
+
+    return self;
+}
+
 - (HGSiteCommunicator *)init {
     if (!(self = [self initWithBaseURL:HOST_BASE_URL andAPIPath:API_RELATIVE_PATH]))
         return nil;
