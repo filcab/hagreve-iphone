@@ -10,6 +10,7 @@
 
 @implementation HGStrikeListTableViewController
 
+@synthesize debug = _debug;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -146,7 +147,7 @@
 }
 
 
-#pragma mark - TableView selection
+#pragma mark - segues and transitions
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     /*
@@ -195,15 +196,28 @@
 }
 
 - (void)updateStrikes {
-    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
-    HGStrikeDays *strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+    HGStrikeDays *strikeDays;
+
+    if ([self valueForKey:@"debug"]) {
+        strikeDays = [HGStrikeDays strikeDaysFromWebsite:HOST_DEBUG_URL];
+    } else {
+        strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+    }
 
     if (strikeDays) {
-        [self performSelectorOnMainThread:@selector(setStrikeDays:) withObject:strikeDays waitUntilDone:YES];
-    }
+        self.strikeDays = strikeDays;
+    } // else: Warn the user?
+
+    [self performSelectorOnMainThread:@selector(stopLoading) withObject:nil waitUntilDone:YES];
 }
 
 #pragma mark - Misc methods
+- (void)setStrikeDays:(HGStrikeDays*)strikeDays {
+    _strikeDays = strikeDays;
+    NSLog(@"Setting strikes...");
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+}
+
 - (UIColor *)backgroundColorForEvenRows {
     static UIColor *evenColor;
     if (nil == evenColor) // Use the same alpha as the gray color
