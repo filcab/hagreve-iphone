@@ -51,6 +51,9 @@
                     <navigationItem key="navigationItem" title="Hoje há greve?" id="3en-i7-bnY">
                         <barButtonItem key="backBarButtonItem" title="Greves" id="RO4-Zm-jvr"/>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="debug" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="365" y="-65"/>
