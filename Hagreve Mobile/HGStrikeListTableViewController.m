@@ -10,6 +10,7 @@
 
 @implementation HGStrikeListTableViewController
 
+@synthesize toggleDebugButton = _toggleDebugButton;
 @synthesize debug = _debug;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
@@ -157,17 +158,23 @@
     DLog(@"Preparing segue with identifier \"%@\".", segue.identifier);
     if ([segue.identifier isEqualToString:@"StrikeDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        HGStrikeDetailViewController *detailViewController = [segue destinationViewController];
+        HGStrikeDetailTableViewController *detailViewController = [segue destinationViewController];
 
         NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
         detailViewController.strike = [strikesForDay objectAtIndex:indexPath.row];
-    } else if ([segue.identifier isEqualToString:@"DebugTableSegue"]) {
-        NSLog(@"Going to debug view");
     }
 }
 
-- (IBAction)leaveDebugTable:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)toggleDebugTable:(id)sender {
+    self.debug = !self.debug;
+
+    if (self.debug) {
+        self.toggleDebugButton.titleLabel.text = @"Current";
+    } else {
+        self.toggleDebugButton.titleLabel.text = @"Debug";
+    }
+
+    [self updateStrikes];
 }
 
 #pragma mark - View lifecycle
@@ -189,7 +196,7 @@
 {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
     } else {
         return YES;
     }
@@ -203,8 +210,8 @@
 - (void)updateStrikes {
     HGStrikeDays *strikeDays;
 
-    if ([self valueForKey:@"debug"]) {
-        strikeDays = [HGStrikeDays strikeDaysFromWebsite:HOST_DEBUG_URL];
+    if (self.debug) {
+        strikeDays = [HGStrikeDays strikeDaysFromWebsite:DEBUG_HOST_URL];
     } else {
         strikeDays = [HGStrikeDays strikeDaysFromWebsite];
     }
@@ -213,6 +220,8 @@
         self.strikeDays = strikeDays;
     } // else: Warn the user?
 
+    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    [self.tableView setNeedsLayout];
     [self performSelectorOnMainThread:@selector(stopLoading) withObject:nil waitUntilDone:YES];
 }
 

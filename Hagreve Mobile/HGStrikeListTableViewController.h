@@ -7,7 +7,7 @@
 //
 
 // Project includes
-#import "HGStrikeDetailViewController.h"
+#import "HGStrikeDetailTableViewController.h"
 #import "HGStrikeDays.h"
 #import "HGUtils.h"
 
@@ -40,6 +40,7 @@
   <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic) BOOL debug;
+@property (nonatomic, retain) UIButton *toggleDebugButton;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 
@@ -57,7 +58,11 @@
 
 #pragma mark - TableView selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+#pragma mark - Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+
+- (IBAction)toggleDebugTable:(id)sender;
 
 #pragma mark - View lifecycle
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
