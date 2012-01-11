@@ -51,9 +51,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Hoje há greve?" id="3en-i7-bnY">
                         <barButtonItem key="backBarButtonItem" title="Greves" id="RO4-Zm-jvr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Debug" id="MFy-FQ-92O">
+                        <barButtonItem key="rightBarButtonItem" title="Debug" style="done" id="MFy-FQ-92O">
                             <connections>
-                                <action selector="toggleDebugTable:" destination="Bu2-O2-OQ0" id="LHG-zY-R8j"/>
+                                <action selector="toggleDebugTable:" destination="Bu2-O2-OQ0" id="cjI-sG-Ahs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -289,35 +289,6 @@
             <point key="canvasLocation" x="-146" y="-65"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="HGStrikeDetailTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeDetailTableViewController.h"/>
-        </class>
-        <class className="HGStrikeDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sourceTouch:"/>
-                <relationship kind="action" name="tweetTouch:"/>
-                <relationship kind="outlet" name="commentLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="companyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="sourceButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tweetButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="HGStrikeListTableViewController" superclassName="PullRefreshTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleDebugTable:"/>
-                <relationship kind="outlet" name="protoCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="PullRefreshTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

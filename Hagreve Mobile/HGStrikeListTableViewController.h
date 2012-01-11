@@ -18,9 +18,10 @@
 #define ARROW_FILENAME (@"arrow2")
 
 // Tags for the StrikeListTableViewCell's subviews
-#define TAG_TITLE    1
-#define TAG_SUBTITLE 2
-#define TAG_COMMENT  3
+#define TAG_TITLE       1
+#define TAG_SUBTITLE    2
+#define TAG_COMMENT     3
+#define TAG_CANCELEDIMG 4
 
 // Sizes for the StrikeList views
 #define HEADER_LABEL_WIDTH  300.0
@@ -40,7 +41,7 @@
   <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic) BOOL debug;
-@property (nonatomic, retain) UIButton *toggleDebugButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *toggleDebugButton;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 

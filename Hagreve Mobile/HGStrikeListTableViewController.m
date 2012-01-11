@@ -47,10 +47,12 @@
     label = (UILabel *)[cell viewWithTag:TAG_COMMENT];
     label.text = [HGUtils cellCommentTextForStrike:strike];
 
+    UIImageView *imageView = (UIImageView*)[cell viewWithTag:TAG_CANCELEDIMG];
     if (strike.canceled) {
         UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-        NSLog(@"%@\n", canceledImage);
-        [cell addSubview:[[UIImageView alloc] initWithImage:canceledImage]];
+        [imageView setImage:canceledImage];
+    } else {
+        [imageView setImage:nil];
     }
 
     return cell;
@@ -169,9 +171,9 @@
     self.debug = !self.debug;
 
     if (self.debug) {
-        self.toggleDebugButton.titleLabel.text = @"Current";
+        self.toggleDebugButton.title = @"Release";
     } else {
-        self.toggleDebugButton.titleLabel.text = @"Debug";
+        self.toggleDebugButton.title = @"Debug";
     }
 
     [self updateStrikes];
@@ -180,9 +182,11 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    // Initialize stuff.
-    self.imageFileName = ARROW_FILENAME;
     [super viewDidLoad];
+    // Initialize stuff.
+
+    self.imageFileName = ARROW_FILENAME;
+    self.toggleDebugButton.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
 }
 
 - (void)viewDidUnload
