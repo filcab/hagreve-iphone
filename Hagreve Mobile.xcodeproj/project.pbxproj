@@ -11,7 +11,7 @@
 		2B47860114B762CC00C62761 /* Canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4785FF14B762CC00C62761 /* Canceled.png */; };
 		2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B47860014B762CC00C62761 /* Canceled@2x.png */; };
 		2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */; };
-		2B6B728A14668A6200A00D64 /* HGStrikeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */; };
+		2B6B728A14668A6200A00D64 /* HGStrikeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B728914668A6100A00D64 /* HGStrikeDetailTableViewController.m */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D396C145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
@@ -40,6 +40,7 @@
 		2BE2620014657730006D3A51 /* HGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE261FF14657730006D3A51 /* HGUtils.m */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
+		2BFAB25814BBACF900CEF357 /* HGStrikeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,8 @@
 		2B47860014B762CC00C62761 /* Canceled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Canceled@2x.png"; path = "Resources/Canceled@2x.png"; sourceTree = "<group>"; };
 		2B47860414B770F500C62761 /* HGMaybeStrikeThroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGMaybeStrikeThroughLabel.h; sourceTree = "<group>"; };
 		2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGMaybeStrikeThroughLabel.m; sourceTree = "<group>"; };
-		2B6B728814668A6100A00D64 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
-		2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailViewController.m; sourceTree = "<group>"; };
+		2B6B728814668A6100A00D64 /* HGStrikeDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailTableViewController.h; sourceTree = "<group>"; };
+		2B6B728914668A6100A00D64 /* HGStrikeDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailTableViewController.m; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
 		2B6D3965145895ED0015BEFA /* HGStrike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrike.m; path = Model/HGStrike.m; sourceTree = "<group>"; };
 		2B6D396A145898700015BEFA /* HGCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGCompany.h; path = Model/HGCompany.h; sourceTree = "<group>"; };
@@ -96,6 +97,8 @@
 		2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		2BF912681469DFB3001D41D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2BFAB25614BBACF900CEF357 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
+		2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +199,10 @@
 				2B08E75E14636580009D2561 /* StrikeCell.xib */,
 				2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */,
 				2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */,
-				2B6B728814668A6100A00D64 /* HGStrikeDetailViewController.h */,
-				2B6B728914668A6100A00D64 /* HGStrikeDetailViewController.m */,
+				2BFAB25614BBACF900CEF357 /* HGStrikeDetailViewController.h */,
+				2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */,
+				2B6B728814668A6100A00D64 /* HGStrikeDetailTableViewController.h */,
+				2B6B728914668A6100A00D64 /* HGStrikeDetailTableViewController.m */,
 				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
 				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
 				2BE261FE14657730006D3A51 /* HGUtils.h */,
@@ -364,9 +369,10 @@
 				2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 				2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */,
 				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
-				2B6B728A14668A6200A00D64 /* HGStrikeDetailViewController.m in Sources */,
+				2B6B728A14668A6200A00D64 /* HGStrikeDetailTableViewController.m in Sources */,
 				2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */,
 				2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */,
+				2BFAB25814BBACF900CEF357 /* HGStrikeDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
