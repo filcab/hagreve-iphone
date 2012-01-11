@@ -11,8 +11,8 @@
 @implementation HGStrikeListTableViewController
 
 #if DEBUG==1
-@synthesize toggleDebugButton = _toggleDebugButton;
 @synthesize debug = _debug;
+@synthesize toggleDebugButton = _toggleDebugButton;
 #endif
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
@@ -168,8 +168,8 @@
     }
 }
 
-- (IBAction)toggleDebugTable:(id)sender {
 #if DEBUG==1
+- (IBAction)toggleDebugTable:(id)sender {
     self.debug = !self.debug;
 
     if (self.debug) {
@@ -180,21 +180,22 @@
 
     DLog(@"Scrolling to top and refreshing");
     [self scrollToTopAndRefresh];
-#endif
 }
+#endif
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     // Initialize stuff.
+#if DEBUG==1
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Debug" style:UIBarButtonItemStylePlain target:self action:@selector(toggleDebugTable:)];
+    button.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
+    self.navigationItem.rightBarButtonItem = button;
+    self.toggleDebugButton = button;
+#endif
 
     self.imageFileName = kArrowFilename;
-#if DEBUG==1
-    self.toggleDebugButton.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
-#else
-    self.toggleDebugButton = nil;
-#endif
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -236,15 +237,23 @@
         self.strikeDays = strikeDays;
     } // else: Warn the user?
 
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
-    [self.tableView setNeedsLayout];
-    [self performSelectorOnMainThread:@selector(stopLoading) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(reloadDataAndStopLoading) withObject:nil waitUntilDone:YES];
+}
+
+#pragma mark - Reloading data
+- (void)reloadDataAndStopLoading {
+    [self.tableView reloadData];
+    [self stopLoading];
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
 }
 
 #pragma mark - Misc methods
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
     _strikeDays = strikeDays;
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 
 - (UIColor *)backgroundColorForEvenRows {

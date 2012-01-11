@@ -51,15 +51,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Hoje há greve?" id="3en-i7-bnY">
                         <barButtonItem key="backBarButtonItem" title="Greves" id="RO4-Zm-jvr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Debug" style="done" id="MFy-FQ-92O">
-                            <connections>
-                                <action selector="toggleDebugTable:" destination="Bu2-O2-OQ0" id="cjI-sG-Ahs"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="toggleDebugButton" destination="MFy-FQ-92O" id="aMG-6i-O3W"/>
-                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="365" y="-65"/>
@@ -329,7 +321,6 @@
             <relationships>
                 <relationship kind="action" name="toggleDebugTable:"/>
                 <relationship kind="outlet" name="protoCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="toggleDebugButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="PullRefreshTableViewController" superclassName="UITableViewController">
@@ -337,7 +328,7 @@
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

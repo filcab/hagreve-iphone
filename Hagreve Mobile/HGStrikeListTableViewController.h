@@ -42,8 +42,8 @@
 
 #if DEBUG==1
 @property (nonatomic) BOOL debug;
+@property (nonatomic, retain) UIBarButtonItem *toggleDebugButton;
 #endif
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *toggleDebugButton;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 
@@ -65,14 +65,21 @@
 #pragma mark - Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
-- (IBAction)toggleDebugTable:(id)sender;
-
 #pragma mark - View lifecycle
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 
 #pragma mark - pull to refresh handler
 - (void)refresh;
 - (void)updateStrikes;
+
+#pragma mark - Reloading data
+- (void)reloadDataAndStopLoading;
+- (void)reloadData;
+
+#if DEBUG==1
+#pragma mark - Debug
+- (IBAction)toggleDebugTable:(id)sender;
+#endif
 
 #pragma mark - Misc methods
 - (UIColor *)backgroundColorForOddRows;
