@@ -32,7 +32,7 @@
 
 - (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url {
     if (!(self = [self initWithBaseURL:base_url andAPIPath:API_RELATIVE_PATH]))
-        nil;
+        return nil;
 
     return self;
 }
