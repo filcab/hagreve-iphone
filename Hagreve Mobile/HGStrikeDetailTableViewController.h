@@ -21,7 +21,7 @@
 #define TITLE_FONT_SIZE 15.0
 #define SUBTITLE_FONT_SIZE 12.0
 
-@interface HGStrikeDetailViewController : UITableViewController <UIActionSheetDelegate>
+@interface HGStrikeDetailTableViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (nonatomic, retain) HGStrike *strike;
 

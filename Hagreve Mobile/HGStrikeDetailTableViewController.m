@@ -7,7 +7,7 @@
 //
 
 #import "HGUtils.h"
-#import "HGStrikeDetailViewController.h"
+#import "HGStrikeDetailTableViewController.h"
 
 #define DATES_SECT 0
 #define COMPANY_SECT 1
@@ -16,7 +16,7 @@
 static NSString *sections[] =
  { @"Datas", @"Empresa", @"Descrição", @"Fonte" };
 
-@implementation HGStrikeDetailViewController
+@implementation HGStrikeDetailTableViewController
 
 @synthesize strike;
 
@@ -72,7 +72,7 @@ static NSString *sections[] =
             }
 
             if (strike.canceled) {
-
+                // TODO: …
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
