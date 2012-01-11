@@ -143,7 +143,6 @@ static NSString *sections[] =
          To conform to the Human Interface Guidelines, selections should not be persistent --
          deselect the row after it has been selected.
          */
-        NSLog(@"Opening URL: %@", strike.sourceLink);
         [self openOrCopyURL:strike.sourceLink];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }

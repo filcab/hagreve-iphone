@@ -12,13 +12,13 @@
 // Framework includes
 #import <Foundation/Foundation.h>
 
-#ifndef NDEBUG
-#  define DLog NSLog
+#if DEBUG==1
+#  define DLog(...) NSLog(__VA_ARGS__)
 #else
 #  define DLog(...)
 #endif
 
-#define HGDISPATCH_QUEUE_NAME "com.hagreve.dispatch-queue"
+//#define HGDISPATCH_QUEUE_NAME "com.hagreve.dispatch-queue"
 
 @interface HGUtils : NSObject
 

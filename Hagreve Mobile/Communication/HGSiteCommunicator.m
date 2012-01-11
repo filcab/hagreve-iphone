@@ -114,7 +114,6 @@
         return nil;
     }
 
-    DLog(@"JSON: %@", jsonObject);
     // Convert to NSArray of HGStrike objects
     NSMutableArray *strikeList = [NSMutableArray arrayWithCapacity:jsonObject.count];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
