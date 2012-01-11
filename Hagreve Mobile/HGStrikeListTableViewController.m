@@ -10,8 +10,10 @@
 
 @implementation HGStrikeListTableViewController
 
+#if DEBUG==1
 @synthesize toggleDebugButton = _toggleDebugButton;
 @synthesize debug = _debug;
+#endif
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -171,15 +173,17 @@
 }
 
 - (IBAction)toggleDebugTable:(id)sender {
+#if DEBUG==1
     self.debug = !self.debug;
 
     if (self.debug) {
-        self.toggleDebugButton.title = @"Release";
+        self.toggleDebugButton.title = @"Current";
     } else {
         self.toggleDebugButton.title = @"Debug";
     }
 
     [self updateStrikes];
+#endif
 }
 
 #pragma mark - View lifecycle
@@ -189,7 +193,11 @@
     // Initialize stuff.
 
     self.imageFileName = ARROW_FILENAME;
+#if DEBUG==1
     self.toggleDebugButton.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
+#else
+    self.toggleDebugButton = nil;
+#endif
 }
 
 - (void)viewDidUnload
@@ -217,11 +225,15 @@
 - (void)updateStrikes {
     HGStrikeDays *strikeDays;
 
+#if DEBUG==1
     if (self.debug) {
         strikeDays = [HGStrikeDays strikeDaysFromWebsite:DEBUG_HOST_URL];
     } else {
         strikeDays = [HGStrikeDays strikeDaysFromWebsite];
     }
+#else
+    strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+#endif
 
     if (strikeDays) {
         self.strikeDays = strikeDays;

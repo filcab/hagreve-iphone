@@ -40,7 +40,9 @@
 @interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
 
+#if DEBUG==1
 @property (nonatomic) BOOL debug;
+#endif
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *toggleDebugButton;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
