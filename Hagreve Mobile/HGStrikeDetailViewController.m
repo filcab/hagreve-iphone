@@ -87,13 +87,12 @@
     self.companyLabel.text   = self.strike.company.name;
 
     if (self.strike.canceled){
-        // Mark the strike as canceled.
+        if (nil == self.canceledImageView.image) {
+            UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
+            self.canceledImageView.image = canceledImage;
+        }
+        [self.scrollView bringSubviewToFront:self.canceledImageView];
         self.canceledImageView.hidden = NO;
-//        UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (31+33)+29, 320, 70)];
-//        NSLog(@"%@\n\n%@\n\n\n\n\n", canceledImage, imageView);
-//        [imageView setImage:canceledImage];
-//        [self.scrollView addSubview:imageView];
     } else {
         self.canceledImageView.hidden = YES;
     }
@@ -118,13 +117,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-*/
+
 
 - (void)viewDidUnload
 {

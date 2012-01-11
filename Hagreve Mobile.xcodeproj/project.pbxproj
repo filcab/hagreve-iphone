@@ -22,7 +22,6 @@
 		2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
 		2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
 		2B7329F5145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
-		2B915379147EDDF700C2C262 /* Arrow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B915378147EDDF700C2C262 /* Arrow2@2x.png */; };
 		2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */; };
 		2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB4E1450A74A00FFD02D /* UIKit.framework */; };
 		2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
@@ -71,7 +70,6 @@
 		2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSiteCommunicator.m; path = Communication/HGSiteCommunicator.m; sourceTree = "<group>"; };
 		2B7329F2145B670200EBEB56 /* HGStrikeDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrikeDays.h; path = Model/HGStrikeDays.h; sourceTree = "<group>"; };
 		2B7329F3145B670300EBEB56 /* HGStrikeDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrikeDays.m; path = Model/HGStrikeDays.m; sourceTree = "<group>"; };
-		2B915378147EDDF700C2C262 /* Arrow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Arrow2@2x.png"; path = "Resources/Arrow2@2x.png"; sourceTree = "<group>"; };
 		2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hagreve_iPhone.storyboard; sourceTree = "<group>"; };
 		2BA1CB4A1450A74A00FFD02D /* Hagreve Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hagreve Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1CB4E1450A74A00FFD02D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -155,7 +153,6 @@
 			children = (
 				2B4785FF14B762CC00C62761 /* Canceled.png */,
 				2B47860014B762CC00C62761 /* Canceled@2x.png */,
-				2B915378147EDDF700C2C262 /* Arrow2@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				2BA1CB651450A74A00FFD02D /* MainStoryboard_iPad.storyboard in Resources */,
 				2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */,
 				2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */,
-				2B915379147EDDF700C2C262 /* Arrow2@2x.png in Resources */,
 				2B47860114B762CC00C62761 /* Canceled.png in Resources */,
 				2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */,
 			);
