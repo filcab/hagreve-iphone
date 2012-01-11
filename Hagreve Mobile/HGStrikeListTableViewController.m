@@ -51,10 +51,6 @@
 
     UIImageView *imageView = (UIImageView*)[cell viewWithTag:TAG_CANCELEDIMG];
     if (strike.canceled) {
-        if (nil == imageView.image) {
-            UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-            imageView.image = canceledImage;
-        }
         imageView.hidden = NO;
     } else {
         imageView.hidden = YES;
@@ -182,7 +178,8 @@
         self.toggleDebugButton.title = @"Debug";
     }
 
-    [self updateStrikes];
+    DLog(@"Scrolling to top and refreshing");
+    [self scrollToTopAndRefresh];
 #endif
 }
 
@@ -247,7 +244,6 @@
 #pragma mark - Misc methods
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
     _strikeDays = strikeDays;
-    NSLog(@"Setting strikes...");
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 

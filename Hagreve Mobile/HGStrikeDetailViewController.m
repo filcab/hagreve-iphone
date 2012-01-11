@@ -87,11 +87,6 @@
     self.companyLabel.text   = self.strike.company.name;
 
     if (self.strike.canceled){
-        if (nil == self.canceledImageView.image) {
-            UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-            self.canceledImageView.image = canceledImage;
-        }
-        [self.scrollView bringSubviewToFront:self.canceledImageView];
         self.canceledImageView.hidden = NO;
     } else {
         self.canceledImageView.hidden = YES;
