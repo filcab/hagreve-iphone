@@ -184,7 +184,6 @@
 		2BA1CB3F1450A74A00FFD02D = {
 			isa = PBXGroup;
 			children = (
-				2BED31C914BE4439008EB7DD /* Twitter.framework */,
 				2BA1CB541450A74A00FFD02D /* Hagreve Mobile */,
 				2BA1CB751450A74A00FFD02D /* Hagreve MobileTests */,
 				2BA1CB4D1450A74A00FFD02D /* Frameworks */,
@@ -204,11 +203,12 @@
 		2BA1CB4D1450A74A00FFD02D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2BF912681469DFB3001D41D3 /* QuartzCore.framework */,
-				2BA1CB4E1450A74A00FFD02D /* UIKit.framework */,
-				2BA1CB501450A74A00FFD02D /* Foundation.framework */,
 				2BA1CB521450A74A00FFD02D /* CoreGraphics.framework */,
+				2BA1CB501450A74A00FFD02D /* Foundation.framework */,
 				2BA1CB6F1450A74A00FFD02D /* SenTestingKit.framework */,
+				2BF912681469DFB3001D41D3 /* QuartzCore.framework */,
+				2BED31C914BE4439008EB7DD /* Twitter.framework */,
+				2BA1CB4E1450A74A00FFD02D /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
