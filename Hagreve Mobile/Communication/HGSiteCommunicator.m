@@ -44,7 +44,7 @@
     return self;
 }
 
-#if !defined NO_COMMUNICATION
+#if NO_COMMUNICATION==1
 /* Fields for the mock objects.
  *
  * {
@@ -74,14 +74,14 @@
 #define DAY (3600*24)
 
     HGStrike *s1 = [HGStrike new];
-    s1.start_date = [NSDate dateWithTimeIntervalSinceNow:3*DAY];
-    s1.end_date   = [NSDate dateWithTimeIntervalSinceNow:5*DAY];
+    s1.startDate = [NSDate dateWithTimeIntervalSinceNow:3*DAY];
+    s1.endDate   = [NSDate dateWithTimeIntervalSinceNow:5*DAY];
     s1.comment = @"Strike 1!";
     s1.company = c;
 
     HGStrike *s2 = [HGStrike new];
-    s2.start_date = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
-    s2.end_date   = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
+    s2.startDate = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
+    s2.endDate   = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
     s2.all_day = true;
     s2.company = c;
 
