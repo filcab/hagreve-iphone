@@ -57,6 +57,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="toggleDebugButton" destination="MFy-FQ-92O" id="aMG-6i-O3W"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="365" y="-65"/>
