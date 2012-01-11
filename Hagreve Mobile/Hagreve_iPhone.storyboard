@@ -136,10 +136,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="441"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Canceled.png" id="28X-0h-Rdu">
-                                        <rect key="frame" x="0.0" y="32" width="320" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" id="5GN-NR-F1T">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -256,6 +252,10 @@
                                             <action selector="tweetTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="2pE-Nm-GU5"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Canceled.png" id="28X-0h-Rdu">
+                                        <rect key="frame" x="0.0" y="32" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -263,11 +263,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Greve" id="ui9-6a-NEd"/>
                     <connections>
+                        <outlet property="canceledImageView" destination="28X-0h-Rdu" id="as4-yz-S0U"/>
                         <outlet property="commentLabel" destination="ed1-cm-8Zl" id="75Y-Uf-spe"/>
                         <outlet property="companyLabel" destination="psr-Ug-5CA" id="6zI-bV-X6p"/>
                         <outlet property="endDateLabel" destination="CNv-lK-hr6" id="ADf-hK-HzH"/>
+                        <outlet property="endLabel" destination="vf1-ls-dWx" id="QYv-hq-QWc"/>
+                        <outlet property="scrollView" destination="1kE-xp-OXc" id="Aqb-Yd-mjy"/>
                         <outlet property="sourceButton" destination="ILu-ax-Rgh" id="Nil-wv-8aj"/>
                         <outlet property="startDateLabel" destination="upg-CO-MGs" id="U09-Lw-tuR"/>
+                        <outlet property="startLabel" destination="jzL-uu-xEd" id="hl6-F4-jXK"/>
                         <outlet property="tweetButton" destination="zdg-Iq-kZC" id="TsQ-vF-3au"/>
                     </connections>
                 </viewController>
