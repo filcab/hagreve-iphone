@@ -176,7 +176,6 @@
 }
 
 - (void)scrollToTopAndRefresh {
-    NSLog(@"PullRefresh: Scrolling to top and refreshing...");
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     self.tableView.contentOffset = CGPointMake(0, -REFRESH_HEADER_HEIGHT);
