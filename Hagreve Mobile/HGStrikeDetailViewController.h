@@ -14,10 +14,13 @@
 
 @property (nonatomic, retain) HGStrike *strike;
 
+@property (nonatomic, retain) IBOutlet UIImageView *canceledImageView;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, retain) IBOutlet UILabel *startDateLabel;
+@property (nonatomic, retain) IBOutlet UILabel *startLabel;
 @property (nonatomic, retain) IBOutlet UILabel *endDateLabel;
+@property (nonatomic, retain) IBOutlet UILabel *endLabel;
 @property (nonatomic, retain) IBOutlet UILabel *companyLabel;
 @property (nonatomic, retain) IBOutlet UILabel *commentLabel;
 @property (nonatomic, retain) IBOutlet UIButton *sourceButton;

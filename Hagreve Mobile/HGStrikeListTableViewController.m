@@ -49,10 +49,13 @@
 
     UIImageView *imageView = (UIImageView*)[cell viewWithTag:TAG_CANCELEDIMG];
     if (strike.canceled) {
-        UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-        [imageView setImage:canceledImage];
+        if (nil == imageView.image) {
+            UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
+            imageView.image = canceledImage;
+        }
+        imageView.hidden = NO;
     } else {
-        [imageView setImage:nil];
+        imageView.hidden = YES;
     }
 
     return cell;

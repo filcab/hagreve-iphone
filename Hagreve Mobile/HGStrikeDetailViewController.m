@@ -10,14 +10,17 @@
 
 @implementation HGStrikeDetailViewController
 
-@synthesize strike         =         _strike,
-            scrollView     =     _scrollView,
-            startDateLabel = _startDateLabel,
-            endDateLabel   =   _endDateLabel,
-            companyLabel   =   _companyLabel,
-            commentLabel   =   _commentLabel,
-            sourceButton   =   _sourceButton,
-            tweetButton    =    _tweetButton;
+@synthesize strike            =            _strike,
+            canceledImageView = _canceledImageView,
+            scrollView        =        _scrollView,
+            startDateLabel    =    _startDateLabel,
+            startLabel        =        _startLabel,
+            endDateLabel      =      _endDateLabel,
+            endLabel          =          _endLabel,
+            companyLabel      =      _companyLabel,
+            commentLabel      =      _commentLabel,
+            sourceButton      =      _sourceButton,
+            tweetButton       =       _tweetButton;
 
 #pragma mark - Button actions
 
@@ -30,7 +33,7 @@
 
 - (IBAction)sourceTouch:(id)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Copiar", @"Abrir", nil];
-    sheet.actionSheetStyle = UIActionSheetStyleAutomatic;
+    sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [sheet showInView:self.view];
 }
 
@@ -85,11 +88,14 @@
 
     if (self.strike.canceled){
         // Mark the strike as canceled.
-        UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (31+33)+29, 320, 70)];
-        NSLog(@"%@\n\n%@\n\n\n\n\n", canceledImage, imageView);
-        [imageView setImage:canceledImage];
-        [self.scrollView addSubview:imageView];
+        self.canceledImageView.hidden = NO;
+//        UIImage *canceledImage = [UIImage imageNamed:@"Canceled"];
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (31+33)+29, 320, 70)];
+//        NSLog(@"%@\n\n%@\n\n\n\n\n", canceledImage, imageView);
+//        [imageView setImage:canceledImage];
+//        [self.scrollView addSubview:imageView];
+    } else {
+        self.canceledImageView.hidden = YES;
     }
 
     CGRect frame = self.commentLabel.frame;
