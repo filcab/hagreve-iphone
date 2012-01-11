@@ -57,5 +57,6 @@
 - (void)startLoading;
 - (void)stopLoading;
 - (void)refresh;
+- (void)scrollToTopAndRefresh;
 
 @end

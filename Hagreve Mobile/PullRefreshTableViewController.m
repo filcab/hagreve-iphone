@@ -175,4 +175,14 @@
     [self performSelector:@selector(stopLoading) withObject:nil afterDelay:2.0];
 }
 
+- (void)scrollToTopAndRefresh {
+    NSLog(@"PullRefresh: Scrolling to top and refreshing...");
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    self.tableView.contentOffset = CGPointMake(0, -REFRESH_HEADER_HEIGHT);
+//    [self.tableView scrollRectToVisible:CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, 320, REFRESH_HEADER_HEIGHT) animated:YES];
+    [UIView commitAnimations];
+    [self startLoading];
+}
+
 @end
