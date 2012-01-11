@@ -15,26 +15,26 @@
 #import "PullRefreshTableViewController.h"
 #import <UIKit/UIKit.h>
 
-#define ARROW_FILENAME (@"arrow2")
+#define kArrowFilename (@"blackArrow")
 
 // Tags for the StrikeListTableViewCell's subviews
-#define TAG_TITLE       1
-#define TAG_SUBTITLE    2
-#define TAG_COMMENT     3
-#define TAG_CANCELEDIMG 4
+#define kCellTagTitle         1
+#define kCellTagSubtitle      2
+#define kCellTagComment       3
+#define kCellTagCanceledImage 4
 
 // Sizes for the StrikeList views
-#define HEADER_LABEL_WIDTH  300.0
-#define HEADER_LABEL_HEIGHT 28.0
-#define HEADER_LABEL_MARGIN 10.0
+#define kHeaderLabelWidth  300.0
+#define kHeaderLabelHeight 28.0
+#define kHeaderLabelMargin 10.0
 
-#define HEADER_SIDELINE_VMARGIN 2.0
-#define HEADER_SIDELINE_HMARGIN 2.0
-#define HEADER_SIDELINE_WIDTH 1.0
+#define kHeaderSideLineVMargin 2.0
+#define kHeaderSideLineHMargin 2.0
+#define kHeaderSideLineWidth   1.0
 
-#define HEADER_TOPLINE_HMARGIN 3.0
-#define HEADER_TOPLINE_VMARGIN 2.0
-#define HEADER_TOPLINE_HEIGHT 1.0
+#define kHeaderTopLineHMargin  3.0
+#define kHeaderTopLine_VMargin 2.0
+#define kHeaderTopLineHeight   1.0
 
 
 @interface HGStrikeListTableViewController : PullRefreshTableViewController

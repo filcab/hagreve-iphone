@@ -40,16 +40,16 @@
     NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
     HGStrike *strike = [strikesForDay objectAtIndex:indexPath.row];
 
-    UILabel *label = (UILabel *)[cell viewWithTag:TAG_TITLE];
+    UILabel *label = (UILabel *)[cell viewWithTag:kCellTagTitle];
     label.text = [HGUtils cellTitleTextForStrike:strike];
 
-    label = (UILabel *)[cell viewWithTag:TAG_SUBTITLE];
+    label = (UILabel *)[cell viewWithTag:kCellTagSubtitle];
     label.text = [HGUtils cellSubtitleTextForStrike:strike];
 
-    label = (UILabel *)[cell viewWithTag:TAG_COMMENT];
+    label = (UILabel *)[cell viewWithTag:kCellTagComment];
     label.text = [HGUtils cellCommentTextForStrike:strike];
 
-    UIImageView *imageView = (UIImageView*)[cell viewWithTag:TAG_CANCELEDIMG];
+    UIImageView *imageView = (UIImageView*)[cell viewWithTag:kCellTagCanceledImage];
     if (strike.canceled) {
         imageView.hidden = NO;
     } else {
@@ -84,14 +84,14 @@
                                           : [self backgroundColorForOddRows];
 
 	// create the parent view that will hold header Label
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
-    UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(HEADER_SIDELINE_HMARGIN, HEADER_SIDELINE_VMARGIN, HEADER_SIDELINE_WIDTH, HEADER_LABEL_HEIGHT - 2*HEADER_SIDELINE_VMARGIN)];
-    UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(HEADER_TOPLINE_HMARGIN, HEADER_TOPLINE_VMARGIN, HEADER_LABEL_WIDTH - 2*HEADER_TOPLINE_HMARGIN, HEADER_TOPLINE_HEIGHT)];
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, kHeaderLabelWidth, kHeaderLabelHeight)];
+    UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderSideLineHMargin, kHeaderSideLineVMargin, kHeaderSideLineWidth, kHeaderLabelHeight - 2*kHeaderSideLineVMargin)];
+    UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderTopLineHMargin, kHeaderTopLine_VMargin, kHeaderLabelWidth - 2*kHeaderTopLineHMargin, kHeaderTopLineHeight)];
     [sideLineView setBackgroundColor:[UIColor blackColor]];
     [topLineView setBackgroundColor:[UIColor blackColor]];
 
     // create the button object
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(HEADER_LABEL_MARGIN, 0.0, HEADER_LABEL_WIDTH, HEADER_LABEL_HEIGHT)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderLabelMargin, 0.0,kHeaderLabelWidth, kHeaderLabelHeight)];
     headerLabel.opaque = NO;
     headerLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
     headerLabel.textColor = [UIColor blackColor];
@@ -189,7 +189,7 @@
     [super viewDidLoad];
     // Initialize stuff.
 
-    self.imageFileName = ARROW_FILENAME;
+    self.imageFileName = kArrowFilename;
 #if DEBUG==1
     self.toggleDebugButton.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
 #else
