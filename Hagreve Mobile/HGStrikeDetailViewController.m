@@ -29,7 +29,17 @@
     TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
 
     [twitter addURL:self.strike.url];
-    [twitter setInitialText:@"A ver se consigo chegar ao trabalho, apesar desta greve. #hagreve"];
+
+    NSString *text;
+    if ([@"Greve geral" isEqualToString:self.strike.company.name]) {
+        text = @"A ver se consigo chegar ao trabalho, apesar da greve geral. #hagreve";
+    } else  if ([@"Táxis" isEqualToString:self.strike.company.name]) {
+        text = @"A ver se consigo chegar ao trabalho, apesar da greve dos táxis. #hagreve";
+    } else {
+        text = [NSString stringWithFormat:@"A ver se consigo chegar ao trabalho, apesar da greve da %@. #hagreve",
+                self.strike.company.name];
+    }
+    [twitter setInitialText:text];
 
     // Show the controller
     [self presentModalViewController:twitter animated:YES];
@@ -101,13 +111,23 @@
     CGSize textSize = {0, 0};
     NSString *text = self.strike.comment;
     if (text && ![text isEqualToString:@""])
-        textSize = [text sizeWithFont:[self commentFont]
-                    constrainedToSize:CGSizeMake(WIDTH, 42000)
-                        lineBreakMode:UILineBreakModeWordWrap];
-    CGFloat height = MIN_HEIGHT < textSize.height ? textSize.height + BORDER : MIN_HEIGHT;
+        textSize = [text sizeWithFont:self.commentLabel.font
+                    constrainedToSize:CGSizeMake(self.commentLabel.frame.size.width, CGFLOAT_MAX)
+                    lineBreakMode:UILineBreakModeWordWrap];
+    CGFloat height = fmaxf(textSize.height, kCommentMinHeight);
 
     self.commentLabel.frame = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), height);
-    self.commentLabel.text   = self.strike.comment;
+    self.commentLabel.text  = self.strike.comment;
+
+    // Let's fix the UIScrollView's contentSize. Start by filling the whole UIScrollView
+    CGSize scrollSize = self.scrollView.frame.size;
+    self.scrollView.contentSize = CGSizeMake(scrollSize.width, height <= 103 ? scrollSize.height : scrollSize.height + height - 103 + kCommentFooter);
+
+    // Put the other buttons in place. Autoresize isn't cutting it…
+    frame = self.tweetButton.frame;
+    self.tweetButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
+    frame = self.sourceButton.frame;
+    self.sourceButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
 }
 
 /*
@@ -150,15 +170,5 @@
 
     return [dateFormatter stringFromDate:date];
 }
-
-#pragma mark - UI stuff
-
-- (UIFont *)commentFont {
-    static UIFont *font;
-    if (nil == font)
-        font = [UIFont boldSystemFontOfSize:REGULAR_FONT_SIZE];
-    return font;
-}
-
 
 @end

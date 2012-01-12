@@ -32,11 +32,8 @@
 #pragma mark - Date formatters
 - (NSString*)labelForDate:(NSDate*)date allDay:(BOOL)all_day;
 
-#pragma mark - UI stuff
-- (UIFont*)commentFont;
-#define BORDER 4
-#define WIDTH 320
-#define MIN_HEIGHT 29
-#define REGULAR_FONT_SIZE 17.0
+#define kCommentBorder 0
+#define kCommentFooter 8
+#define kCommentMinHeight 21
 
 @end
