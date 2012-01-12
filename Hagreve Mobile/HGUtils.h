@@ -7,8 +7,6 @@
 //
 
 // Project includes
-#include "HGStrike.h"
-
 // Framework includes
 #import <Foundation/Foundation.h>
 
@@ -18,12 +16,3 @@
 #  define DLog(...)
 #endif
 
-//#define HGDISPATCH_QUEUE_NAME "com.hagreve.dispatch-queue"
-
-@interface HGUtils : NSObject
-
-+ (NSString *)cellTitleTextForStrike:(HGStrike *)strike;
-+ (NSString *)cellSubtitleTextForStrike:(HGStrike *)strike;
-+ (NSString *)cellCommentTextForStrike:(HGStrike *)strike;
-
-@end

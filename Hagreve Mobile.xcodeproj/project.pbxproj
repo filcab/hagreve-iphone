@@ -43,7 +43,6 @@
 		2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A314BE40B600D5EB6E /* Icon-114.png */; };
 		2BAE77A914BE40B600D5EB6E /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A414BE40B600D5EB6E /* splash.png */; };
 		2BAE77AA14BE40B600D5EB6E /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A514BE40B600D5EB6E /* splash@2x.png */; };
-		2BE2620014657730006D3A51 /* HGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE261FF14657730006D3A51 /* HGUtils.m */; };
 		2BED31CA14BE4439008EB7DD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BED31C914BE4439008EB7DD /* Twitter.framework */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
@@ -106,7 +105,6 @@
 		2BAE77A414BE40B600D5EB6E /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = Resources/splash.png; sourceTree = "<group>"; };
 		2BAE77A514BE40B600D5EB6E /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "Resources/splash@2x.png"; sourceTree = "<group>"; };
 		2BE261FE14657730006D3A51 /* HGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGUtils.h; sourceTree = "<group>"; };
-		2BE261FF14657730006D3A51 /* HGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGUtils.m; sourceTree = "<group>"; };
 		2BED31C914BE4439008EB7DD /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
 				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
 				2BE261FE14657730006D3A51 /* HGUtils.h */,
-				2BE261FF14657730006D3A51 /* HGUtils.m */,
 				2B6D3969145898500015BEFA /* Model */,
 				2B7329ED145A0E2B00EBEB56 /* Communication */,
 				2B91537B147EDE6200C2C262 /* Resources */,
@@ -396,7 +393,6 @@
 				2B6D39741458A13A0015BEFA /* HGSubmitter.m in Sources */,
 				2B7329F0145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */,
 				2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */,
-				2BE2620014657730006D3A51 /* HGUtils.m in Sources */,
 				2B6B728A14668A6200A00D64 /* HGStrikeDetailTableViewController.m in Sources */,
 				2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */,
 				2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */,

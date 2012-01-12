@@ -58,9 +58,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
-
-#pragma mark - TableView selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+#pragma mark - Text to present in the UI
+- (NSString *)cellTitleTextForStrike:(HGStrike *)strike;
+- (NSString *)cellSubtitleTextForStrike:(HGStrike *)strike;
+- (NSString *)cellCommentTextForStrike:(HGStrike *)strike;
 
 #pragma mark - Segues
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;

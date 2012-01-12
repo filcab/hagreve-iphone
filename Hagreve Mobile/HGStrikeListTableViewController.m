@@ -41,13 +41,13 @@
     HGStrike *strike = [strikesForDay objectAtIndex:indexPath.row];
 
     UILabel *label = (UILabel *)[cell viewWithTag:kCellTagTitle];
-    label.text = [HGUtils cellTitleTextForStrike:strike];
+    label.text = [self cellTitleTextForStrike:strike];
 
     label = (UILabel *)[cell viewWithTag:kCellTagSubtitle];
-    label.text = [HGUtils cellSubtitleTextForStrike:strike];
+    label.text = [self cellSubtitleTextForStrike:strike];
 
     label = (UILabel *)[cell viewWithTag:kCellTagComment];
-    label.text = [HGUtils cellCommentTextForStrike:strike];
+    label.text = [self cellCommentTextForStrike:strike];
 
     UIImageView *imageView = (UIImageView*)[cell viewWithTag:kCellTagCanceledImage];
     if (strike.canceled) {
@@ -150,6 +150,57 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Text to present in the UI
+- (NSString *)cellTitleTextForStrike:(HGStrike *)strike {
+    return strike.company.name;
+}
+
+- (NSString *)cellSubtitleTextForStrike:(HGStrike *)strike {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSCalendarUnit dayMonthYear = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    
+    NSDateComponents *startDayComponents = [cal components:dayMonthYear fromDate:strike.startDate];
+    NSDateComponents *endDayComponents   = [cal components:dayMonthYear fromDate:strike.endDate];
+    
+    NSDate *startDay = [cal dateFromComponents:startDayComponents];
+    NSDate *endDay   = [cal dateFromComponents:endDayComponents];
+    
+    if ([startDay compare:endDay] == NSOrderedSame) {
+        if (strike.all_day)
+            return @"Todo o dia";
+        
+        NSDateFormatter *df = [NSDateFormatter new];
+        [df setTimeStyle:NSDateFormatterShortStyle];
+        [df setDateStyle:NSDateFormatterNoStyle];
+        
+        return [NSString stringWithFormat:@"Das %@ às %@",
+                [df stringFromDate:strike.startDate],
+                [df stringFromDate:strike.endDate]];
+    }
+    
+    // startDay != endDay
+    if (strike.all_day) {
+        NSDateFormatter *df = [NSDateFormatter new];
+        [df setTimeStyle:NSDateFormatterNoStyle];
+        [df setDateStyle:NSDateFormatterMediumStyle];
+        
+        return [NSString stringWithFormat:@"Até %@",
+                [df stringFromDate:strike.endDate]];
+    }
+    
+    // !all_day (I don't think this usually happens.
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setTimeStyle:NSDateFormatterShortStyle];
+    [df setDateStyle:NSDateFormatterMediumStyle];
+    
+    return [NSString stringWithFormat:@"De %@ até %@",
+            [df stringFromDate:strike.startDate],
+            [df stringFromDate:strike.endDate]];
+}
+
+- (NSString *)cellCommentTextForStrike:(HGStrike *)strike {
+    return strike.comment;
+}
 
 #pragma mark - segues and transitions
 
