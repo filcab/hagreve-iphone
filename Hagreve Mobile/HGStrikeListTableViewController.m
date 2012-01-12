@@ -30,8 +30,6 @@
     static NSString *MyIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyIdentifier];
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
         cell = _protoCell;
         self.protoCell = nil;
@@ -68,7 +66,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    // The header for the section is the region name -- get this from the region at the section index.
+    // The header for the section is the date -- get this from the date at the section index.
     NSDateComponents *day = [self.strikeDays.daysWithStrikes objectAtIndex:section];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -83,7 +81,7 @@
     UIColor *bgColor = rowNumber % 2 == 0 ? [self backgroundColorForEvenRows]
                                           : [self backgroundColorForOddRows];
 
-	// create the parent view that will hold header Label
+	// create the parent view that will hold the header Label
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, kHeaderLabelWidth, kHeaderLabelHeight)];
     UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderSideLineHMargin, kHeaderSideLineVMargin, kHeaderSideLineWidth, kHeaderLabelHeight - 2*kHeaderSideLineVMargin)];
     UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderTopLineHMargin, kHeaderTopLine_VMargin, kHeaderLabelWidth - 2*kHeaderTopLineHMargin, kHeaderTopLineHeight)];
@@ -111,9 +109,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-	return 28.0;
+	return kHeaderLabelHeight;
 }
-
 
 - (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView
 {
@@ -260,7 +257,7 @@
 {
     // Return YES for supported orientations
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+        return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
     } else {
         return YES;
     }
@@ -286,7 +283,9 @@
 
     if (strikeDays) {
         self.strikeDays = strikeDays;
-    } // else: Warn the user?
+    } else {
+        // TODO: Check for no strikes or error
+    }
 
     [self performSelectorOnMainThread:@selector(reloadDataAndStopLoading) withObject:nil waitUntilDone:YES];
 }
@@ -319,7 +318,7 @@
     static UIColor *oddColor;
     if (nil == oddColor) {
         // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
-//        oddColor = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
+        // oddColor = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
         // From wikipedia/alpha_blending:
         // out_RGB = src_RGB * src_A + dst_RGB * (1-src_A)
         // true color over white:
