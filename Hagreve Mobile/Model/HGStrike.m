@@ -19,6 +19,7 @@
 @synthesize canceled = _canceled;
 @synthesize comment = _comment;
 @synthesize sourceLink = _sourceLink;
+@synthesize url = _url;
 
 @synthesize company = _company;
 @synthesize submitter = _submitter;
@@ -35,7 +36,8 @@
 
     self.canceled = false;
     self.comment = @"No description";
-    self.sourceLink = [NSURL URLWithString:@"http://example.com"];
+    self.sourceLink = [NSURL URLWithString:@"http://hagreve.com"];
+    self.url = [NSURL URLWithString:@"http://hagreve.com"];
 
     self.company = nil;
     self.submitter = nil;

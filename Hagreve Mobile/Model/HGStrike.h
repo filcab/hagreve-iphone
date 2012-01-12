@@ -50,6 +50,7 @@
 @property (nonatomic) BOOL canceled;
 @property (nonatomic, retain) NSString *comment;
 @property (nonatomic, retain) NSURL *sourceLink;
+@property (nonatomic, retain) NSURL *url;
 
 @property (nonatomic, retain) HGCompany *company;
 @property (nonatomic, retain) HGSubmitter *submitter;
