@@ -7,6 +7,7 @@
 //
 
 #import "HGStrikeDetailViewController.h"
+#import <Twitter/Twitter.h>
 
 @implementation HGStrikeDetailViewController
 
@@ -25,9 +26,13 @@
 #pragma mark - Button actions
 
 - (IBAction)tweetTouch:(id)sender {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Tweeting…" message:@"Lol, you wish!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-    
-    [alertView show];
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+
+    [twitter addURL:self.strike.url];
+    [twitter setInitialText:@"A ver se consigo chegar ao trabalho, apesar desta greve. #hagreve"];
+
+    // Show the controller
+    [self presentModalViewController:twitter animated:YES];
 }
 
 
