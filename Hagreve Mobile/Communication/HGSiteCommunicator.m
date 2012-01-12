@@ -18,6 +18,7 @@
 @synthesize baseURL = _baseURL;
 @synthesize apiURL  = _apiURL;
 @synthesize apiStrikeListURL = _apiStrikeListURL;
+@synthesize apiStrikeLinkURL = _apiStrikeLinkURL;
 
 - (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path {
     if (!(self = [super init]))
@@ -26,6 +27,7 @@
     self.baseURL = [NSURL URLWithString:base_url];
     self.apiURL  = [NSURL URLWithString:api_path relativeToURL:self.baseURL];
     self.apiStrikeListURL = [NSURL URLWithString:API_STRIKE_LIST_PATH relativeToURL:self.apiURL];
+    self.apiStrikeLinkURL = [NSURL URLWithString:API_STRIKE_LINK_PATH relativeToURL:self.apiURL];
 
     return self;
 }
@@ -129,6 +131,7 @@
         strike.canceled = [(NSNumber*)[jsonStrike valueForKey:@"canceled"] boolValue];
         strike.comment  = [jsonStrike valueForKey:@"description"];
         strike.sourceLink = [NSURL URLWithString:[jsonStrike valueForKey:@"source_link"]];
+        strike.url = [self urlFromStrikeID:strike.id];
 
         HGCompany *company = [HGCompany new];
         strike.company = company;
@@ -147,5 +150,9 @@
 }
 
 #endif
+
+- (NSURL*)urlFromStrikeID:(NSUInteger)strikeId {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%d", strikeId] relativeToURL:self.apiStrikeLinkURL];
+}
 
 @end
