@@ -20,6 +20,8 @@
 @synthesize apiStrikeListURL = _apiStrikeListURL;
 @synthesize apiStrikeLinkURL = _apiStrikeLinkURL;
 
+@synthesize lastError = _lastError;
+
 - (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url andAPIPath:(NSString*)api_path {
     if (!(self = [super init]))
         return nil;
@@ -89,13 +91,17 @@
 
 #undef DAY
 
+    _lastError = nil;
+
     return [NSArray arrayWithObjects:s1, s2, nil];
 }
 
 #else
 
 - (NSArray *)getStrikeList {
-    
+    // Reset any errors.
+    _lastError = nil;
+
     // Open stream to server
     NSURLRequest *request = [NSURLRequest requestWithURL:self.apiStrikeListURL];
     NSURLResponse *response;
@@ -105,6 +111,7 @@
     // The defaults will be used. We may have to change this later.
     NSData *unparsed = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (nil == unparsed) {
+        _lastError = error;
         DLog(@"Didn't get any data from %@. Bailing out!", request.URL);
         return nil;
     }
@@ -112,7 +119,17 @@
     // Parse JSON object (from the API, we know it's an array)
     NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:unparsed options:0 error:&error];
     if (nil == jsonObject) {
+        _lastError = error;
         DLog(@"jsonObject == nil. Bailing out!");
+        return nil;
+    }
+
+    if (![jsonObject isKindOfClass:NSArray.class]) {
+        // There was an error
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"Dados recebidos estão corruptos.", @"NSLocalizedDescriptionKey",
+                                  nil];
+        _lastError = [[NSError alloc] initWithDomain:@"jsonResult" code:1 userInfo:userInfo];
         return nil;
     }
 
