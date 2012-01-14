@@ -14,6 +14,7 @@
 @synthesize debug = _debug;
 @synthesize toggleDebugButton = _toggleDebugButton;
 #endif
+@synthesize outdated = _outdated;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -27,6 +28,18 @@
 #pragma mark - TableView dataSource and delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.strikeDays || 0 == self.strikeDays.count) {
+        NSString *identifier = @"NoStrikesCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            DLog(@"oh crap! NoStrikesCell didn't get dequeued.");
+            exit(1);
+        }
+        UILabel *noStrikeText = (UILabel*)[cell viewWithTag:1];
+        noStrikeText.text = @"Woohoo!\nNão há greves, podemos ir trabalhar! 😃";
+        return cell;
+    }
+
     static NSString *MyIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
@@ -58,14 +71,17 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.strikeDays.strikes.count;
+    return (self.strikeDays && 0 != self.strikeDays.count) ? self.strikeDays.strikes.count : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.strikeDays strikesForStrikeDay:section].count;
+    return (self.strikeDays && 0 != self.strikeDays.count) ? [self.strikeDays strikesForStrikeDay:section].count : 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return @"";
+
     // The header for the section is the date -- get this from the date at the section index.
     NSDateComponents *day = [self.strikeDays.daysWithStrikes objectAtIndex:section];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -76,6 +92,9 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return nil;
+
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
     NSInteger rowNumber = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
     UIColor *bgColor = rowNumber % 2 == 0 ? [self backgroundColorForEvenRows]
@@ -109,7 +128,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-	return kHeaderLabelHeight;
+	return (self.strikeDays && 0 != self.strikeDays.count) ? kHeaderLabelHeight : 0;
 }
 
 - (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView
@@ -138,7 +157,17 @@
 	cell.backgroundColor = (n % 2) ? colorOdd : colorEven;
 }
 
+- (NSIndexPath*)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return nil;
+
+    return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return;
+
 	/*
 	 To conform to the Human Interface Guidelines, selections should not be persistent --
 	 deselect the row after it has been selected.
@@ -284,7 +313,11 @@
     if (strikeDays) {
         self.strikeDays = strikeDays;
     } else {
-        // TODO: Check for no strikes or error
+        self.outdated = YES;
+
+        // If we don't have any useful (old) information, set strikeDays to nil
+        if (self.strikeDays && 0 == self.strikeDays.count)
+            self.strikeDays = nil;
     }
 
     [self performSelectorOnMainThread:@selector(reloadDataAndStopLoading) withObject:nil waitUntilDone:YES];

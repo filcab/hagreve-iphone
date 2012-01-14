@@ -44,6 +44,7 @@
 @property (nonatomic) BOOL debug;
 @property (nonatomic, retain) UIBarButtonItem *toggleDebugButton;
 #endif
+@property (nonatomic) BOOL outdated;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 
