@@ -107,4 +107,23 @@
     return [NSString stringWithFormat:@"strikeDays: %@", self.strikes];
 }
 
+#pragma mark - NSCoding
+- (HGStrikeDays*)initWithCoder:(NSCoder *)aCoder {
+    if (!(self = [super init]))
+        return nil;
+
+    _strikeDays = [aCoder decodeObjectForKey:@"strikeDays"];
+    _strikes = [aCoder decodeObjectForKey:@"strikes"];
+    _count = [aCoder decodeIntegerForKey:@"count"];
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.strikeDays forKey:@"strikeDays"];
+    [aCoder encodeObject:self.strikes forKey:@"strikes"];
+    [aCoder encodeInteger:(NSInteger)self.count forKey:@"count"];
+}
+
+
 @end

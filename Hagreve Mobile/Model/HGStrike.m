@@ -45,4 +45,43 @@
     return self;
 }
 
+#pragma mark - NSCoding
+- (HGStrike*)initWithCoder:(NSCoder*)aCoder {
+    if (!(self = [super init]))
+        return nil;
+
+    self.id = [aCoder decodeIntegerForKey:@"id"];
+
+    self.all_day = [aCoder decodeBoolForKey:@"allDay"];
+    self.startDate = [aCoder decodeObjectForKey:@"startDate"];
+    self.endDate = [aCoder decodeObjectForKey:@"endDate"];
+
+    self.canceled = [aCoder decodeBoolForKey:@"canceled"];
+    self.comment = [aCoder decodeObjectForKey:@"comment"];
+    self.sourceLink = [aCoder decodeObjectForKey:@"sourceLink"];
+    self.url = [aCoder decodeObjectForKey:@"url"];
+
+    self.company = [aCoder decodeObjectForKey:@"company"];
+    self.submitter = [aCoder decodeObjectForKey:@"submitter"];
+
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeInteger:self.id forKey:@"id"];
+
+    [aCoder encodeBool:self.all_day forKey:@"allDay"];
+    [aCoder encodeObject:self.startDate forKey:@"startDate"];
+    [aCoder encodeObject:self.endDate forKey:@"endDate"];
+
+    [aCoder encodeBool:self.canceled forKey:@"canceled"];
+    [aCoder encodeObject:self.comment forKey:@"comment"];
+    [aCoder encodeObject:self.sourceLink forKey:@"sourceLink"];
+    [aCoder encodeObject:self.url forKey:@"url"];
+
+    [aCoder encodeObject:self.company forKey:@"company"];
+    [aCoder encodeObject:self.submitter forKey:@"submitter"];
+}
+
+
 @end

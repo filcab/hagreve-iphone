@@ -24,4 +24,8 @@
 - (HGCompany*)init;
 - (NSComparisonResult)compare:(HGCompany *)aString;
 
+#pragma mark - NSCoding
+- (HGCompany*)initWithCoder:(NSCoder*)aCoder;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+
 @end

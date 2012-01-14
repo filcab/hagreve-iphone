@@ -8,13 +8,18 @@
 
 // Project includes
 #import "HGUtils.h"
+#import "HGStrikeDays.h"
 #import "HGStrikeListTableViewController.h"
 
 // Framework includes
 #import <UIKit/UIKit.h>
 
+#define kSaveStrikesPath (@"savedStrikes.plist")
+
 @interface HGAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+- (BOOL)saveStrikeDaysToCache:(HGStrikeDays*)strikeDays;
 
 @end

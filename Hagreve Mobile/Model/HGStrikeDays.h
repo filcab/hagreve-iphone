@@ -12,7 +12,7 @@
 // Framework includes
 #import <Foundation/Foundation.h>
 
-@interface HGStrikeDays : NSObject
+@interface HGStrikeDays : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSUInteger count;
 @property (nonatomic, retain, readonly) NSArray *strikeDays;
@@ -30,5 +30,9 @@
 - (NSArray *)strikesForStrikeDay:(NSUInteger)aDay;
 
 - (NSString *)description;
+
+#pragma mark - NSCoding
+- (HGStrikeDays*)initWithCoder:(NSCoder *)aCoder;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
 
 @end

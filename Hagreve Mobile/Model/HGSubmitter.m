@@ -13,4 +13,20 @@
 @synthesize firstName = _firstName;
 @synthesize lastName  = _lastName;
 
+#pragma mark - NSCoding
+- (HGSubmitter*)initWithCoder:(NSCoder*)aCoder {
+    if (!(self = [super init]))
+        return nil;
+    
+    self.lastName = [aCoder decodeObjectForKey:@"lastName"];
+    self.firstName = [aCoder decodeObjectForKey:@"firstName"];
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:self.firstName forKey:@"firstName"];
+}
+
 @end

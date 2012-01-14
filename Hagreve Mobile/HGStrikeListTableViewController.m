@@ -24,6 +24,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (BOOL)saveStrikeDaysToCache {
+    return [(HGAppDelegate*)[[UIApplication sharedApplication] delegate] saveStrikeDaysToCache:self.strikeDays];
+}
 
 #pragma mark - TableView dataSource and delegate
 
@@ -360,7 +363,8 @@
 
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
     _strikeDays = strikeDays;
-    [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    [self saveStrikeDaysToCache];
 }
 
 - (UIColor *)backgroundColorForEvenRows {

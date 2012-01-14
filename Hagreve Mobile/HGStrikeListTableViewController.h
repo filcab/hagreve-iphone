@@ -8,6 +8,7 @@
 
 // Project includes
 #import "HGStrikeDetailTableViewController.h"
+#import "HGAppDelegate.h"
 #import "HGStrikeDays.h"
 #import "HGUtils.h"
 
@@ -47,6 +48,8 @@
 @property (nonatomic) BOOL outdated;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
+
+- (BOOL)saveStrikeDaysToCache;
 
 #pragma mark - TableView dataSource and delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;

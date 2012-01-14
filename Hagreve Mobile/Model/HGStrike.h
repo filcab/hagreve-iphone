@@ -13,7 +13,7 @@
 // Framework includes
 #import <Foundation/Foundation.h>
 
-@interface HGStrike : NSObject
+@interface HGStrike : NSObject <NSCoding>
 
 /*
  * API object for a strike as of 2011/10/26
@@ -56,5 +56,9 @@
 @property (nonatomic, retain) HGSubmitter *submitter;
 
 - (HGStrike*)init;
+
+#pragma mark - NSCoding
+- (HGStrike*)initWithCoder:(NSCoder*)aCoder;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
 
 @end

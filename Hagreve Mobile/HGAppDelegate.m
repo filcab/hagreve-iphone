@@ -13,6 +13,28 @@
 
 @synthesize window = _window;
 
+- (BOOL)saveStrikeDaysToCache:(HGStrikeDays*)strikeDays {
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+
+    if ([dirs count] != 1)
+        return NO; // I won't save if I'm not sure of the path.
+
+    NSString *filePath = [[dirs objectAtIndex:0] stringByAppendingPathComponent:kSaveStrikesPath];
+
+    return [NSKeyedArchiver archiveRootObject:strikeDays toFile:filePath];
+}
+
+- (HGStrikeDays*)loadStrikesFromCache {
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+
+    if ([dirs count] != 1)
+        return nil; // I won't save if I'm not sure of the path.
+
+    NSString *filePath = [[dirs objectAtIndex:0] stringByAppendingPathComponent:kSaveStrikesPath];
+
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Create the data controller and pass it to the root view controller.
@@ -22,8 +44,8 @@
 
     // Load the latest saved strike list (if possible);
     // Dispatch a thread to update the strike list.
-//    rootViewController.strikeDays = [HGStrikeDays strikeDaysFromSavedState];
-    rootViewController.strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+    rootViewController.strikeDays = [self loadStrikesFromCache];
+    [rootViewController scrollToTopAndRefresh];
 
     return YES;
 }

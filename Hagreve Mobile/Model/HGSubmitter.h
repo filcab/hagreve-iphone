@@ -23,4 +23,8 @@
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
 
+#pragma mark - NSCoding
+- (HGSubmitter*)initWithCoder:(NSCoder*)aCoder;
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+
 @end
