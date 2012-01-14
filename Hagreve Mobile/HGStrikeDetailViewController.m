@@ -97,9 +97,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     // Setup the UILabels for the strike information.
-    self.startDateLabel.text = [self labelForDate:self.strike.startDate allDay:self.strike.all_day];
-    self.endDateLabel.text   = [self labelForDate:self.strike.endDate allDay:self.strike.all_day];
+//    self.startDateLabel.text = [self labelForDate:self.strike.startDate allDay:self.strike.all_day];
+//    self.endDateLabel.text   = [self labelForDate:self.strike.endDate allDay:self.strike.all_day];
     self.companyLabel.text   = self.strike.company.name;
+
+    [self setupStrikeDateUIElements];
 
     if (self.strike.canceled){
         self.canceledImageView.hidden = NO;
@@ -169,6 +171,62 @@
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 
     return [dateFormatter stringFromDate:date];
+}
+
+#pragma mark - Misc methods
+- (void)setupStrikeDateUIElements {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSCalendarUnit dayMonthYear = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+
+    NSDateComponents *startDayComponents = [cal components:dayMonthYear fromDate:self.strike.startDate];
+    NSDateComponents *endDayComponents   = [cal components:dayMonthYear fromDate:self.strike.endDate];
+
+    NSDate *startDay = [cal dateFromComponents:startDayComponents];
+    NSDate *endDay   = [cal dateFromComponents:endDayComponents];
+
+    NSDateFormatter *df = [NSDateFormatter new];
+
+    if ([startDay compare:endDay] == NSOrderedSame) {
+        if (self.strike.all_day) {
+            [df setTimeStyle:NSDateFormatterNoStyle];
+            [df setDateStyle:NSDateFormatterMediumStyle];
+
+            self.startLabel.hidden = YES;
+            self.startDateLabel.text = [df stringFromDate:self.strike.startDate];
+            self.endLabel.hidden = YES;
+            self.endDateLabel.text = @"Todo o dia";
+        } else {
+            [df setTimeStyle:NSDateFormatterShortStyle];
+            [df setDateStyle:NSDateFormatterMediumStyle];
+
+            self.endLabel.hidden = NO;
+            self.startLabel.hidden = NO;
+
+            self.startDateLabel.text = [df stringFromDate:self.strike.startDate];
+            self.endDateLabel.text = [df stringFromDate:self.strike.endDate];
+        }
+
+        return;
+    }
+
+    // startDay != endDay
+    if (self.strike.all_day) {
+        [df setTimeStyle:NSDateFormatterShortStyle];
+        [df setDateStyle:NSDateFormatterMediumStyle];
+
+        self.endDateLabel.text = [df stringFromDate:self.strike.endDate];
+        self.startDateLabel.text = [df stringFromDate:self.strike.startDate];
+
+        return;
+    } else {
+        // Several days, but
+        // !all_day (I don't think this usually happens.
+        [df setTimeStyle:NSDateFormatterShortStyle];
+        [df setDateStyle:NSDateFormatterMediumStyle];
+
+        self.startDateLabel.text = [df stringFromDate:self.strike.startDate];
+        self.endDateLabel.text   = [df stringFromDate:self.strike.endDate];
+    }
 }
 
 @end

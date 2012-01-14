@@ -36,4 +36,7 @@
 #define kCommentFooter 8
 #define kCommentMinHeight 21
 
+#pragma mark - Misc methods
+- (void)setupStrikeDateUIElements;
+
 @end
