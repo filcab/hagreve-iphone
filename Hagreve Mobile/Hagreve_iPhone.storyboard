@@ -68,7 +68,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Hoje há greve?" id="3en-i7-bnY">
-                        <barButtonItem key="backBarButtonItem" title="Greves" id="RO4-Zm-jvr"/>
+                        <barButtonItem key="backBarButtonItem" title="Lista" id="RO4-Zm-jvr"/>
                     </navigationItem>
                 </tableViewController>
             </objects>

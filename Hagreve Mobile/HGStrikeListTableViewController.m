@@ -235,7 +235,6 @@
      When a row is selected, the segue creates the detail view controller as the destination.
      Set the detail view controller's detail item to the item associated with the selected row.
      */
-    DLog(@"Preparing segue with identifier \"%@\".", segue.identifier);
     if ([segue.identifier isEqualToString:@"StrikeDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HGStrikeDetailTableViewController *detailViewController = [segue destinationViewController];
@@ -255,7 +254,6 @@
         self.toggleDebugButton.title = @"Debug";
     }
 
-    DLog(@"Scrolling to top and refreshing");
     [self scrollToTopAndRefresh];
 }
 #endif
