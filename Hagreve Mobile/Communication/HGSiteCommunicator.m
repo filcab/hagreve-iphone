@@ -110,6 +110,12 @@
     // With this synchronous request, we have no control on caching nor auth.
     // The defaults will be used. We may have to change this later.
     NSData *unparsed = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+#if 0
+    // For debugging: To simulate no scheduled strikes.
+    if ([[self.baseURL host] isEqualToString:@"test.hagreve.com"])
+        unparsed = [[NSString stringWithString:@"[]"] dataUsingEncoding:NSUnicodeStringEncoding];
+#endif
+
     if (nil == unparsed) {
         _lastError = error;
         DLog(@"Didn't get any data from %@. Bailing out!", request.URL);
