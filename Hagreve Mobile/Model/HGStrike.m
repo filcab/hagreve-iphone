@@ -12,7 +12,7 @@
 
 @synthesize id = _id;
 
-@synthesize all_day = _all_day;
+@synthesize allDay = _all_day;
 @synthesize startDate = _startDate;
 @synthesize endDate = _endDate;
 
@@ -30,7 +30,7 @@
 
     self.id = -1;
 
-    self.all_day = false;
+    self.allDay = false;
     self.startDate = nil;
     self.endDate = nil;
 
@@ -52,7 +52,7 @@
 
     self.id = [aCoder decodeIntegerForKey:@"id"];
 
-    self.all_day = [aCoder decodeBoolForKey:@"allDay"];
+    self.allDay = [aCoder decodeBoolForKey:@"allDay"];
     self.startDate = [aCoder decodeObjectForKey:@"startDate"];
     self.endDate = [aCoder decodeObjectForKey:@"endDate"];
 
@@ -70,7 +70,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeInteger:self.id forKey:@"id"];
 
-    [aCoder encodeBool:self.all_day forKey:@"allDay"];
+    [aCoder encodeBool:self.allDay forKey:@"allDay"];
     [aCoder encodeObject:self.startDate forKey:@"startDate"];
     [aCoder encodeObject:self.endDate forKey:@"endDate"];
 

@@ -187,7 +187,7 @@
     NSDateFormatter *df = [NSDateFormatter new];
 
     if ([startDay compare:endDay] == NSOrderedSame) {
-        if (self.strike.all_day) {
+        if (self.strike.allDay) {
             [df setTimeStyle:NSDateFormatterNoStyle];
             [df setDateStyle:NSDateFormatterMediumStyle];
 
@@ -210,7 +210,7 @@
     }
 
     // startDay != endDay
-    if (self.strike.all_day) {
+    if (self.strike.allDay) {
         [df setTimeStyle:NSDateFormatterShortStyle];
         [df setDateStyle:NSDateFormatterMediumStyle];
 

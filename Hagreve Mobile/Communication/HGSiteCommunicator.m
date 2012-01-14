@@ -147,7 +147,7 @@
         HGStrike *strike = [HGStrike new];
         strike.id = [(NSNumber*)[jsonStrike valueForKey:@"id"] unsignedIntegerValue];
 
-        strike.all_day = [(NSNumber*)[jsonStrike valueForKey:@"all_day"] boolValue];
+        strike.allDay = [(NSNumber*)[jsonStrike valueForKey:@"all_day"] boolValue];
         strike.startDate = [dateFormatter dateFromString:[jsonStrike valueForKey:@"start_date"]];
         strike.endDate = [dateFormatter dateFromString:[jsonStrike valueForKey:@"end_date"]];
 

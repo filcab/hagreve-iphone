@@ -43,7 +43,7 @@
 
 @property (nonatomic) NSUInteger id;
 
-@property (nonatomic) BOOL all_day;
+@property (nonatomic) BOOL allDay;
 @property (nonatomic, retain) NSDate *startDate;
 @property (nonatomic, retain) NSDate *endDate;
 

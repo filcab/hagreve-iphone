@@ -195,7 +195,7 @@
     NSDate *endDay   = [cal dateFromComponents:endDayComponents];
     
     if ([startDay compare:endDay] == NSOrderedSame) {
-        if (strike.all_day)
+        if (strike.allDay)
             return @"Todo o dia";
         
         NSDateFormatter *df = [NSDateFormatter new];
@@ -208,7 +208,7 @@
     }
     
     // startDay != endDay
-    if (strike.all_day) {
+    if (strike.allDay) {
         NSDateFormatter *df = [NSDateFormatter new];
         [df setTimeStyle:NSDateFormatterNoStyle];
         [df setDateStyle:NSDateFormatterMediumStyle];
