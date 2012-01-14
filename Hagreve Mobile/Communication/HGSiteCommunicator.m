@@ -125,9 +125,9 @@
     }
 
     if (![jsonObject isKindOfClass:NSArray.class]) {
-        // There was an error
+        // There was an error with the JSON result
         NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"Dados recebidos estão corruptos.", @"NSLocalizedDescriptionKey",
+                                  @"Os dados recebidos estão corruptos.", @"NSLocalizedDescriptionKey",
                                   nil];
         _lastError = [[NSError alloc] initWithDomain:@"jsonResult" code:1 userInfo:userInfo];
         return nil;
