@@ -43,6 +43,24 @@
                                     <segue destination="IBA-EY-3dT" kind="push" identifier="StrikeDetailSegue" id="bmD-CV-rsB"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="NoStrikesCell" rowHeight="416" id="eBE-bD-5b5">
+                                <rect key="frame" x="0.0" y="92" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Woohoo! Não há greves, podemos ir trabalhar! 😃" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" id="ylI-Vx-vp1">
+                                            <rect key="frame" x="20" y="-64" width="280" height="480"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Bu2-O2-OQ0" id="f5c-7b-qVW"/>

@@ -299,15 +299,16 @@
 
 - (void)updateStrikes {
     HGStrikeDays *strikeDays;
+    NSError *error;
 
 #if DEBUG==1
     if (self.debug) {
-        strikeDays = [HGStrikeDays strikeDaysFromWebsite:DEBUG_HOST_URL];
+        strikeDays = [HGStrikeDays strikeDaysFromWebsite:DEBUG_HOST_URL error:&error];
     } else {
-        strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+        strikeDays = [HGStrikeDays strikeDaysFromWebsiteReturningError:&error];
     }
 #else
-    strikeDays = [HGStrikeDays strikeDaysFromWebsite];
+    strikeDays = [HGStrikeDays strikeDaysFromWebsiteReturningError:&error];
 #endif
 
     if (strikeDays) {
@@ -318,6 +319,8 @@
         // If we don't have any useful (old) information, set strikeDays to nil
         if (self.strikeDays && 0 == self.strikeDays.count)
             self.strikeDays = nil;
+
+        [self performSelectorOnMainThread:@selector(alertUserForError:) withObject:error waitUntilDone:NO];
     }
 
     [self performSelectorOnMainThread:@selector(reloadDataAndStopLoading) withObject:nil waitUntilDone:YES];
@@ -334,6 +337,29 @@
 }
 
 #pragma mark - Misc methods
+- (void)alertUserForError:(NSError*)error {
+    NSString *errorString;
+
+    if ([NSURLErrorDomain isEqualToString:error.domain]) {
+        errorString = @"Foi impossível contactar o site.";
+    } else {
+        errorString = @"Ocorreu um erro ao obter informações.";
+    }
+
+#if DEBUG == 1
+    errorString = [NSString stringWithFormat:@"%@\n%@\n%@",
+                   errorString, error.localizedDescription, error.debugDescription];
+#endif
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Erro"
+                                                        message:errorString
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
     _strikeDays = strikeDays;
     [self performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];

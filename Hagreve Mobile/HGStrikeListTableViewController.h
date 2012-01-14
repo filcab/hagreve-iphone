@@ -86,6 +86,8 @@
 #endif
 
 #pragma mark - Misc methods
+- (void)alertUserForError:(NSError*)error;
+- (void)setStrikeDays:(HGStrikeDays*)strikeDays;
 - (UIColor *)backgroundColorForOddRows;
 - (UIColor *)backgroundColorForEvenRows;
 
