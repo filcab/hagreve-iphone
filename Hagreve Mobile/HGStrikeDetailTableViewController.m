@@ -57,7 +57,7 @@ static NSString *sections[] =
 
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            if (strike.all_day)
+            if (strike.allDay)
                 [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
             else
                 [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
