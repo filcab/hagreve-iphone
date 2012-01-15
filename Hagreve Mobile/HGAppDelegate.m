@@ -19,7 +19,10 @@
     if ([dirs count] != 1)
         return NO; // I won't save if I'm not sure of the path.
 
-    NSString *filePath = [[dirs objectAtIndex:0] stringByAppendingPathComponent:kSaveStrikesPath];
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *filePath = [[dirs objectAtIndex:0]
+                          stringByAppendingPathComponent:[mainBundle bundleIdentifier]];
+    filePath = [filePath stringByAppendingPathComponent:kSaveStrikesPath];
 
     return [NSKeyedArchiver archiveRootObject:strikeDays toFile:filePath];
 }
