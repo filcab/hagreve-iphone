@@ -30,6 +30,7 @@
 - (NSArray *)strikesForStrikeDay:(NSUInteger)aDay;
 
 - (NSString *)description;
+- (void)cleanup;
 
 #pragma mark - NSCoding
 - (HGStrikeDays*)initWithCoder:(NSCoder *)aCoder;

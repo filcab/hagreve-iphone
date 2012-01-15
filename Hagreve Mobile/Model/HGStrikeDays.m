@@ -107,6 +107,50 @@
     return [NSString stringWithFormat:@"strikeDays: %@", self.strikes];
 }
 
+- (void)cleanup {
+    NSMutableArray *newDays = [NSMutableArray arrayWithCapacity:self.strikeDays.count];
+    NSMutableDictionary *newStrikes = [NSMutableDictionary dictionaryWithCapacity:self.strikes.count];
+
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSCalendarUnit units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *todayDC = [cal components:units fromDate:today];
+
+    for (NSDateComponents *day in self.strikeDays) {
+        NSArray *strikesForDay = [self.strikes objectForKey:day];
+        NSMutableArray *newStrikesForDay = [NSMutableArray arrayWithCapacity:strikesForDay.count];
+
+        for (HGStrike *strike in strikesForDay) {
+            if ([strike.endDate compare:today] == NSOrderedDescending) {
+                [newStrikesForDay addObject:strike];
+                continue;
+            }
+
+            NSDateComponents *end = [cal components:units fromDate:strike.endDate];
+            if (end.day == todayDC.day && end.month == todayDC.month && end.year == todayDC.year
+                && strike.allDay) {
+                [newStrikesForDay addObject:strike];
+                continue;
+            }
+        }
+
+        if (newStrikesForDay.count > 0) {
+            [newDays addObject:day];
+            [newStrikes setObject:[NSArray arrayWithArray:newStrikesForDay] forKey:day];
+        }
+    }
+
+    _strikeDays = newDays;
+    _strikes = newStrikes;
+
+    __block NSUInteger n = 0;
+    [newStrikes enumerateKeysAndObjectsUsingBlock:^(id key, NSDictionary *obj, BOOL *stop) {
+        n += obj.count;
+    }];
+
+    _count = n;
+}
+
 #pragma mark - NSCoding
 - (HGStrikeDays*)initWithCoder:(NSCoder *)aCoder {
     if (!(self = [super init]))
