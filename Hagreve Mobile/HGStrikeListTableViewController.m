@@ -338,7 +338,7 @@
      */
     if ([segue.identifier isEqualToString:@"StrikeDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        HGStrikeDetailTableViewController *detailViewController = [segue destinationViewController];
+        HGStrikeDetailViewController *detailViewController = [segue destinationViewController];
 
         NSArray *days = self.strikeDays.strikeDays;
         // 'today' will always be larger that any strike's NSDateComponents for today
