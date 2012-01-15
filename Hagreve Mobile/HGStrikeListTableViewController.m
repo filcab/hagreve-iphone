@@ -56,8 +56,38 @@
         self.protoCell = nil;
     }
 
-    NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
-    HGStrike *strike = [strikesForDay objectAtIndex:indexPath.row];
+    NSArray *days = self.strikeDays.strikeDays;
+    // 'today' will always be larger that any strike's NSDateComponents for today
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    int nSections = 0;
+    int nStrikes = 0;
+    while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+        nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
+        ++nSections;
+    }
+
+    NSArray *strikesForDay;
+    NSInteger row = indexPath.row;
+    if (0 == nSections) { // No strikes up to tomorrow
+        strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
+    } else if (0 == indexPath.section) { // Today's section
+        nSections = 0;
+        while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+            strikesForDay = [self.strikeDays strikesForStrikeDay:nSections];
+            NSInteger n = strikesForDay.count;
+            if (n <= row)
+                row -= n;
+            else
+                break;
+            ++nSections;
+        }
+    } else { // There are strikes that started before today (or today). Not today's section.
+        strikesForDay = [self.strikeDays strikesForStrikeDay:(nSections + indexPath.section - 1)];
+    }
+
+    HGStrike *strike = [strikesForDay objectAtIndex:row];
 
     UILabel *label = (UILabel *)[cell viewWithTag:kCellTagTitle];
     label.text = [self cellTitleTextForStrike:strike];
@@ -79,19 +109,78 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return (self.strikeDays && 0 != self.strikeDays.count) ? self.strikeDays.strikes.count : 1;
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return 1;
+
+    __block NSInteger n = 0;
+    NSArray *days = self.strikeDays.strikeDays;
+    // 'today' will always be larger that any strike's NSDateComponents for today
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    [days enumerateObjectsUsingBlock:^(NSDateComponents *date, NSUInteger i, BOOL *stop) {
+        if ([[cal dateFromComponents:date] compare:today] == NSOrderedAscending)
+            ++n;
+    }];
+
+    if (n > 0)
+        return days.count - n + 1;
+    else
+        return days.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return (self.strikeDays && 0 != self.strikeDays.count) ? [self.strikeDays strikesForStrikeDay:section].count : 1;
+    if (!self.strikeDays || 0 == self.strikeDays.count)
+        return 1;
+
+    NSInteger n = 0;
+    NSArray *days = self.strikeDays.strikeDays;
+    // 'today' will always be larger that any strike's NSDateComponents for today
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    int nSections = 0;
+    int nStrikes = 0;
+    while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+        nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
+        ++nSections;
+    }
+
+    if (0 == nSections) { // No strikes up to tomorrow
+        n = [self.strikeDays strikesForStrikeDay:section].count;
+    } else if (0 == section) { // Today's section
+        n = nStrikes;
+    } else { // There are strikes that started before today (or today). Not today's section.
+        n = [self.strikeDays strikesForStrikeDay:(nSections + section - 1)].count;
+    }
+
+    return n;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (!self.strikeDays || 0 == self.strikeDays.count)
         return @"";
 
-    // The header for the section is the date -- get this from the date at the section index.
-    NSDateComponents *day = [self.strikeDays.daysWithStrikes objectAtIndex:section];
+    NSArray *days = self.strikeDays.strikeDays;
+    // 'today' will always be larger that any strike's NSDateComponents for today
+    NSDate *today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    int n = 0;
+    while ([[cal dateFromComponents:[days objectAtIndex:n]] compare:today] == NSOrderedAscending) {
+        ++n;
+    }
+
+    NSDateComponents *day;
+    if (0 == n) { // No strikes up to tomorrow
+        day = [days objectAtIndex:section];
+    } else if (0 == section) { // Today's section
+        NSCalendarUnit units = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+        day = [cal components:units fromDate:today];
+    } else { // There are strikes that started before today (or today). Not today's section.
+        day = [days objectAtIndex:(n + section - 1)];
+    }
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -247,8 +336,37 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         HGStrikeDetailTableViewController *detailViewController = [segue destinationViewController];
 
-        NSArray *strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
-        detailViewController.strike = [strikesForDay objectAtIndex:indexPath.row];
+        NSArray *days = self.strikeDays.strikeDays;
+        // 'today' will always be larger that any strike's NSDateComponents for today
+        NSDate *today = [NSDate date];
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        
+        int nSections = 0;
+        int nStrikes = 0;
+        while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+            nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
+            ++nSections;
+        }
+
+        NSArray *strikesForDay;
+        NSInteger row = indexPath.row;
+        if (0 == nSections) { // No strikes up to tomorrow
+            strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
+        } else if (0 == indexPath.section) { // Today's section
+            nSections = 0;
+            while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+                strikesForDay = [self.strikeDays strikesForStrikeDay:nSections];
+                NSInteger n = strikesForDay.count;
+                if (n <= row)
+                    row -= n;
+                else
+                    break;
+            }
+        } else { // There are strikes that started before today (or today). Not today's section.
+            strikesForDay = [self.strikeDays strikesForStrikeDay:(nSections + indexPath.section - 1)];
+        }
+
+        detailViewController.strike = [strikesForDay objectAtIndex:row];
     }
 }
 
