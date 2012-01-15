@@ -37,6 +37,10 @@
 #define kHeaderTopLine_VMargin 2.0
 #define kHeaderTopLineHeight   1.0
 
+// Sizes for the offline banner
+#define kOfflineBannerHeight 22
+#define kOfflineBannerFontSize 14
+#define kOfflineBannerLabelX kHeaderLabelMargin
 
 @interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
@@ -45,7 +49,8 @@
 @property (nonatomic) BOOL debug;
 @property (nonatomic, retain) UIBarButtonItem *toggleDebugButton;
 #endif
-@property (nonatomic) BOOL outdated;
+@property (nonatomic) BOOL isOffline;
+@property (nonatomic, retain) UIView *offlineBanner;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 
@@ -90,8 +95,12 @@
 
 #pragma mark - Misc methods
 - (void)alertUserForError:(NSError*)error;
+- (void)showOfflineBanner:(BOOL)animated;
+- (void)hideOfflineBanner:(BOOL)animated;
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays;
+
 - (UIColor *)backgroundColorForOddRows;
 - (UIColor *)backgroundColorForEvenRows;
+- (UIColor *)offlineBannerColor;
 
 @end

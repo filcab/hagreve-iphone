@@ -14,7 +14,8 @@
 @synthesize debug = _debug;
 @synthesize toggleDebugButton = _toggleDebugButton;
 #endif
-@synthesize outdated = _outdated;
+@synthesize isOffline = _isOffline;
+@synthesize offlineBanner;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -22,6 +23,10 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+    if (!self.isOffline) {
+        [self.offlineBanner removeFromSuperview];
+        self.offlineBanner = nil;
+    }
 }
 
 - (BOOL)saveStrikeDaysToCache {
@@ -263,6 +268,12 @@
 
 #pragma mark - View lifecycle
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.imageFileName = kArrowFilename;
+    self.offlineBanner = nil;
+}
+
 - (void)viewDidLoad {
     // Initialize stuff.
 #if DEBUG==1
@@ -272,7 +283,6 @@
     self.toggleDebugButton = button;
 #endif
 
-    self.imageFileName = kArrowFilename;
     [super viewDidLoad];
 }
 
@@ -314,12 +324,18 @@
 
     if (strikeDays) {
         self.strikeDays = strikeDays;
+        if (self.isOffline) {
+            self.isOffline = NO;
+            // HACK: We don't pass nil => animated == YES
+            [self performSelectorOnMainThread:@selector(hideOfflineBanner:) withObject:self waitUntilDone:NO];
+        }
     } else {
-        self.outdated = YES;
-
         // If we don't have any useful (old) information, set strikeDays to nil
         if (self.strikeDays && 0 == self.strikeDays.count)
             self.strikeDays = nil;
+
+        self.isOffline = YES;
+        [self performSelectorOnMainThread:@selector(showOfflineBanner:) withObject:self waitUntilDone:NO];
 
         [self performSelectorOnMainThread:@selector(alertUserForError:) withObject:error waitUntilDone:NO];
     }
@@ -360,6 +376,39 @@
     [alertView show];
 }
 
+- (void)showOfflineBanner:(BOOL)animated {
+    if (nil == self.offlineBanner) {
+        UIView *bannerView = [[UIView alloc] initWithFrame:CGRectZero];
+        bannerView.backgroundColor = [self offlineBannerColor];
+        UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, 320, kOfflineBannerHeight)];
+        offlineLabel.font = [UIFont boldSystemFontOfSize:kOfflineBannerFontSize];
+        offlineLabel.backgroundColor = [UIColor clearColor];
+        offlineLabel.text = @"Offline";
+        [bannerView addSubview:offlineLabel];
+        self.offlineBanner = bannerView;
+        [self.navigationController.view addSubview:self.offlineBanner];
+    }
+
+    if (animated) {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+    }
+    self.offlineBanner.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
+    if (animated)
+        [UIView commitAnimations];
+}
+
+- (void)hideOfflineBanner:(BOOL)animated {
+    if (self.offlineBanner) {
+        if (animated) {
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.3];
+        }
+        self.offlineBanner.frame = CGRectMake(0, 480, 320, kOfflineBannerHeight);
+        if (animated)
+            [UIView commitAnimations];
+    }
+}
 
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
     _strikeDays = strikeDays;
@@ -368,7 +417,7 @@
 }
 
 - (UIColor *)backgroundColorForEvenRows {
-    static UIColor *evenColor;
+    static UIColor *evenColor = nil;
     if (nil == evenColor) // Use the same alpha as the gray color
         evenColor = [UIColor colorWithWhite:1.0f alpha:0.90f];
 
@@ -376,7 +425,7 @@
 }
 
 - (UIColor *)backgroundColorForOddRows {
-    static UIColor *oddColor;
+    static UIColor *oddColor = nil;
     if (nil == oddColor) {
         // rgba(203,203,203,0.3) == rgba(0.7961,0.7961,0.7961,0.3)
         // oddColor = [UIColor colorWithRed:0.7961f green:0.7961f blue:0.7961f alpha:0.3f];
@@ -398,6 +447,14 @@
 
 
     return oddColor;
+}
+
+- (UIColor *) offlineBannerColor {
+    static UIColor *grey = nil;
+    if (nil == grey)
+        grey = [UIColor colorWithRed:1.0 green:0.8f blue:0.8f alpha:0.95f];
+
+    return grey;
 }
 
 @end
