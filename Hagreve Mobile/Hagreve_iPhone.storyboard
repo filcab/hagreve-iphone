@@ -184,22 +184,30 @@
                                         </state>
                                         <connections>
                                             <action selector="sourceTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="xJh-pN-Ob7"/>
+                                            <action selector="tintButtonDarkBlue:" destination="IBA-EY-3dT" eventType="touchDown" id="I8o-8o-YbK"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpOutside" id="Zli-7l-7IB"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpInside" id="cXB-hd-wsW"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchCancel" id="q2D-8j-sDI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zdg-Iq-kZC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zdg-Iq-kZC">
                                         <rect key="frame" x="164" y="321" width="136" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="0.93999999999999995" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Tweetar">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="tintButtonDarkBlue:" destination="IBA-EY-3dT" eventType="touchDown" id="ht2-kZ-DAr"/>
                                             <action selector="tweetTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="2pE-Nm-GU5"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpOutside" id="Ayw-bu-qYY"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpInside" id="LwL-QH-Lgj"/>
+                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchCancel" id="uZB-QM-9KO"/>
                                         </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Canceled.png" id="28X-0h-Rdu">
@@ -250,6 +258,37 @@
     <resources>
         <image name="Canceled.png" width="320" height="70"/>
     </resources>
+    <classes>
+        <class className="HGStrikeDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sourceTouch:"/>
+                <relationship kind="action" name="tintButtonDarkBlue:"/>
+                <relationship kind="action" name="tweetTouch:"/>
+                <relationship kind="action" name="untintButton:"/>
+                <relationship kind="outlet" name="canceledImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="commentLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="companyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="sourceButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tweetButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="HGStrikeListTableViewController" superclassName="PullRefreshTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toggleDebugTable:"/>
+                <relationship kind="outlet" name="protoCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="PullRefreshTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PullRefreshTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

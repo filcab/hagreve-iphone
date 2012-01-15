@@ -29,6 +29,9 @@
 - (IBAction)sourceTouch:(id)sender;
 - (IBAction)tweetTouch:(id)sender;
 
+- (IBAction)tintButtonDarkBlue:(id)sender;
+- (IBAction)untintButton:(id)sender;
+
 #pragma mark - Date formatters
 - (NSString*)labelForDate:(NSDate*)date allDay:(BOOL)all_day;
 
