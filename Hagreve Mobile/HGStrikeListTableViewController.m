@@ -61,9 +61,10 @@
     NSDate *today = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
 
-    int nSections = 0;
-    int nStrikes = 0;
-    while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+    NSUInteger nSections = 0;
+    NSUInteger nStrikes = 0;
+    while (nSections < days.count
+           && [[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
         nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
         ++nSections;
     }
@@ -74,7 +75,8 @@
         strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
     } else if (0 == indexPath.section) { // Today's section
         nSections = 0;
-        while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+        while (nSections < days.count
+               && [[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
             strikesForDay = [self.strikeDays strikesForStrikeDay:nSections];
             NSInteger n = strikesForDay.count;
             if (n <= row)
@@ -134,14 +136,15 @@
         return 1;
 
     NSInteger n = 0;
-    NSArray *days = self.strikeDays.strikeDays;
+    NSArray *days = [self.strikeDays daysWithStrikes];
     // 'today' will always be larger that any strike's NSDateComponents for today
     NSDate *today = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
 
-    int nSections = 0;
-    int nStrikes = 0;
-    while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+    NSUInteger nSections = 0;
+    NSUInteger nStrikes = 0;
+    while (nSections < days.count &&
+           [[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
         nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
         ++nSections;
     }
@@ -166,8 +169,9 @@
     NSDate *today = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
 
-    int n = 0;
-    while ([[cal dateFromComponents:[days objectAtIndex:n]] compare:today] == NSOrderedAscending) {
+    NSUInteger n = 0;
+    while (n < days.count
+           && [[cal dateFromComponents:[days objectAtIndex:n]] compare:today] == NSOrderedAscending) {
         ++n;
     }
 
@@ -341,9 +345,10 @@
         NSDate *today = [NSDate date];
         NSCalendar *cal = [NSCalendar currentCalendar];
         
-        int nSections = 0;
-        int nStrikes = 0;
-        while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+        NSUInteger nSections = 0;
+        NSUInteger nStrikes = 0;
+        while (nSections < days.count
+               && [[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
             nStrikes += [self.strikeDays strikesForStrikeDay:nSections].count;
             ++nSections;
         }
@@ -354,13 +359,15 @@
             strikesForDay = [self.strikeDays strikesForStrikeDay:indexPath.section];
         } else if (0 == indexPath.section) { // Today's section
             nSections = 0;
-            while ([[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
+            while (nSections < days.count
+                   && [[cal dateFromComponents:[days objectAtIndex:nSections]] compare:today] == NSOrderedAscending) {
                 strikesForDay = [self.strikeDays strikesForStrikeDay:nSections];
                 NSInteger n = strikesForDay.count;
                 if (n <= row)
                     row -= n;
                 else
                     break;
+                ++nSections;
             }
         } else { // There are strikes that started before today (or today). Not today's section.
             strikesForDay = [self.strikeDays strikesForStrikeDay:(nSections + indexPath.section - 1)];
@@ -463,11 +470,12 @@
 
 #pragma mark - Reloading data
 - (void)reloadDataAndStopLoading {
-    [self.tableView reloadData];
+    [self reloadData];
     [self stopLoading];
 }
 
 - (void)reloadData {
+    [self.strikeDays cleanup];
     [self.tableView reloadData];
 }
 
