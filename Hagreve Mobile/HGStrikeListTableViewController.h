@@ -51,7 +51,7 @@
 @property (nonatomic, retain) UIBarButtonItem *toggleDebugButton;
 #endif
 @property (nonatomic) BOOL isOffline;
-@property (nonatomic, retain) UIView *offlineBanner;
+@property (nonatomic, retain) UIView *offlineToolbar;
 @property (nonatomic, retain) HGStrikeDays *strikeDays;
 @property (nonatomic, retain) IBOutlet UITableViewCell *protoCell;
 

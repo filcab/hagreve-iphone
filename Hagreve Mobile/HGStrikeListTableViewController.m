@@ -15,7 +15,7 @@
 @synthesize toggleDebugButton = _toggleDebugButton;
 #endif
 @synthesize isOffline = _isOffline;
-@synthesize offlineBanner;
+@synthesize offlineToolbar;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -24,8 +24,8 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
     if (!self.isOffline) {
-        [self.offlineBanner removeFromSuperview];
-        self.offlineBanner = nil;
+        [self.offlineToolbar removeFromSuperview];
+        self.offlineToolbar = nil;
     }
 }
 
@@ -396,7 +396,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.imageFileName = kArrowFilename;
-    self.offlineBanner = nil;
+    self.offlineToolbar = nil;
 }
 
 - (void)viewDidLoad {
@@ -503,34 +503,36 @@
 }
 
 - (void)showOfflineBanner:(BOOL)animated {
-    if (nil == self.offlineBanner) {
-        UIView *bannerView = [[UIView alloc] initWithFrame:CGRectZero];
-        bannerView.backgroundColor = [self offlineBannerColor];
+    if (nil == self.offlineToolbar) {
+        // Initialize off-screen.
+        UIToolbar *offlineToolbar_= [[UIToolbar alloc] initWithFrame:CGRectMake(0, 480, 320, kOfflineBannerHeight)];
+        offlineToolbar_.barStyle = UIBarStyleDefault;
+        offlineToolbar_.tintColor = [UIColor colorWithRed:0.90f green:0.10f blue:0.10f alpha:1.0];
         UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, 320, kOfflineBannerHeight)];
         offlineLabel.font = [UIFont boldSystemFontOfSize:kOfflineBannerFontSize];
         offlineLabel.backgroundColor = [UIColor clearColor];
         offlineLabel.text = @"Offline";
-        [bannerView addSubview:offlineLabel];
-        self.offlineBanner = bannerView;
-        [self.navigationController.view addSubview:self.offlineBanner];
+        [offlineToolbar_ addSubview:offlineLabel];
+        self.offlineToolbar = offlineToolbar_;
+        [self.navigationController.view addSubview:self.offlineToolbar];
     }
 
     if (animated) {
         [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
+        [UIView setAnimationDuration:0.42];
     }
-    self.offlineBanner.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
+    self.offlineToolbar.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
     if (animated)
         [UIView commitAnimations];
 }
 
 - (void)hideOfflineBanner:(BOOL)animated {
-    if (self.offlineBanner) {
+    if (self.offlineToolbar) {
         if (animated) {
             [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:0.3];
+            [UIView setAnimationDuration:0.42];
         }
-        self.offlineBanner.frame = CGRectMake(0, 480, 320, kOfflineBannerHeight);
+        self.offlineToolbar.frame = CGRectMake(0, 480, 320, kOfflineBannerHeight);
         if (animated)
             [UIView commitAnimations];
     }
