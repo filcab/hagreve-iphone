@@ -84,7 +84,7 @@
     [strikes enumerateKeysAndObjectsUsingBlock:^(id key, NSDictionary *obj, BOOL *stop) {
         n += obj.count;
     }];
-    
+
     _strikeDays = strikeDays;
     _strikes = strikes;
     _count = n;
