@@ -211,7 +211,7 @@
 
     // startDay != endDay
     if (self.strike.allDay) {
-        [df setTimeStyle:NSDateFormatterShortStyle];
+        [df setTimeStyle:NSDateFormatterNoStyle];
         [df setDateStyle:NSDateFormatterMediumStyle];
 
         self.endDateLabel.text = [df stringFromDate:self.strike.endDate];
