@@ -9,6 +9,7 @@
 // Project includes
 #import "HGUtils.h"
 #import "HGStrikeDays.h"
+#import "HGStrikeDetailViewController.h"
 #import "HGStrikeListTableViewController.h"
 
 // Framework includes
