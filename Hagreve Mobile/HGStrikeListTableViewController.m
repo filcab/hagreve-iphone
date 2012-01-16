@@ -269,6 +269,7 @@
     if (!self.strikeDays || 0 == self.strikeDays.count)
         return;
 
+    TestFlightCheckpoint(@"selected a strike");
 	/*
 	 To conform to the Human Interface Guidelines, selections should not be persistent --
 	 deselect the row after it has been selected.

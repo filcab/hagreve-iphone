@@ -21,6 +21,11 @@
 		2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
 		2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
 		2B7329F5145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
+		2B801B2B14C4B957007A05BF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B801B2614C4B957007A05BF /* libTestFlight.a */; };
+		2B801B2C14C4B957007A05BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2714C4B957007A05BF /* README.txt */; };
+		2B801B2D14C4B957007A05BF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2814C4B957007A05BF /* release_notes.txt */; };
+		2B801B3614C4BED3007A05BF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B3414C4BED2007A05BF /* Default.png */; };
+		2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B3514C4BED2007A05BF /* Default@2x.png */; };
 		2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */; };
 		2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB4E1450A74A00FFD02D /* UIKit.framework */; };
 		2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA1CB501450A74A00FFD02D /* Foundation.framework */; };
@@ -40,8 +45,6 @@
 		2BAE77A614BE40B600D5EB6E /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A114BE40B600D5EB6E /* Icon-57.png */; };
 		2BAE77A714BE40B600D5EB6E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A214BE40B600D5EB6E /* Icon-72.png */; };
 		2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A314BE40B600D5EB6E /* Icon-114.png */; };
-		2BAE77A914BE40B600D5EB6E /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A414BE40B600D5EB6E /* splash.png */; };
-		2BAE77AA14BE40B600D5EB6E /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A514BE40B600D5EB6E /* splash@2x.png */; };
 		2BED31CA14BE4439008EB7DD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BED31C914BE4439008EB7DD /* Twitter.framework */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
@@ -74,6 +77,12 @@
 		2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSiteCommunicator.m; path = Communication/HGSiteCommunicator.m; sourceTree = "<group>"; };
 		2B7329F2145B670200EBEB56 /* HGStrikeDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrikeDays.h; path = Model/HGStrikeDays.h; sourceTree = "<group>"; };
 		2B7329F3145B670300EBEB56 /* HGStrikeDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrikeDays.m; path = Model/HGStrikeDays.m; sourceTree = "<group>"; };
+		2B801B2614C4B957007A05BF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		2B801B2714C4B957007A05BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		2B801B2814C4B957007A05BF /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		2B801B2914C4B957007A05BF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		2B801B3414C4BED2007A05BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2B801B3514C4BED2007A05BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hagreve_iPhone.storyboard; sourceTree = "<group>"; };
 		2BA1CB4A1450A74A00FFD02D /* Hagreve Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hagreve Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA1CB4E1450A74A00FFD02D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -99,8 +108,6 @@
 		2BAE77A114BE40B600D5EB6E /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57.png"; path = "Resources/Icon-57.png"; sourceTree = "<group>"; };
 		2BAE77A214BE40B600D5EB6E /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		2BAE77A314BE40B600D5EB6E /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-114.png"; path = "Resources/Icon-114.png"; sourceTree = "<group>"; };
-		2BAE77A414BE40B600D5EB6E /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = Resources/splash.png; sourceTree = "<group>"; };
-		2BAE77A514BE40B600D5EB6E /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "Resources/splash@2x.png"; sourceTree = "<group>"; };
 		2BE261FE14657730006D3A51 /* HGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGUtils.h; sourceTree = "<group>"; };
 		2BED31C914BE4439008EB7DD /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
@@ -120,6 +127,7 @@
 				2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */,
 				2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */,
 				2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */,
+				2B801B2B14C4B957007A05BF /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,14 +168,25 @@
 			name = Communication;
 			sourceTree = "<group>";
 		};
+		2B801B2414C4B957007A05BF /* TestFlightSDK0.8.2 */ = {
+			isa = PBXGroup;
+			children = (
+				2B801B2614C4B957007A05BF /* libTestFlight.a */,
+				2B801B2714C4B957007A05BF /* README.txt */,
+				2B801B2814C4B957007A05BF /* release_notes.txt */,
+				2B801B2914C4B957007A05BF /* TestFlight.h */,
+			);
+			path = TestFlightSDK0.8.2;
+			sourceTree = "<group>";
+		};
 		2B91537B147EDE6200C2C262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B801B3414C4BED2007A05BF /* Default.png */,
+				2B801B3514C4BED2007A05BF /* Default@2x.png */,
 				2BAE77A114BE40B600D5EB6E /* Icon-57.png */,
 				2BAE77A214BE40B600D5EB6E /* Icon-72.png */,
 				2BAE77A314BE40B600D5EB6E /* Icon-114.png */,
-				2BAE77A414BE40B600D5EB6E /* splash.png */,
-				2BAE77A514BE40B600D5EB6E /* splash@2x.png */,
 				2BAE779C14BE1B1D00D5EB6E /* blackArrow.png */,
 				2BAE779D14BE1B1D00D5EB6E /* blackArrow@2x.png */,
 				2B4785FF14B762CC00C62761 /* Canceled.png */,
@@ -182,6 +201,7 @@
 				2BA1CB541450A74A00FFD02D /* Hagreve Mobile */,
 				2BA1CB751450A74A00FFD02D /* Hagreve MobileTests */,
 				2BA1CB4D1450A74A00FFD02D /* Frameworks */,
+				2B801B2414C4B957007A05BF /* TestFlightSDK0.8.2 */,
 				2BA1CB4B1450A74A00FFD02D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -344,8 +364,10 @@
 				2BAE77A614BE40B600D5EB6E /* Icon-57.png in Resources */,
 				2BAE77A714BE40B600D5EB6E /* Icon-72.png in Resources */,
 				2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */,
-				2BAE77A914BE40B600D5EB6E /* splash.png in Resources */,
-				2BAE77AA14BE40B600D5EB6E /* splash@2x.png in Resources */,
+				2B801B2C14C4B957007A05BF /* README.txt in Resources */,
+				2B801B2D14C4B957007A05BF /* release_notes.txt in Resources */,
+				2B801B3614C4BED3007A05BF /* Default.png in Resources */,
+				2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +467,81 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2B801B3814C4BFC0007A05BF /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TESTFLIGHT=1",
+					"TESTFLIGHT_TOKEN=@\\\"\\\"",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MULTIPLE_DEFINITION_TYPES_FOR_SELECTOR = YES;
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Testflight;
+		};
+		2B801B3914C4BFC0007A05BF /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hagreve Mobile/Hagreve Mobile-Prefix.pch";
+				GCC_WARN_PEDANTIC = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
+				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Testflight;
+		};
+		2B801B3A14C4BFC0007A05BF /* Testflight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Hagreve Mobile.app/Hagreve Mobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Hagreve Mobile/Hagreve Mobile-Prefix.pch";
+				INFOPLIST_FILE = "Hagreve MobileTests/Hagreve MobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Testflight;
+		};
 		2BA1CB7E1450A74A00FFD02D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -524,6 +621,10 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -540,6 +641,10 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
@@ -587,6 +692,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BA1CB7E1450A74A00FFD02D /* Debug */,
+				2B801B3814C4BFC0007A05BF /* Testflight */,
 				2BA1CB7F1450A74A00FFD02D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -596,6 +702,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BA1CB811450A74A00FFD02D /* Debug */,
+				2B801B3914C4BFC0007A05BF /* Testflight */,
 				2BA1CB821450A74A00FFD02D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -605,6 +712,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BA1CB841450A74A00FFD02D /* Debug */,
+				2B801B3A14C4BFC0007A05BF /* Testflight */,
 				2BA1CB851450A74A00FFD02D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

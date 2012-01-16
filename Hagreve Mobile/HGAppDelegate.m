@@ -9,6 +9,10 @@
 #import "HGAppDelegate.h"
 #import <dispatch/dispatch.h>
 
+#if TESTFLIGHT==1
+#import "TestFlight.h"
+#endif
+
 @implementation HGAppDelegate
 
 @synthesize window = _window;
@@ -40,6 +44,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if TESTFLIGHT==1
+    [TestFlight takeOff:TESTFLIGHT_TOKEN];
+#endif
+
     // Create the data controller and pass it to the root view controller.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     HGStrikeListTableViewController *rootViewController = (HGStrikeListTableViewController *)[navigationController topViewController];

@@ -7,6 +7,7 @@
 //
 
 #import "HGStrikeDetailViewController.h"
+#import "HGUtils.h"
 #import <Twitter/Twitter.h>
 
 @implementation HGStrikeDetailViewController
@@ -163,6 +164,7 @@
 
 - (void)viewDidUnload
 {
+    TestFlightCheckpoint(@"Exited strike detail view.");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
