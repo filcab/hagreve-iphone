@@ -134,18 +134,16 @@
 
 - (IBAction)tintButtonDarkBlue:(id)sender {
     UIButton *button = sender;
-    [UIView beginAnimations:@"tintButtons" context:nil];
-    [UIView setAnimationDuration:0.1];
-    button.backgroundColor = [UIColor colorWithRed:0.196f green:0.310f blue:0.522f alpha:1.0];
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^(void) {
+        button.backgroundColor = [UIColor colorWithRed:0.196f green:0.310f blue:0.522f alpha:1.0];
+    }];
 }
 
 - (IBAction)untintButton:(id)sender {
     UIButton *button = sender;
-    [UIView beginAnimations:@"tintButtons" context:nil];
-    [UIView setAnimationDuration:0.1];
-    button.backgroundColor = [UIColor colorWithWhite:0.940f alpha:0.950f];
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^(void) {
+        button.backgroundColor = [UIColor colorWithWhite:0.940f alpha:0.950f];
+    }];
 }
 
 /*

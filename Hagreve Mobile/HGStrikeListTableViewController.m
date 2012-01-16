@@ -517,25 +517,21 @@
         [self.navigationController.view addSubview:self.offlineToolbar];
     }
 
-    if (animated) {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.42];
-    }
-    self.offlineToolbar.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
     if (animated)
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.42 animations:^(void) {
+            self.offlineToolbar.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
+        }];
+    else
+        self.offlineToolbar.frame = CGRectMake(0, 480 - kOfflineBannerHeight, 320, kOfflineBannerHeight);
 }
 
 - (void)hideOfflineBanner:(BOOL)animated {
-    if (self.offlineToolbar) {
-        if (animated) {
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:0.42];
-        }
+    if (self.offlineToolbar && animated)
+        [UIView animateWithDuration:0.42 animations:^(void) {
+            self.offlineToolbar.frame = CGRectMake(0, 480, 320, kOfflineBannerHeight);
+        }];
+    else
         self.offlineToolbar.frame = CGRectMake(0, 480, 320, kOfflineBannerHeight);
-        if (animated)
-            [UIView commitAnimations];
-    }
 }
 
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
