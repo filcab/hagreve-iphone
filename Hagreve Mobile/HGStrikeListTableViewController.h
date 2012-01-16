@@ -102,6 +102,6 @@
 
 - (UIColor *)backgroundColorForOddRows;
 - (UIColor *)backgroundColorForEvenRows;
-- (UIColor *)offlineBannerColor;
+- (UIColor *)offlineToolbarTint;
 
 @end

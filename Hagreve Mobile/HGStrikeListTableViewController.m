@@ -15,7 +15,7 @@
 @synthesize toggleDebugButton = _toggleDebugButton;
 #endif
 @synthesize isOffline = _isOffline;
-@synthesize offlineToolbar;
+@synthesize offlineToolbar = _offlineToolbar;
 @synthesize strikeDays = _strikeDays;
 @synthesize protoCell = _protoCell;
 
@@ -505,15 +505,15 @@
 - (void)showOfflineBanner:(BOOL)animated {
     if (nil == self.offlineToolbar) {
         // Initialize off-screen.
-        UIToolbar *offlineToolbar_= [[UIToolbar alloc] initWithFrame:CGRectMake(0, 480, 320, kOfflineBannerHeight)];
-        offlineToolbar_.barStyle = UIBarStyleDefault;
-        offlineToolbar_.tintColor = [UIColor colorWithRed:0.90f green:0.10f blue:0.10f alpha:1.0];
+        UIToolbar *offlineToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 480, 320, kOfflineBannerHeight)];
+        offlineToolbar.barStyle = UIBarStyleDefault;
+        offlineToolbar.tintColor = [self offlineToolbarTint];
         UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, 320, kOfflineBannerHeight)];
         offlineLabel.font = [UIFont boldSystemFontOfSize:kOfflineBannerFontSize];
         offlineLabel.backgroundColor = [UIColor clearColor];
         offlineLabel.text = @"Offline";
-        [offlineToolbar_ addSubview:offlineLabel];
-        self.offlineToolbar = offlineToolbar_;
+        [offlineToolbar addSubview:offlineLabel];
+        self.offlineToolbar = offlineToolbar;
         [self.navigationController.view addSubview:self.offlineToolbar];
     }
 
@@ -577,12 +577,12 @@
     return oddColor;
 }
 
-- (UIColor *) offlineBannerColor {
-    static UIColor *grey = nil;
-    if (nil == grey)
-        grey = [UIColor colorWithRed:1.0 green:0.8f blue:0.8f alpha:0.95f];
+- (UIColor *) offlineToolbarTint {
+    static UIColor *offlineTint = nil;
+    if (nil == offlineTint)
+        offlineTint = [UIColor colorWithRed:0.90f green:0.10f blue:0.10f alpha:1.0];
 
-    return grey;
+    return offlineTint;
 }
 
 @end
