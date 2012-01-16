@@ -248,7 +248,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="Bu2-O2-OQ0" kind="relationship" relationship="rootViewController" id="8Im-qT-Stq"/>
+                        <segue destination="Bu2-O2-OQ0" kind="relationship" relationship="rootViewController" id="bKQ-b6-NPW"/>
                     </connections>
                 </navigationController>
             </objects>
