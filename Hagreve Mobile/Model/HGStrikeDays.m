@@ -104,7 +104,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"strikeDays: %@", self.strikes];
+    return [NSString stringWithFormat:@"strikeDays: %@", self.strikes.debugDescription];
 }
 
 - (void)cleanup {
