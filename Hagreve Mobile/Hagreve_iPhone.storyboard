@@ -175,17 +175,15 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="0.93999999999999995" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Fonte">
+                                        <state key="normal" title="Fonte" backgroundImage="greyButton.png">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="highlighted">
+                                        <state key="highlighted" backgroundImage="blueButton.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="sourceTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="xJh-pN-Ob7"/>
-                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpOutside" id="Zli-7l-7IB"/>
-                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchCancel" id="q2D-8j-sDI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zdg-Iq-kZC">
@@ -202,8 +200,6 @@
                                         </state>
                                         <connections>
                                             <action selector="tweetTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="2pE-Nm-GU5"/>
-                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchUpOutside" id="AYi-Ry-ZAr"/>
-                                            <action selector="untintButton:" destination="IBA-EY-3dT" eventType="touchCancel" id="uZB-QM-9KO"/>
                                         </connections>
                                     </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Canceled.png" id="28X-0h-Rdu">
