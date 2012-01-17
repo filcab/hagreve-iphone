@@ -11,6 +11,7 @@
 		2B47860114B762CC00C62761 /* Canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4785FF14B762CC00C62761 /* Canceled.png */; };
 		2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B47860014B762CC00C62761 /* Canceled@2x.png */; };
 		2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */; };
+		2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B683BB514C5ED540085E109 /* Hagreve_iPhone.storyboard.strings */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D3967145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
 		2B6D396C145898700015BEFA /* HGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D396B145898700015BEFA /* HGCompany.m */; };
@@ -51,6 +52,8 @@
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
 		2BFAB25814BBACF900CEF357 /* HGStrikeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */; };
+		2BFE792F14C6239100F9B837 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFE792D14C6239100F9B837 /* blueButton.png */; };
+		2BFE793014C6239100F9B837 /* greyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFE792E14C6239100F9B837 /* greyButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,8 @@
 		2BF912681469DFB3001D41D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2BFAB25614BBACF900CEF357 /* HGStrikeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGStrikeDetailViewController.h; sourceTree = "<group>"; };
 		2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGStrikeDetailViewController.m; sourceTree = "<group>"; };
+		2BFE792D14C6239100F9B837 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueButton.png; path = Resources/blueButton.png; sourceTree = "<group>"; };
+		2BFE792E14C6239100F9B837 /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greyButton.png; path = Resources/greyButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +191,8 @@
 		2B91537B147EDE6200C2C262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BFE792D14C6239100F9B837 /* blueButton.png */,
+				2BFE792E14C6239100F9B837 /* greyButton.png */,
 				2B801B3414C4BED2007A05BF /* Default.png */,
 				2B801B3514C4BED2007A05BF /* Default@2x.png */,
 				2BAE77A114BE40B600D5EB6E /* Icon-57.png */,
@@ -376,6 +383,9 @@
 				2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */,
 				2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */,
 				2BBC398B14C5DE4B004D1EFB /* Localizable.strings in Resources */,
+				2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */,
+				2BFE792F14C6239100F9B837 /* blueButton.png in Resources */,
+				2BFE793014C6239100F9B837 /* greyButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +458,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2B683BB514C5ED540085E109 /* Hagreve_iPhone.storyboard.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = Hagreve_iPhone.storyboard.strings;
+			path = "/Users/filcab/dev/hagreve-iphone/Hagreve Mobile";
+			sourceTree = "<absolute>";
+		};
 		2BA1CB571450A74A00FFD02D /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

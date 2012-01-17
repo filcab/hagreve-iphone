@@ -21,6 +21,9 @@
             endLabel          =          _endLabel,
             companyLabel      =      _companyLabel,
             commentLabel      =      _commentLabel,
+            datesTitleLabel   =   _datesTitleLabel,
+            companyTitleLabel = _companyTitleLabel,
+            commentTitleLabel = _commentTitleLabel,
             sourceButton      =      _sourceButton,
             tweetButton       =       _tweetButton;
 
@@ -98,8 +101,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     // Setup the UILabels for the strike information.
-//    self.startDateLabel.text = [self labelForDate:self.strike.startDate allDay:self.strike.all_day];
-//    self.endDateLabel.text   = [self labelForDate:self.strike.endDate allDay:self.strike.all_day];
     self.companyLabel.text   = self.strike.company.name;
 
     [self setupStrikeDateUIElements];
@@ -131,20 +132,20 @@
     self.tweetButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
     frame = self.sourceButton.frame;
     self.sourceButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
-}
 
-- (IBAction)tintButtonDarkBlue:(id)sender {
-    UIButton *button = sender;
-    [UIView animateWithDuration:0.2 animations:^(void) {
-        button.backgroundColor = [UIColor colorWithRed:0.196f green:0.310f blue:0.522f alpha:1.0];
-    }];
-}
 
-- (IBAction)untintButton:(id)sender {
-    UIButton *button = sender;
-    [UIView animateWithDuration:0.2 animations:^(void) {
-        button.backgroundColor = [UIColor colorWithWhite:0.940f alpha:0.950f];
-    }];
+    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
+    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
+
+    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateNormal];
+    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateHighlighted];
+
+
+    self.navigationItem.title = NSLocalizedString(@"Strike", @"Strike detail screen title (for navigation).");
+
+    self.datesTitleLabel.text   = NSLocalizedString(@"Dates", @"'Dates' strike detail view label.");
+    self.companyTitleLabel.text = NSLocalizedString(@"Company", @"'Company' strike detail view label.");
+    self.commentTitleLabel.text = NSLocalizedString(@"Comment", @"'Comment' strike detail view label.");
 }
 
 /*

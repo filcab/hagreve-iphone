@@ -23,14 +23,16 @@
 @property (nonatomic, retain) IBOutlet UILabel *endLabel;
 @property (nonatomic, retain) IBOutlet UILabel *companyLabel;
 @property (nonatomic, retain) IBOutlet UILabel *commentLabel;
+
+@property (nonatomic, retain) IBOutlet UILabel *datesTitleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *companyTitleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *commentTitleLabel;
+
 @property (nonatomic, retain) IBOutlet UIButton *sourceButton;
 @property (nonatomic, retain) IBOutlet UIButton *tweetButton;
 
 - (IBAction)sourceTouch:(id)sender;
 - (IBAction)tweetTouch:(id)sender;
-
-- (IBAction)tintButtonDarkBlue:(id)sender;
-- (IBAction)untintButton:(id)sender;
 
 #pragma mark - Date formatters
 - (NSString*)labelForDate:(NSDate*)date allDay:(BOOL)all_day;
