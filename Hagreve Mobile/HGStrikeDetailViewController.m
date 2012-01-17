@@ -48,7 +48,7 @@
 
 
 - (IBAction)sourceTouch:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Copiar", @"Abrir", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel action on source button") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Copy", @"Copy source URL to pasteboard"), NSLocalizedString(@"Open", @"Open source URL in browser"), nil];
     sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [sheet showInView:self.view];
 }
@@ -210,7 +210,7 @@
             self.startLabel.hidden = YES;
             self.startDateLabel.text = [df stringFromDate:self.strike.startDate];
             self.endLabel.hidden = YES;
-            self.endDateLabel.text = @"Todo o dia";
+            self.endDateLabel.text = NSLocalizedString(@"All day-detail", @"'All day' to be used in the detailed strike view.");
         } else {
             [df setTimeStyle:NSDateFormatterShortStyle];
             [df setDateStyle:NSDateFormatterMediumStyle];

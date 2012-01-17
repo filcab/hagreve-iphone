@@ -35,7 +35,7 @@
     self.endDate = nil;
 
     self.canceled = false;
-    self.comment = @"No description";
+    self.comment = NSLocalizedString(@"No strike description", @"No description.");
     self.sourceLink = [NSURL URLWithString:@"http://hagreve.com"];
     self.url = [NSURL URLWithString:@"http://hagreve.com"];
 

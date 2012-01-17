@@ -44,7 +44,7 @@
             exit(1);
         }
         UILabel *noStrikeText = (UILabel*)[cell viewWithTag:1];
-        noStrikeText.text = @"Woohoo!\nNão há greves, podemos ir trabalhar! 😃";
+        noStrikeText.text = NSLocalizedString(@"No strikes text", @"Text to display in the absence of strikes");
         return cell;
     }
 
@@ -295,13 +295,13 @@
     
     if ([startDay compare:endDay] == NSOrderedSame) {
         if (strike.allDay)
-            return @"Todo o dia";
+            return NSLocalizedString(@"All day", @"'All day' text to display on table cell subtitles.");
         
         NSDateFormatter *df = [NSDateFormatter new];
         [df setTimeStyle:NSDateFormatterShortStyle];
         [df setDateStyle:NSDateFormatterNoStyle];
         
-        return [NSString stringWithFormat:@"Das %@ às %@",
+        return [NSString stringWithFormat:NSLocalizedString(@"From %@ to %@-same day", @"'From … to …' text for table cell subtitles (same day, different hours)"),
                 [df stringFromDate:strike.startDate],
                 [df stringFromDate:strike.endDate]];
     }
@@ -312,7 +312,7 @@
         [df setTimeStyle:NSDateFormatterNoStyle];
         [df setDateStyle:NSDateFormatterMediumStyle];
         
-        return [NSString stringWithFormat:@"Até %@",
+        return [NSString stringWithFormat:NSLocalizedString(@"Until %@", @"'Until %@' text for table cell subtitles (different days, all day)"),
                 [df stringFromDate:strike.endDate]];
     }
     
@@ -321,7 +321,7 @@
     [df setTimeStyle:NSDateFormatterShortStyle];
     [df setDateStyle:NSDateFormatterMediumStyle];
     
-    return [NSString stringWithFormat:@"De %@ até %@",
+    return [NSString stringWithFormat:NSLocalizedString(@"From %@ to %@", @"'From … to …' text for table cell subtitles (different days, differen hours)"),
             [df stringFromDate:strike.startDate],
             [df stringFromDate:strike.endDate]];
 }
@@ -485,9 +485,9 @@
     NSString *errorString;
 
     if ([NSURLErrorDomain isEqualToString:error.domain]) {
-        errorString = @"Foi impossível contactar o site.";
+        errorString = NSLocalizedString(@"Unable to fetch strike information.", @"'Unable to contact site' error message.");
     } else {
-        errorString = @"Ocorreu um erro ao obter informações.";
+        errorString = NSLocalizedString(@"An error occurred when fetching strike information.", @"Error when parsing strike information.");
     }
 
 #if DEBUG == 1
@@ -495,10 +495,10 @@
                    errorString, error.localizedDescription, error.debugDescription];
 #endif
 
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Erro"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Title for alert when unable to get a new strike list.")
                                                         message:errorString
                                                        delegate:nil
-                                              cancelButtonTitle:@"OK"
+                                              cancelButtonTitle:NSLocalizedString(@"OK", @"Dismiss button for the error message.")
                                               otherButtonTitles:nil];
     [alertView show];
 }
@@ -512,7 +512,7 @@
         UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, 320, kOfflineBannerHeight)];
         offlineLabel.font = [UIFont boldSystemFontOfSize:kOfflineBannerFontSize];
         offlineLabel.backgroundColor = [UIColor clearColor];
-        offlineLabel.text = @"Offline";
+        offlineLabel.text = NSLocalizedString(@"Offline", @"Offline banner text.");
         [offlineToolbar addSubview:offlineLabel];
         self.offlineToolbar = offlineToolbar;
         [self.navigationController.view addSubview:self.offlineToolbar];
