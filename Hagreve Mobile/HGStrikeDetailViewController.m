@@ -111,41 +111,9 @@
         self.canceledImageView.hidden = YES;
     }
 
-    CGRect frame = self.commentLabel.frame;
-    CGSize textSize = {0, 0};
-    NSString *text = self.strike.comment;
-    if (text && ![text isEqualToString:@""])
-        textSize = [text sizeWithFont:self.commentLabel.font
-                    constrainedToSize:CGSizeMake(self.commentLabel.frame.size.width, CGFLOAT_MAX)
-                    lineBreakMode:UILineBreakModeWordWrap];
-    CGFloat height = fmaxf(textSize.height, kCommentMinHeight);
-
-    self.commentLabel.frame = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), height);
     self.commentLabel.text  = self.strike.comment;
 
-    // Let's fix the UIScrollView's contentSize. Start by filling the whole UIScrollView
-    CGSize scrollSize = self.scrollView.frame.size;
-    self.scrollView.contentSize = CGSizeMake(scrollSize.width, height <= 103 ? scrollSize.height : scrollSize.height + height - 103 + kCommentFooter);
-
-    // Put the other buttons in place. Autoresize isn't cutting it…
-    frame = self.tweetButton.frame;
-    self.tweetButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
-    frame = self.sourceButton.frame;
-    self.sourceButton.frame = CGRectMake(CGRectGetMinX(frame), self.scrollView.contentSize.height - 120, CGRectGetWidth(frame), CGRectGetHeight(frame));
-
-
-    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
-    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
-
-    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateNormal];
-    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateHighlighted];
-
-
-    self.navigationItem.title = NSLocalizedString(@"Strike", @"Strike detail screen title (for navigation).");
-
-    self.datesTitleLabel.text   = NSLocalizedString(@"Dates", @"'Dates' strike detail view label.");
-    self.companyTitleLabel.text = NSLocalizedString(@"Company", @"'Company' strike detail view label.");
-    self.commentTitleLabel.text = NSLocalizedString(@"Comment", @"'Comment' strike detail view label.");
+    [self layoutUIElements];
 }
 
 /*
@@ -160,6 +128,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
+    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
+    
+    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateNormal];
+    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateHighlighted];
+
+    self.navigationItem.title = NSLocalizedString(@"Strike", @"Strike detail screen title (for navigation).");
+
+    self.datesTitleLabel.text   = NSLocalizedString(@"Dates", @"'Dates' strike detail view label.");
+    self.companyTitleLabel.text = NSLocalizedString(@"Company", @"'Company' strike detail view label.");
+    self.commentTitleLabel.text = NSLocalizedString(@"Comment", @"'Comment' strike detail view label.");
 }
 
 
@@ -173,8 +153,12 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait) || (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+    // It seems almost no iPhone app uses UIInterfaceOrientationPortraitUpsideDown
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self layoutUIElements];
 }
 
 #pragma mark - Date formatters
@@ -191,6 +175,39 @@
 }
 
 #pragma mark - Misc methods
+- (void)layoutUIElements {
+    CGRect frame = self.commentLabel.frame;
+    CGSize textSize = {0, 0};
+    NSString *text = self.strike.comment;
+    if (text && ![text isEqualToString:@""])
+        textSize = [text sizeWithFont:self.commentLabel.font
+                    constrainedToSize:CGSizeMake(self.commentLabel.frame.size.width, CGFLOAT_MAX)
+                        lineBreakMode:UILineBreakModeWordWrap];
+    CGFloat height = fmaxf(textSize.height, kCommentMinHeight);
+
+    self.commentLabel.frame = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame), CGRectGetWidth(frame), height);
+
+    // Let's fix the UIScrollView's contentSize. Start by filling the whole UIScrollView
+    CGSize scrollSize = self.scrollView.frame.size;
+
+    // The default tableView sizes for each orientation (with top navbar)
+    CGFloat minContentHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 441 : 320;
+    CGFloat minCommentLabelSize = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 123 : 21;
+
+    // Height of the footer for the buttons.
+    CGFloat buttonFooter = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 100 : 80;
+
+    self.scrollView.contentSize = CGSizeMake(scrollSize.width, height <= minCommentLabelSize ? minContentHeight : minContentHeight + height - minCommentLabelSize + kCommentFooter);
+
+    CGFloat buttonYCoord = self.scrollView.contentSize.height - buttonFooter;
+
+    // Put the other buttons in place. Autoresize isn't cutting it…
+    frame = self.tweetButton.frame;
+    self.tweetButton.frame = CGRectMake(CGRectGetMinX(frame), buttonYCoord, CGRectGetWidth(frame), CGRectGetHeight(frame));
+    frame = self.sourceButton.frame;
+    self.sourceButton.frame = CGRectMake(CGRectGetMinX(frame), buttonYCoord, CGRectGetWidth(frame), CGRectGetHeight(frame));
+}
+
 - (void)setupStrikeDateUIElements {
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSCalendarUnit dayMonthYear = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;

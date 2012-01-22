@@ -37,11 +37,11 @@
 #pragma mark - Date formatters
 - (NSString*)labelForDate:(NSDate*)date allDay:(BOOL)all_day;
 
-#define kCommentBorder 0
 #define kCommentFooter 8
 #define kCommentMinHeight 21
 
 #pragma mark - Misc methods
+- (void)layoutUIElements;
 - (void)setupStrikeDateUIElements;
 
 @end

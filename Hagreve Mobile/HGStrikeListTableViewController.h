@@ -20,23 +20,27 @@
 #define kArrowFilename (@"blackArrow")
 
 // Tags for the StrikeListTableViewCell's subviews
-#define kCellTagTitle         1
-#define kCellTagSubtitle      2
-#define kCellTagComment       3
-#define kCellTagCanceledImage 4
+#define kCellTagTitle         11
+#define kCellTagSubtitle      12
+#define kCellTagComment       13
+#define kCellTagCanceledImage 14
+
+// Tags for the header labels
+#define kHeaderTopLineTag     31
+#define kHeaderLabelTag       32
 
 // Sizes for the StrikeList views
-#define kHeaderLabelWidth  300.0
-#define kHeaderLabelHeight 28.0
-#define kHeaderLabelMargin 10.0
+#define kHeaderLabelWidthRatio 1.2f
+#define kHeaderLabelHeight 28
+#define kHeaderLabelMargin 10
 
-#define kHeaderSideLineVMargin 2.0
-#define kHeaderSideLineHMargin 2.0
-#define kHeaderSideLineWidth   1.0
+#define kHeaderSideLineVMargin 2
+#define kHeaderSideLineHMargin 2
+#define kHeaderSideLineWidth   1
 
-#define kHeaderTopLineHMargin  3.0
-#define kHeaderTopLine_VMargin 2.0
-#define kHeaderTopLineHeight   1.0
+#define kHeaderTopLineHMargin  3
+#define kHeaderTopLineVMargin  2
+#define kHeaderTopLineHeight   1
 
 // Sizes for the offline banner
 #define kOfflineBannerHeight 22
