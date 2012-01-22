@@ -116,6 +116,10 @@
     [self layoutUIElements];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    TestFlightCheckpoint(@"Exited strike detail view.");
+}
+
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
@@ -131,7 +135,7 @@
 
     [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
     [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
-    
+
     [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateNormal];
     [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateHighlighted];
 
@@ -145,7 +149,6 @@
 
 - (void)viewDidUnload
 {
-    TestFlightCheckpoint(@"Exited strike detail view.");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
