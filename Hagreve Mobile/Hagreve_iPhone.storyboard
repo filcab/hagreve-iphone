@@ -50,8 +50,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Woohoo! Não há greves, podemos ir trabalhar! 😃" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" id="ylI-Vx-vp1">
-                                            <rect key="frame" x="20" y="-64" width="280" height="480"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" text="Woohoo! Não há greves, podemos ir trabalhar! 😃" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" id="ylI-Vx-vp1">
+                                            <rect key="frame" x="20" y="20" width="280" height="376"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

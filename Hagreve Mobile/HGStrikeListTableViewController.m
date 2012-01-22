@@ -43,14 +43,13 @@
             DLog(@"oh crap! NoStrikesCell didn't get dequeued.");
             exit(1);
         }
-        UILabel *noStrikeText = (UILabel*)[cell viewWithTag:1];
-        noStrikeText.text = NSLocalizedString(@"No strikes text", @"Text to display in the absence of strikes");
+        UILabel *noStrikeLabel = (UILabel*)[cell viewWithTag:21];
+        noStrikeLabel.text = NSLocalizedString(@"No strikes text", @"Text to display in the absence of strikes");
+        noStrikeLabel.center = tableView.center;
         return cell;
     }
 
-    static NSString *portraitIdentifier = @"StrikeCell"; //@"StrikeCellPortrait";
-    static NSString *landscapeIdentifier = @"StrikeCell"; //@"StrikeCellLandscape";
-    NSString *myIdentifier = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? portraitIdentifier : landscapeIdentifier;
+    static NSString *myIdentifier = @"StrikeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:myIdentifier];
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
@@ -441,9 +440,8 @@
     }
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self reloadData];
 }
 
 #pragma mark - pull to refresh handler
