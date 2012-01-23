@@ -160,7 +160,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self layoutUIElements];
 }
 
@@ -193,7 +193,7 @@
     // Let's fix the UIScrollView's contentSize. Start by filling the whole UIScrollView
     CGSize scrollSize = self.scrollView.frame.size;
 
-    // The default tableView sizes for each orientation (with top navbar)
+    // Our default tableView content sizes for each orientation
     CGFloat minContentHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 441 : 320;
     CGFloat minCommentLabelSize = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 123 : 21;
 
