@@ -29,7 +29,7 @@
 
 #pragma mark - Button actions
 
-- (IBAction)tweetTouch:(id)sender {
+- (void)presentAnimatedTweetViewController {
     TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
 
     [twitter addURL:self.strike.url];
@@ -49,6 +49,10 @@
     [self presentModalViewController:twitter animated:YES];
 }
 
+- (IBAction)tweetTouch:(id)sender {
+    // Hack so the button highlights.
+    [self performSelectorOnMainThread:@selector(presentAnimatedTweetViewController) withObject:nil waitUntilDone:NO];
+}
 
 - (IBAction)sourceTouch:(id)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel action on source button") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Copy", @"Copy source URL to pasteboard"), NSLocalizedString(@"Open", @"Open source URL in browser"), nil];
