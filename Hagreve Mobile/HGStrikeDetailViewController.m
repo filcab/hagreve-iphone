@@ -137,6 +137,8 @@
 {
     [super viewDidLoad];
 
+    self.canceledImageView.image = [UIImage imageNamed:@"canceled"];
+
     [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
     [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
 

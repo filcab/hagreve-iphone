@@ -202,7 +202,7 @@
                                             <action selector="tweetTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="2pE-Nm-GU5"/>
                                         </connections>
                                     </button>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Canceled.png" id="28X-0h-Rdu">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="28X-0h-Rdu">
                                         <rect key="frame" x="0.0" y="32" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -251,7 +251,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Canceled.png" width="320" height="70"/>
         <image name="blueButton.png" width="1" height="37"/>
         <image name="greyButton.png" width="1" height="37"/>
     </resources>

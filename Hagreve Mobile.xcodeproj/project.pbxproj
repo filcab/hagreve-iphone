@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B02415314D09B85009F5905 /* canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02414F14D09B85009F5905 /* canceled.png */; };
+		2B02415414D09B85009F5905 /* canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02415114D09B85009F5905 /* canceled@2x.png */; };
+		2B02415814D09B90009F5905 /* canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02414F14D09B85009F5905 /* canceled.png */; };
+		2B02415914D09B90009F5905 /* canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02415114D09B85009F5905 /* canceled@2x.png */; };
 		2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B08E75E14636580009D2561 /* StrikeCell.xib */; };
-		2B47860114B762CC00C62761 /* Canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4785FF14B762CC00C62761 /* Canceled.png */; };
-		2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B47860014B762CC00C62761 /* Canceled@2x.png */; };
 		2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */; };
 		2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B683BB514C5ED540085E109 /* Hagreve_iPhone.storyboard.strings */; };
 		2B6D3966145895ED0015BEFA /* HGStrike.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D3965145895ED0015BEFA /* HGStrike.m */; };
@@ -67,9 +69,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B02415014D09B85009F5905 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/canceled.png; sourceTree = "<group>"; };
+		2B02415214D09B85009F5905 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/canceled@2x.png"; sourceTree = "<group>"; };
+		2B02415614D09B90009F5905 /* pt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pt; path = pt.lproj/canceled.png; sourceTree = "<group>"; };
+		2B02415714D09B90009F5905 /* pt */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pt; path = "pt.lproj/canceled@2x.png"; sourceTree = "<group>"; };
 		2B08E75E14636580009D2561 /* StrikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StrikeCell.xib; sourceTree = "<group>"; };
-		2B4785FF14B762CC00C62761 /* Canceled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Canceled.png; path = Resources/Canceled.png; sourceTree = "<group>"; };
-		2B47860014B762CC00C62761 /* Canceled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Canceled@2x.png"; path = "Resources/Canceled@2x.png"; sourceTree = "<group>"; };
 		2B47860414B770F500C62761 /* HGMaybeStrikeThroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGMaybeStrikeThroughLabel.h; sourceTree = "<group>"; };
 		2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGMaybeStrikeThroughLabel.m; sourceTree = "<group>"; };
 		2B6D3964145895ED0015BEFA /* HGStrike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrike.h; path = Model/HGStrike.h; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 		2B91537B147EDE6200C2C262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B02414F14D09B85009F5905 /* canceled.png */,
+				2B02415114D09B85009F5905 /* canceled@2x.png */,
 				2BFE792D14C6239100F9B837 /* blueButton.png */,
 				2BFE792E14C6239100F9B837 /* greyButton.png */,
 				2B801B3414C4BED2007A05BF /* Default.png */,
@@ -200,8 +206,6 @@
 				2BAE77A314BE40B600D5EB6E /* Icon-114.png */,
 				2BAE779C14BE1B1D00D5EB6E /* blackArrow.png */,
 				2BAE779D14BE1B1D00D5EB6E /* blackArrow@2x.png */,
-				2B4785FF14B762CC00C62761 /* Canceled.png */,
-				2B47860014B762CC00C62761 /* Canceled@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -248,8 +252,8 @@
 				2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */,
 				2BA1CB631450A74A00FFD02D /* MainStoryboard_iPad.storyboard */,
 				2BFAB25614BBACF900CEF357 /* HGStrikeDetailViewController.h */,
-				2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */,
 				2BA1CB661450A74A00FFD02D /* HGStrikeListTableViewController.h */,
+				2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */,
 				2BA1CB671450A74A00FFD02D /* HGStrikeListTableViewController.m */,
 				2BE261FE14657730006D3A51 /* HGUtils.h */,
 				2B6D3969145898500015BEFA /* Model */,
@@ -370,8 +374,6 @@
 				2BA1CB651450A74A00FFD02D /* MainStoryboard_iPad.storyboard in Resources */,
 				2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */,
 				2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */,
-				2B47860114B762CC00C62761 /* Canceled.png in Resources */,
-				2B47860214B762CC00C62761 /* Canceled@2x.png in Resources */,
 				2BAE779E14BE1B1D00D5EB6E /* blackArrow.png in Resources */,
 				2BAE779F14BE1B1D00D5EB6E /* blackArrow@2x.png in Resources */,
 				2BAE77A614BE40B600D5EB6E /* Icon-57.png in Resources */,
@@ -386,6 +388,10 @@
 				2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */,
 				2BFE792F14C6239100F9B837 /* blueButton.png in Resources */,
 				2BFE793014C6239100F9B837 /* greyButton.png in Resources */,
+				2B02415314D09B85009F5905 /* canceled.png in Resources */,
+				2B02415414D09B85009F5905 /* canceled@2x.png in Resources */,
+				2B02415814D09B90009F5905 /* canceled.png in Resources */,
+				2B02415914D09B90009F5905 /* canceled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +464,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2B02414F14D09B85009F5905 /* canceled.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B02415014D09B85009F5905 /* en */,
+				2B02415614D09B90009F5905 /* pt */,
+			);
+			name = canceled.png;
+			sourceTree = "<group>";
+		};
+		2B02415114D09B85009F5905 /* canceled@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B02415214D09B85009F5905 /* en */,
+				2B02415714D09B90009F5905 /* pt */,
+			);
+			name = "canceled@2x.png";
+			sourceTree = "<group>";
+		};
 		2B683BB514C5ED540085E109 /* Hagreve_iPhone.storyboard.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

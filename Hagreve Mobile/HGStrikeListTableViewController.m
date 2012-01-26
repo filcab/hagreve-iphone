@@ -55,6 +55,9 @@
         [[NSBundle mainBundle] loadNibNamed:@"StrikeCell" owner:self options:nil];
         cell = _protoCell;
         self.protoCell = nil;
+
+        UIImageView *imageView = (UIImageView*)[cell viewWithTag:kCellTagCanceledImage];
+        imageView.image = [UIImage imageNamed:@"canceled"];
     }
 
     NSArray *days = self.strikeDays.strikeDays;
