@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2B02415314D09B85009F5905 /* canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02414F14D09B85009F5905 /* canceled.png */; };
 		2B02415414D09B85009F5905 /* canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02415114D09B85009F5905 /* canceled@2x.png */; };
-		2B02415814D09B90009F5905 /* canceled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02414F14D09B85009F5905 /* canceled.png */; };
-		2B02415914D09B90009F5905 /* canceled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B02415114D09B85009F5905 /* canceled@2x.png */; };
 		2B08E75F14636580009D2561 /* StrikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B08E75E14636580009D2561 /* StrikeCell.xib */; };
 		2B47860614B770F500C62761 /* HGMaybeStrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B47860514B770F500C62761 /* HGMaybeStrikeThroughLabel.m */; };
 		2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B683BB514C5ED540085E109 /* Hagreve_iPhone.storyboard.strings */; };
@@ -49,7 +47,6 @@
 		2BAE77A714BE40B600D5EB6E /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A214BE40B600D5EB6E /* Icon-72.png */; };
 		2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A314BE40B600D5EB6E /* Icon-114.png */; };
 		2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC398714C5DE41004D1EFB /* Localizable.strings */; };
-		2BBC398B14C5DE4B004D1EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC398714C5DE41004D1EFB /* Localizable.strings */; };
 		2BED31CA14BE4439008EB7DD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BED31C914BE4439008EB7DD /* Twitter.framework */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
@@ -344,7 +341,7 @@
 		2BA1CB411450A74A00FFD02D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 2BA1CB441450A74A00FFD02D /* Build configuration list for PBXProject "Hagreve Mobile" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -384,14 +381,11 @@
 				2B801B3614C4BED3007A05BF /* Default.png in Resources */,
 				2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */,
 				2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */,
-				2BBC398B14C5DE4B004D1EFB /* Localizable.strings in Resources */,
 				2B683BB714C5ED540085E109 /* Hagreve_iPhone.storyboard.strings in Resources */,
 				2BFE792F14C6239100F9B837 /* blueButton.png in Resources */,
 				2BFE793014C6239100F9B837 /* greyButton.png in Resources */,
 				2B02415314D09B85009F5905 /* canceled.png in Resources */,
 				2B02415414D09B85009F5905 /* canceled@2x.png in Resources */,
-				2B02415814D09B90009F5905 /* canceled.png in Resources */,
-				2B02415914D09B90009F5905 /* canceled@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
