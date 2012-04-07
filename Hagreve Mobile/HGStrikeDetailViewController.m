@@ -148,6 +148,8 @@
     self.navigationItem.title = NSLocalizedString(@"Strike", @"Strike detail screen title (for navigation).");
 
     self.datesTitleLabel.text   = NSLocalizedString(@"Dates", @"'Dates' strike detail view label.");
+    self.startLabel.text        = NSLocalizedString(@"Start", @"Label describing start date.");
+    self.endLabel.text          = NSLocalizedString(@"End", @"Label describing end date.");
     self.companyTitleLabel.text = NSLocalizedString(@"Company", @"'Company' strike detail view label.");
     self.commentTitleLabel.text = NSLocalizedString(@"Comment", @"'Comment' strike detail view label.");
 }
