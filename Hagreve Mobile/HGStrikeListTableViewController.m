@@ -206,7 +206,7 @@
                                           : [self backgroundColorForOddRows];
 
     // create the parent view that will hold the header Label
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.frame.size.width, kHeaderLabelHeight)];
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.bounds.size.width, kHeaderLabelHeight)];
     header.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     header.backgroundColor  = bgColor;
     header.opaque           = NO;
@@ -214,13 +214,13 @@
     UIView *sideLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderSideLineHMargin, kHeaderSideLineVMargin, kHeaderSideLineWidth, kHeaderLabelHeight - 2*kHeaderSideLineVMargin)];
     sideLineView.backgroundColor = [UIColor blackColor];
 
-    UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderTopLineHMargin, kHeaderTopLineVMargin, header.frame.size.width - 2*kHeaderTopLineHMargin, kHeaderTopLineHeight)];
+    UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(kHeaderTopLineHMargin, kHeaderTopLineVMargin, header.bounds.size.width - 2*kHeaderTopLineHMargin, kHeaderTopLineHeight)];
     topLineView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     topLineView.backgroundColor  = [UIColor blackColor];
     topLineView.tag              = kHeaderTopLineTag;
 
     // create the button object
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderLabelMargin, 0.0, tableView.frame.size.width / kHeaderLabelWidthRatio, kHeaderLabelHeight)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderLabelMargin, 0.0, tableView.bounds.size.width / kHeaderLabelWidthRatio, kHeaderLabelHeight)];
     headerLabel.autoresizingMask     = UIViewAutoresizingFlexibleWidth;
     headerLabel.backgroundColor      = [UIColor colorWithWhite:1.0 alpha:0.0];
     headerLabel.font                 = [UIFont boldSystemFontOfSize:16];
@@ -443,8 +443,16 @@
     }
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self hideOfflineBanner:NO];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     [self reloadData];
+    if (self.isOffline) {
+        [self showOfflineBanner:YES];
+    }
 }
 
 #pragma mark - pull to refresh handler
@@ -524,10 +532,10 @@
 - (void)showOfflineBanner:(BOOL)animated {
     if (nil == self.offlineToolbar) {
         // Initialize off-screen.
-        UIToolbar *offlineToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, kOfflineBannerHeight)];
+        UIToolbar *offlineToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.navigationController.view.bounds.size.height, self.navigationController.view.bounds.size.width, kOfflineBannerHeight)];
         offlineToolbar.barStyle = UIBarStyleDefault;
         offlineToolbar.tintColor = [self offlineToolbarTint];
-        UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, self.view.frame.size.width, kOfflineBannerHeight)];
+        UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(kOfflineBannerLabelX, 0, offlineToolbar.bounds.size.width, kOfflineBannerHeight)];
         offlineLabel.font = [UIFont boldSystemFontOfSize:kOfflineBannerFontSize];
         offlineLabel.backgroundColor = [UIColor clearColor];
         offlineLabel.text = NSLocalizedString(@"Offline", @"Offline banner text.");
@@ -535,22 +543,24 @@
         self.offlineToolbar = offlineToolbar;
         [self.navigationController.view addSubview:self.offlineToolbar];
     }
-
+    // We're showing it. Redo the transform copy, sincewe may be in landscape mode, now.
     if (animated)
         [UIView animateWithDuration:0.42 animations:^(void) {
-            self.offlineToolbar.frame = CGRectMake(0, self.view.frame.size.height - kOfflineBannerHeight, self.view.frame.size.width, kOfflineBannerHeight);
+            self.offlineToolbar.frame = CGRectMake(0, self.navigationController.view.bounds.size.height - kOfflineBannerHeight, self.navigationController.view.bounds.size.width, kOfflineBannerHeight);
         }];
     else
-        self.offlineToolbar.frame = CGRectMake(0, self.view.frame.size.height - kOfflineBannerHeight, self.view.frame.size.width, kOfflineBannerHeight);
+        self.offlineToolbar.frame = CGRectMake(0, self.navigationController.view.bounds.size.height - kOfflineBannerHeight, self.navigationController.view.bounds.size.width, kOfflineBannerHeight);
 }
 
 - (void)hideOfflineBanner:(BOOL)animated {
-    if (self.offlineToolbar && animated)
-        [UIView animateWithDuration:0.42 animations:^(void) {
-            self.offlineToolbar.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, kOfflineBannerHeight);
-        }];
-    else
-        self.offlineToolbar.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, kOfflineBannerHeight);
+    [self.offlineToolbar removeFromSuperview];
+    self.offlineToolbar = nil;
+//    if (self.offlineToolbar && animated)
+//        [UIView animateWithDuration:0.42 animations:^(void) {
+//            self.offlineToolbar.frame = CGRectMake(0, self.navigationController.view.bounds.size.height, self.navigationController.view.bounds.size.width, kOfflineBannerHeight);
+//        }];
+//    else
+//        self.offlineToolbar.frame = CGRectMake(0, self.navigationController.view.bounds.size.height, self.navigationController.view.bounds.size.width, kOfflineBannerHeight);
 }
 
 - (void)setStrikeDays:(HGStrikeDays*)strikeDays {
