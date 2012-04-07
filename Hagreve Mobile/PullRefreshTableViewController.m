@@ -183,10 +183,8 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     // Resize the views, since our width may have changed.
     CGFloat width = self.tableView.bounds.size.width;
-    [UIView animateWithDuration:0.5 animations:^(void) {
-        refreshHeaderView.frame = CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, width, REFRESH_HEADER_HEIGHT);
-        refreshLabel.frame = CGRectMake(0, 0, width, REFRESH_HEADER_HEIGHT);
-    }];
+    refreshHeaderView.frame = CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, width, REFRESH_HEADER_HEIGHT);
+    refreshLabel.frame = CGRectMake(0, 0, width, REFRESH_HEADER_HEIGHT);
 }
 
 @end
