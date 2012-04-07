@@ -416,6 +416,7 @@
 
 - (void)viewDidLoad {
     // Initialize stuff.
+    self.navigationItem.backBarButtonItem.title = NSLocalizedString(@"List", @"String for the navigation item for the strike list view");
 #if DEBUG==1
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Debug" style:UIBarButtonItemStylePlain target:self action:@selector(toggleDebugTable:)];
     button.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
