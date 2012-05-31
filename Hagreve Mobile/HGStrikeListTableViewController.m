@@ -44,7 +44,10 @@
             exit(1);
         }
         UILabel *noStrikeLabel = (UILabel*)[cell viewWithTag:21];
-        noStrikeLabel.text = NSLocalizedString(@"No strikes text", @"Text to display in the absence of strikes");
+        if (isLoading)
+            noStrikeLabel.text = NSLocalizedString(@"No strikes but updating list text", @"Text to display in the absence of strikes when the list is being fetched");
+        else
+            noStrikeLabel.text = NSLocalizedString(@"No strikes text", @"Text to display in the absence of strikes");
         noStrikeLabel.center = tableView.center;
         return cell;
     }
