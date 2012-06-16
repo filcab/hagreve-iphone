@@ -107,6 +107,19 @@
     label = (UILabel *)[cell viewWithTag:kCellTagComment];
     label.text = [self cellCommentTextForStrike:strike];
 
+    if (0 == indexPath.row) {
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        label = (UILabel *)[cell viewWithTag:kCellTagDay];
+        NSDateComponents *components = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:strike.startDate];
+        label.text = [NSString stringWithFormat:@"%d", [components day]];
+
+        label = (UILabel *)[cell viewWithTag:kCellTagMonth];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateFormat:@"MMM"];
+        label.text = [dateFormatter stringFromDate:strike.startDate];
+    }
+
     UIImageView *imageView = (UIImageView*)[cell viewWithTag:kCellTagCanceledImage];
     if (strike.canceled) {
         imageView.hidden = NO;
