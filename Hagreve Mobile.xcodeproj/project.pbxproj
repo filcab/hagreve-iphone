@@ -22,7 +22,6 @@
 		2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
 		2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
 		2B7329F5145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
-		2B801B2B14C4B957007A05BF /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B801B2614C4B957007A05BF /* libTestFlight.a */; };
 		2B801B2C14C4B957007A05BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2714C4B957007A05BF /* README.txt */; };
 		2B801B2D14C4B957007A05BF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2814C4B957007A05BF /* release_notes.txt */; };
 		2B801B3614C4BED3007A05BF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B3414C4BED2007A05BF /* Default.png */; };
@@ -137,7 +136,6 @@
 				2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */,
 				2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */,
 				2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */,
-				2B801B2B14C4B957007A05BF /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
