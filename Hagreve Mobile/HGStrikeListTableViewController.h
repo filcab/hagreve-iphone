@@ -24,28 +24,13 @@
 #define kCellTagSubtitle      12
 #define kCellTagComment       13
 #define kCellTagCanceledImage 14
-
-// Tags for the header labels
-#define kHeaderTopLineTag     31
-#define kHeaderLabelTag       32
-
-// Sizes for the StrikeList views
-#define kHeaderLabelWidthRatio 1.2f
-#define kHeaderLabelHeight 28
-#define kHeaderLabelMargin 10
-
-#define kHeaderSideLineVMargin 2
-#define kHeaderSideLineHMargin 2
-#define kHeaderSideLineWidth   1
-
-#define kHeaderTopLineHMargin  3
-#define kHeaderTopLineVMargin  2
-#define kHeaderTopLineHeight   1
+#define kCellTagDay           15
+#define kCellTagMonth         16
 
 // Sizes for the offline banner
 #define kOfflineBannerHeight 22
 #define kOfflineBannerFontSize 14
-#define kOfflineBannerLabelX kHeaderLabelMargin
+#define kOfflineBannerLabelX 10  // == kHeaderLabelMargin
 
 @interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
