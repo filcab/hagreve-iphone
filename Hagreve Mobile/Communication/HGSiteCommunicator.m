@@ -84,16 +84,21 @@
     s1.company = c;
 
     HGStrike *s2 = [HGStrike new];
-    s2.startDate = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
+    s2.startDate = [NSDate dateWithTimeIntervalSinceNow: 3*DAY];
     s2.endDate   = [NSDate dateWithTimeIntervalSinceNow: 5*DAY];
-    s2.all_day = true;
+    s2.allDay = true;
     s2.company = c;
 
+    HGStrike *s3 = [HGStrike new];
+    s3.startDate = [NSDate dateWithTimeIntervalSinceNow: 4*DAY];
+    s3.endDate   = [NSDate dateWithTimeIntervalSinceNow: 7*DAY];
+    s3.allDay = true;
+    s3.company = c;
 #undef DAY
 
     _lastError = nil;
 
-    return [NSArray arrayWithObjects:s1, s2, nil];
+    return [NSArray arrayWithObjects:s1, s2, s3, nil];
 }
 
 #else
