@@ -114,10 +114,18 @@
         label.text = [NSString stringWithFormat:@"%d", [components day]];
 
         label = (UILabel *)[cell viewWithTag:kCellTagMonth];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-        [dateFormatter setDateFormat:@"MMM"];
+        static NSDateFormatter *dateFormatter = nil;
+        if (dateFormatter == nil) {
+            dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+            [dateFormatter setDateFormat:@"MMM"];
+        }
         label.text = [dateFormatter stringFromDate:strike.startDate];
+    } else {
+        label = (UILabel *)[cell viewWithTag:kCellTagDay];
+        label.text = @"";
+        label = (UILabel *)[cell viewWithTag:kCellTagMonth];
+        label.text = @"";
     }
 
     UIImageView *imageView = (UIImageView*)[cell viewWithTag:kCellTagCanceledImage];
