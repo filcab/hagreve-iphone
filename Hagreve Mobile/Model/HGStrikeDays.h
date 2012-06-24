@@ -15,8 +15,8 @@
 @interface HGStrikeDays : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSUInteger count;
-@property (nonatomic, retain, readonly) NSArray *strikeDays;
-@property (nonatomic, retain, readonly) NSDictionary *strikes;
+@property (nonatomic, readonly) NSArray *strikeDays;
+@property (nonatomic, readonly) NSDictionary *strikes;
 
 //+ (HGStrikeDays*)strikeDays;
 + (HGStrikeDays*)strikeDaysFromSavedState;

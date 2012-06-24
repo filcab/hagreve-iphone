@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSURL *apiStrikeListURL;
 @property (nonatomic, retain) NSURL *apiStrikeLinkURL;
 
-@property (nonatomic, retain, readonly) NSError *lastError;
+@property (nonatomic, readonly) NSError *lastError;
 
 - (HGSiteCommunicator *)init;
 - (HGSiteCommunicator *)initWithBaseURL:(NSString*)base_url;
