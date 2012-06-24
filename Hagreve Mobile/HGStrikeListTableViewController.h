@@ -48,9 +48,6 @@
 
 #pragma mark - TableView dataSource and delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView;
