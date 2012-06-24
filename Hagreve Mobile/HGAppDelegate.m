@@ -9,7 +9,7 @@
 #import "HGAppDelegate.h"
 #import <dispatch/dispatch.h>
 
-#if TESTFLIGHT==1
+#ifdef TESTFLIGHT
 #import "TestFlight.h"
 #endif
 
@@ -47,7 +47,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#if TESTFLIGHT==1
+#ifdef TESTFLIGHT
     [TestFlight takeOff:TESTFLIGHT_TOKEN];
 #endif
 
