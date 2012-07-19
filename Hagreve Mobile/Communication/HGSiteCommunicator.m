@@ -48,7 +48,7 @@
     return self;
 }
 
-#if NO_COMMUNICATION==1
+#ifdef NO_COMMUNICATION
 /* Fields for the mock objects.
  *
  * {
