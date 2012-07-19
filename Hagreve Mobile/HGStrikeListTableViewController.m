@@ -10,7 +10,7 @@
 
 @implementation HGStrikeListTableViewController
 
-#if DEBUG==1
+#ifdef DEBUG
 @synthesize debug = _debug;
 @synthesize toggleDebugButton = _toggleDebugButton;
 #endif
@@ -335,7 +335,7 @@
     }
 }
 
-#if DEBUG==1
+#ifdef DEBUG
 - (IBAction)toggleDebugTable:(id)sender {
     self.debug = !self.debug;
 
@@ -360,7 +360,7 @@
 - (void)viewDidLoad {
     // Initialize stuff.
     self.navigationItem.backBarButtonItem.title = NSLocalizedString(@"List", @"String for the navigation item for the strike list view");
-#if DEBUG==1
+#ifdef DEBUG
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Debug" style:UIBarButtonItemStylePlain target:self action:@selector(toggleDebugTable:)];
     button.possibleTitles = [NSSet setWithObjects:@"Debug", @"Current", nil];
     self.navigationItem.rightBarButtonItem = button;
@@ -408,7 +408,7 @@
     HGStrikeDays *strikeDays;
     NSError *error;
 
-#if DEBUG==1
+#ifdef DEBUG
     if (self.debug) {
         strikeDays = [HGStrikeDays strikeDaysFromWebsite:DEBUG_HOST_URL error:&error];
     } else {
@@ -460,7 +460,7 @@
         errorString = NSLocalizedString(@"An error occurred when fetching strike information.", @"Error when parsing strike information.");
     }
 
-#if DEBUG == 1
+#ifdef DEBUG
     errorString = [NSString stringWithFormat:@"%@\n%@\n%@",
                    errorString, error.localizedDescription, error.debugDescription];
 #endif

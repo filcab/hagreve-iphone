@@ -35,7 +35,7 @@
 @interface HGStrikeListTableViewController : PullRefreshTableViewController
   <UITableViewDelegate,UITableViewDataSource>
 
-#if DEBUG==1
+#ifdef DEBUG
 @property (nonatomic) BOOL debug;
 @property (nonatomic, retain) UIBarButtonItem *toggleDebugButton;
 #endif
@@ -75,7 +75,7 @@
 - (void)reloadDataAndStopLoading;
 - (void)reloadData;
 
-#if DEBUG==1
+#ifdef DEBUG
 #pragma mark - Debug
 - (IBAction)toggleDebugTable:(id)sender;
 #endif
