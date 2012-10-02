@@ -54,14 +54,20 @@ enum eAlertSheetActions {
 };
 
 - (NSString*)strikeShareTextFor:(HGStrike*)strike {
-    if ([@"Greve geral" isEqualToString:strike.company.name]) {
-        return @"A ver se consigo chegar ao trabalho, apesar da greve geral. #hagreve";
-    } else  if ([@"Táxis" isEqualToString:strike.company.name]) {
-        return @"A ver se consigo chegar ao trabalho, apesar da greve dos táxis. #hagreve";
-    } else {
-        return [NSString stringWithFormat:@"A ver se consigo chegar ao trabalho, apesar da greve da %@. #hagreve",
-                strike.company.name];
-    }
+    NSString *strikeDescriptor;
+
+    if ([@"Greve geral" isEqualToString:strike.company.name])
+        strikeDescriptor = @"geral";
+    else if ([@"Táxis" isEqualToString:strike.company.name])
+        strikeDescriptor = @"dos táxis";
+    else
+        strikeDescriptor = [NSString stringWithFormat:@"da %@", strike.company.name];
+
+    if (strike.canceled)
+        return [NSString stringWithFormat:@"Ainda bem que a greve %@ foi cancelada! #hagreve", strikeDescriptor];
+
+    return [NSString stringWithFormat:@"A ver se consigo chegar ao trabalho, apesar da greve %@. #hagreve",
+            strikeDescriptor];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
