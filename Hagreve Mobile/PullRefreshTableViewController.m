@@ -79,6 +79,7 @@
     refreshHeaderView.backgroundColor = [UIColor clearColor];
 
     refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, REFRESH_HEADER_HEIGHT)];
+    refreshLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     refreshLabel.backgroundColor = [UIColor clearColor];
     refreshLabel.font = [UIFont boldSystemFontOfSize:12.0];
     refreshLabel.textAlignment = UITextAlignmentCenter;
@@ -180,8 +181,8 @@
     [self startLoading];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    // Resize the views, since our width may have changed.
+- (void)viewWillLayoutSubviews {
+    // Maybe resize the views, since our width may have changed.
     CGFloat width = self.tableView.bounds.size.width;
     refreshHeaderView.frame = CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, width, REFRESH_HEADER_HEIGHT);
     refreshLabel.frame = CGRectMake(0, 0, width, REFRESH_HEADER_HEIGHT);
