@@ -23,64 +23,77 @@
             commentLabel      =      _commentLabel,
             datesTitleLabel   =   _datesTitleLabel,
             companyTitleLabel = _companyTitleLabel,
-            commentTitleLabel = _commentTitleLabel,
-            sourceButton      =      _sourceButton,
-            tweetButton       =       _tweetButton;
+            commentTitleLabel = _commentTitleLabel;
 
 #pragma mark - Button actions
 
-- (void)presentAnimatedTweetViewController {
-    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
-
-    [twitter addURL:self.strike.url];
-
-    NSString *text;
-    if ([@"Greve geral" isEqualToString:self.strike.company.name]) {
-        text = @"A ver se consigo chegar ao trabalho, apesar da greve geral. #hagreve";
-    } else  if ([@"Táxis" isEqualToString:self.strike.company.name]) {
-        text = @"A ver se consigo chegar ao trabalho, apesar da greve dos táxis. #hagreve";
-    } else {
-        text = [NSString stringWithFormat:@"A ver se consigo chegar ao trabalho, apesar da greve da %@. #hagreve",
-                self.strike.company.name];
-    }
-    [twitter setInitialText:text];
-
-    // Show the controller
-    [self presentModalViewController:twitter animated:YES];
-}
-
-- (IBAction)tweetTouch:(id)sender {
-    // Hack so the button highlights.
-    [self performSelectorOnMainThread:@selector(presentAnimatedTweetViewController) withObject:nil waitUntilDone:NO];
-}
-
-- (IBAction)sourceTouch:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel action on source button") destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Copy", @"Copy source URL to pasteboard"), NSLocalizedString(@"Open", @"Open source URL in browser"), nil];
+- (void)showShareSheet {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Share", @"Share information about a strike")
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel action on action button")
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:NSLocalizedString(@"Tweet", @"Tweet strike"),
+//                                                                NSLocalizedString(@"Share on Facebook", @"Share strike on Facebook"),
+                                                                NSLocalizedString(@"Copy", @"Copy source URL to pasteboard"),
+                                                                NSLocalizedString(@"Open", @"Open source URL in browser"),
+                                                                nil];
     sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     [sheet showInView:self.view];
+
 }
 
 #pragma mark - UIActionSheet delegate
 
-#define SHEET_COPY_IDX 0
-#define SHEET_OPEN_IDX 1
-#define SHEET_CANCEL_IDX 2
+// These must have the same order as the UIAlertSheet's otherButtonTitles parameter.
+enum eAlertSheetActions {
+    eAlertSheetActionTweet = 0,
+//    eAlertSheetActionFacebook,
+    eAlertSheetActionCopy,
+    eAlertSheetActionOpen,
+    eAlertSheetActionCancel
+};
+
+- (NSString*)strikeShareTextFor:(HGStrike*)strike {
+    if ([@"Greve geral" isEqualToString:strike.company.name]) {
+        return @"A ver se consigo chegar ao trabalho, apesar da greve geral. #hagreve";
+    } else  if ([@"Táxis" isEqualToString:strike.company.name]) {
+        return @"A ver se consigo chegar ao trabalho, apesar da greve dos táxis. #hagreve";
+    } else {
+        return [NSString stringWithFormat:@"A ver se consigo chegar ao trabalho, apesar da greve da %@. #hagreve",
+                strike.company.name];
+    }
+}
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
-        case SHEET_COPY_IDX: {
+        case eAlertSheetActionTweet:
+            {
+                TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+
+                [twitter addURL:self.strike.url];
+                [twitter setInitialText:[self strikeShareTextFor:self.strike]];
+
+                // Show the controller
+                [self presentModalViewController:twitter animated:YES];
+            }
+            break;
+//        case eAlertSheetActionFacebook:
+//            // TODO
+//            break;
+        case eAlertSheetActionCopy: {
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
             [pasteboard setURL:self.strike.sourceLink];
             break;
         }
-        case SHEET_OPEN_IDX:
+        case eAlertSheetActionOpen:
             [[UIApplication sharedApplication] openURL:self.strike.sourceLink];
             break;
-        case SHEET_CANCEL_IDX:
+        case eAlertSheetActionCancel:
             // No-op
             break;
     }
 }
+
 
 #pragma mark - View
 
@@ -139,11 +152,11 @@
 
     self.canceledImageView.image = [UIImage imageNamed:@"canceled"];
 
-    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateNormal];
-    [self.sourceButton setTitle:NSLocalizedString(@"Source", "Source button text on the strike detail view.") forState:UIControlStateHighlighted];
-
-    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateNormal];
-    [self.tweetButton setTitle:NSLocalizedString(@"Tweet", "Tweet button text on the strike detail view.") forState:UIControlStateHighlighted];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                     target:self
+                                     action:@selector(showShareSheet)];
+    self.navigationItem.rightBarButtonItem = actionButton;
 
     self.navigationItem.title = NSLocalizedString(@"Strike", @"Strike detail screen title (for navigation).");
 
@@ -201,22 +214,12 @@
     // Let's fix the UIScrollView's contentSize. Start by filling the whole UIScrollView
     CGSize scrollSize = self.scrollView.frame.size;
 
-    // Our default tableView content sizes for each orientation
+    // Our default tableView content heights for each orientation
+    // TODO: Remove the magic numbers! minContentHeight should be greater for the iPhone 5
     CGFloat minContentHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 441 : 320;
     CGFloat minCommentLabelSize = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 123 : 21;
 
-    // Height of the footer for the buttons.
-    CGFloat buttonFooter = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? 100 : 80;
-
-    self.scrollView.contentSize = CGSizeMake(scrollSize.width, height <= minCommentLabelSize ? minContentHeight : minContentHeight + height - minCommentLabelSize + kCommentFooter);
-
-    CGFloat buttonYCoord = self.scrollView.contentSize.height - buttonFooter;
-
-    // Put the other buttons in place. Autoresize isn't cutting it…
-    frame = self.tweetButton.frame;
-    self.tweetButton.frame = CGRectMake(CGRectGetMinX(frame), buttonYCoord, CGRectGetWidth(frame), CGRectGetHeight(frame));
-    frame = self.sourceButton.frame;
-    self.sourceButton.frame = CGRectMake(CGRectGetMinX(frame), buttonYCoord, CGRectGetWidth(frame), CGRectGetHeight(frame));
+    self.scrollView.contentSize = CGSizeMake(scrollSize.width, height <= minCommentLabelSize ? minContentHeight : minContentHeight + height - minCommentLabelSize);
 }
 
 - (void)setupStrikeDateUIElements {

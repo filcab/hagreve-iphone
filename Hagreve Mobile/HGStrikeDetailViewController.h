@@ -28,16 +28,9 @@
 @property (nonatomic, retain) IBOutlet UILabel *companyTitleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *commentTitleLabel;
 
-@property (nonatomic, retain) IBOutlet UIButton *sourceButton;
-@property (nonatomic, retain) IBOutlet UIButton *tweetButton;
-
-- (IBAction)sourceTouch:(id)sender;
-- (IBAction)tweetTouch:(id)sender;
-
 #pragma mark - Date formatters
 - (NSString*)labelForDate:(NSDate*)date allDay:(BOOL)all_day;
 
-#define kCommentFooter 8
 #define kCommentMinHeight 21
 
 #pragma mark - Misc methods

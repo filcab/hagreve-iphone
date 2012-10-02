@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ahv-UL-yGl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ahv-UL-yGl">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Strike List Table View Controller - Hoje há greve?-->
         <scene sceneID="VR7-qV-yPz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jnf-ff-Q6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController modalTransitionStyle="flipHorizontal" id="Bu2-O2-OQ0" customClass="HGStrikeListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="kah-gy-xCU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -73,13 +71,13 @@
                         <barButtonItem key="backBarButtonItem" title="List" id="RO4-Zm-jvr"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jnf-ff-Q6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="365" y="-65"/>
         </scene>
         <!--Strike Detail View Controller - Greve-->
         <scene sceneID="R8Q-6e-djr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyy-T5-ioQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="IBA-EY-3dT" customClass="HGStrikeDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Em8-ff-AMO">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -173,38 +171,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ILu-ax-Rgh">
-                                        <rect key="frame" x="20" y="341" width="136" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Fonte" backgroundImage="greyButton.png">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="blueButton.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sourceTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="xJh-pN-Ob7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="zdg-Iq-kZC">
-                                        <rect key="frame" x="164" y="341" width="136" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Tweetar" backgroundImage="greyButton.png">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="blueButton.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tweetTouch:" destination="IBA-EY-3dT" eventType="touchUpInside" id="2pE-Nm-GU5"/>
-                                        </connections>
-                                    </button>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="28X-0h-Rdu">
                                         <rect key="frame" x="0.0" y="32" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -225,19 +191,17 @@
                         <outlet property="endDateLabel" destination="CNv-lK-hr6" id="ADf-hK-HzH"/>
                         <outlet property="endLabel" destination="vf1-ls-dWx" id="QYv-hq-QWc"/>
                         <outlet property="scrollView" destination="1kE-xp-OXc" id="Aqb-Yd-mjy"/>
-                        <outlet property="sourceButton" destination="ILu-ax-Rgh" id="Nil-wv-8aj"/>
                         <outlet property="startDateLabel" destination="upg-CO-MGs" id="U09-Lw-tuR"/>
                         <outlet property="startLabel" destination="jzL-uu-xEd" id="hl6-F4-jXK"/>
-                        <outlet property="tweetButton" destination="zdg-Iq-kZC" id="TsQ-vF-3au"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyy-T5-ioQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="871" y="-65"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bFp-PD-5Ps">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s8D-mW-Eh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="ahv-UL-yGl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="blackOpaque" id="MEj-0p-NGq">
                         <autoresizingMask key="autoresizingMask"/>
@@ -250,14 +214,11 @@
                         <segue destination="Bu2-O2-OQ0" kind="relationship" relationship="rootViewController" id="bKQ-b6-NPW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8D-mW-Eh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="-65"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="blueButton.png" width="1" height="37"/>
-        <image name="greyButton.png" width="1" height="37"/>
-    </resources>
     <classes>
         <class className="HGStrikeDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HGStrikeDetailViewController.h"/>
