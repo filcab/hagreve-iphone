@@ -22,8 +22,6 @@
 		2B7329F1145A0E4200EBEB56 /* HGSiteCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */; };
 		2B7329F4145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
 		2B7329F5145B670300EBEB56 /* HGStrikeDays.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7329F3145B670300EBEB56 /* HGStrikeDays.m */; };
-		2B801B2C14C4B957007A05BF /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2714C4B957007A05BF /* README.txt */; };
-		2B801B2D14C4B957007A05BF /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B2814C4B957007A05BF /* release_notes.txt */; };
 		2B801B3614C4BED3007A05BF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B3414C4BED2007A05BF /* Default.png */; };
 		2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B801B3514C4BED2007A05BF /* Default@2x.png */; };
 		2B922339145F6577009A0B46 /* Hagreve_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */; };
@@ -47,6 +45,10 @@
 		2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE77A314BE40B600D5EB6E /* Icon-114.png */; };
 		2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC398714C5DE41004D1EFB /* Localizable.strings */; };
 		2BED31CA14BE4439008EB7DD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BED31C914BE4439008EB7DD /* Twitter.framework */; };
+		2BEDD283161B2E0A00A1B835 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD282161B2E0A00A1B835 /* Default-568h@2x.png */; };
+		2BEDD289161B3F0B00A1B835 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEDD285161B3F0B00A1B835 /* libTestFlight.a */; };
+		2BEDD28A161B3F0B00A1B835 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD286161B3F0B00A1B835 /* README.md */; };
+		2BEDD28B161B3F0B00A1B835 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD287161B3F0B00A1B835 /* release_notes.md */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
 		2BF912691469DFB3001D41D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF912681469DFB3001D41D3 /* QuartzCore.framework */; };
 		2BFAB25814BBACF900CEF357 /* HGStrikeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFAB25714BBACF900CEF357 /* HGStrikeDetailViewController.m */; };
@@ -82,10 +84,6 @@
 		2B7329EF145A0E4200EBEB56 /* HGSiteCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSiteCommunicator.m; path = Communication/HGSiteCommunicator.m; sourceTree = "<group>"; };
 		2B7329F2145B670200EBEB56 /* HGStrikeDays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HGStrikeDays.h; path = Model/HGStrikeDays.h; sourceTree = "<group>"; };
 		2B7329F3145B670300EBEB56 /* HGStrikeDays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGStrikeDays.m; path = Model/HGStrikeDays.m; sourceTree = "<group>"; };
-		2B801B2614C4B957007A05BF /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		2B801B2714C4B957007A05BF /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		2B801B2814C4B957007A05BF /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
-		2B801B2914C4B957007A05BF /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		2B801B3414C4BED2007A05BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2B801B3514C4BED2007A05BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2B922338145F6577009A0B46 /* Hagreve_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hagreve_iPhone.storyboard; sourceTree = "<group>"; };
@@ -117,6 +115,11 @@
 		2BBC398A14C5DE4B004D1EFB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2BE261FE14657730006D3A51 /* HGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGUtils.h; sourceTree = "<group>"; };
 		2BED31C914BE4439008EB7DD /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		2BEDD282161B2E0A00A1B835 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2BEDD285161B3F0B00A1B835 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		2BEDD286161B3F0B00A1B835 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		2BEDD287161B3F0B00A1B835 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		2BEDD288161B3F0B00A1B835 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		2BF912641469DD9C001D41D3 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		2BF912681469DFB3001D41D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,7 @@
 				2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */,
 				2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */,
 				2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */,
+				2BEDD289161B3F0B00A1B835 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,17 +180,6 @@
 			name = Communication;
 			sourceTree = "<group>";
 		};
-		2B801B2414C4B957007A05BF /* TestFlightSDK0.8.2 */ = {
-			isa = PBXGroup;
-			children = (
-				2B801B2614C4B957007A05BF /* libTestFlight.a */,
-				2B801B2714C4B957007A05BF /* README.txt */,
-				2B801B2814C4B957007A05BF /* release_notes.txt */,
-				2B801B2914C4B957007A05BF /* TestFlight.h */,
-			);
-			path = TestFlightSDK0.8.2;
-			sourceTree = "<group>";
-		};
 		2B91537B147EDE6200C2C262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +189,7 @@
 				2BFE792E14C6239100F9B837 /* greyButton.png */,
 				2B801B3414C4BED2007A05BF /* Default.png */,
 				2B801B3514C4BED2007A05BF /* Default@2x.png */,
+				2BEDD282161B2E0A00A1B835 /* Default-568h@2x.png */,
 				2BAE77A114BE40B600D5EB6E /* Icon-57.png */,
 				2BAE77A214BE40B600D5EB6E /* Icon-72.png */,
 				2BAE77A314BE40B600D5EB6E /* Icon-114.png */,
@@ -209,9 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				2BA1CB541450A74A00FFD02D /* Hagreve Mobile */,
+				2BEDD284161B3F0B00A1B835 /* TestFlightSDK1.1 */,
 				2BA1CB751450A74A00FFD02D /* Hagreve MobileTests */,
 				2BA1CB4D1450A74A00FFD02D /* Frameworks */,
-				2B801B2414C4B957007A05BF /* TestFlightSDK0.8.2 */,
 				2BA1CB4B1450A74A00FFD02D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -294,6 +288,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2BEDD284161B3F0B00A1B835 /* TestFlightSDK1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				2BEDD285161B3F0B00A1B835 /* libTestFlight.a */,
+				2BEDD286161B3F0B00A1B835 /* README.md */,
+				2BEDD287161B3F0B00A1B835 /* release_notes.md */,
+				2BEDD288161B3F0B00A1B835 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.1;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,8 +379,6 @@
 				2BAE77A614BE40B600D5EB6E /* Icon-57.png in Resources */,
 				2BAE77A714BE40B600D5EB6E /* Icon-72.png in Resources */,
 				2BAE77A814BE40B600D5EB6E /* Icon-114.png in Resources */,
-				2B801B2C14C4B957007A05BF /* README.txt in Resources */,
-				2B801B2D14C4B957007A05BF /* release_notes.txt in Resources */,
 				2B801B3614C4BED3007A05BF /* Default.png in Resources */,
 				2B801B3714C4BED3007A05BF /* Default@2x.png in Resources */,
 				2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */,
@@ -384,6 +387,9 @@
 				2BFE793014C6239100F9B837 /* greyButton.png in Resources */,
 				2B02415314D09B85009F5905 /* canceled.png in Resources */,
 				2B02415414D09B85009F5905 /* canceled@2x.png in Resources */,
+				2BEDD283161B2E0A00A1B835 /* Default-568h@2x.png in Resources */,
+				2BEDD28A161B3F0B00A1B835 /* README.md in Resources */,
+				2BEDD28B161B3F0B00A1B835 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +544,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -553,6 +559,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Weverything";
@@ -571,7 +578,7 @@
 				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -615,7 +622,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -630,6 +637,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Weverything";
@@ -648,7 +656,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -663,6 +671,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
@@ -682,7 +691,7 @@
 				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -702,7 +711,7 @@
 				INFOPLIST_FILE = "Hagreve Mobile/Hagreve Mobile-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK0.8.2\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;

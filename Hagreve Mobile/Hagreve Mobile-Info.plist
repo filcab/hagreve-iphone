@@ -39,7 +39,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchImageFile~iphone</key>
-	<string>splash</string>
+	<string>Default</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Hagreve_iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
