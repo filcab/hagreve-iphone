@@ -156,7 +156,7 @@
     // Hide the header
     [UIView animateWithDuration:0.3 animations:^(void) {
         self.tableView.contentInset = UIEdgeInsetsZero;
-        [refreshArrow layer].transform = CATransform3DMakeRotation((float)(M_PI * 2), 0, 0, 1);
+        [refreshArrow layer].transform = CATransform3DMakeRotation((CGFloat)(M_PI * 2), 0, 0, 1);
     } completion:^(BOOL finished) {
         // Reset the header
         refreshLabel.text = self.textPull;
