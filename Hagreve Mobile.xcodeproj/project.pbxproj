@@ -46,7 +46,6 @@
 		2BBC398914C5DE41004D1EFB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC398714C5DE41004D1EFB /* Localizable.strings */; };
 		2BED31CA14BE4439008EB7DD /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BED31C914BE4439008EB7DD /* Twitter.framework */; };
 		2BEDD283161B2E0A00A1B835 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD282161B2E0A00A1B835 /* Default-568h@2x.png */; };
-		2BEDD289161B3F0B00A1B835 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEDD285161B3F0B00A1B835 /* libTestFlight.a */; };
 		2BEDD28A161B3F0B00A1B835 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD286161B3F0B00A1B835 /* README.md */; };
 		2BEDD28B161B3F0B00A1B835 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 2BEDD287161B3F0B00A1B835 /* release_notes.md */; };
 		2BF912661469DD9C001D41D3 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF912651469DD9C001D41D3 /* PullRefreshTableViewController.m */; };
@@ -135,7 +134,6 @@
 				2BA1CB4F1450A74A00FFD02D /* UIKit.framework in Frameworks */,
 				2BA1CB511450A74A00FFD02D /* Foundation.framework in Frameworks */,
 				2BA1CB531450A74A00FFD02D /* CoreGraphics.framework in Frameworks */,
-				2BEDD289161B3F0B00A1B835 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
