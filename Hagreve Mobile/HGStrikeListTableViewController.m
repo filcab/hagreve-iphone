@@ -154,8 +154,8 @@
     NSDate *today = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
 
-    [days enumerateObjectsUsingBlock:^(NSDateComponents *date, NSUInteger i, BOOL *stop) {
-        if ([[cal dateFromComponents:date] compare:today] == NSOrderedAscending)
+    [days enumerateObjectsUsingBlock:^(NSDateComponents *dateComponents, NSUInteger i, BOOL *stop) {
+        if ([[cal dateFromComponents:dateComponents] compare:today] == NSOrderedAscending)
             ++n;
     }];
 
