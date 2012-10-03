@@ -110,7 +110,12 @@
     if (0 == indexPath.row) {
         NSCalendar *cal = [NSCalendar currentCalendar];
         label = (UILabel *)[cell viewWithTag:kCellTagDay];
-        NSDateComponents *components = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:strike.startDate];
+
+        NSDate *startDate = strike.startDate;
+        if (0 == indexPath.section)
+            startDate = today;
+        NSDateComponents *components = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit fromDate:startDate];
+
         label.text = [NSString stringWithFormat:@"%d", [components day]];
 
         label = (UILabel *)[cell viewWithTag:kCellTagMonth];
